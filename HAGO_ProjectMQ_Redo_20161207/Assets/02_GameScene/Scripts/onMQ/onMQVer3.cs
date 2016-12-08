@@ -26,10 +26,10 @@ public class onMQVer3 : MonoBehaviour {
     public bool isLockNextTarget;//鎖定要打哪裡了嗎？
     public float myScaleControl;//蚊子多大隻
     public float myAttackTimer;
-    //--------------------------------------
+    public float deadtimer;
+    [Header("===========================")]
     public bool isSuperStarTime;
     float isSuperStarTimer;
-    public GameObject green;
 
     public bool isAttackPowerUpTime;
     float isAttackPowerUpTimer;
@@ -40,14 +40,14 @@ public class onMQVer3 : MonoBehaviour {
     public bool isCritHitUpTime;
     float isCritHitUpTimer;
 
-    //---------------------------------------
+    [Header("===========================")]
     public int myMQAniMod;
     public float myHitflyAwayTime;
     public float myHitflyAwayTimer;
     
-    public GameObject DeadEffect;
+
     public GameObject myChildMQ;
-    float deadtimer;
+
 
     Vector3 myTargetPointRandom;
 
@@ -57,7 +57,7 @@ public class onMQVer3 : MonoBehaviour {
 
     public GameObject[] myHitEffect;
     public GameObject myHitEffectPoint;
-    //---------------------------------
+    [Header("===========================")]
     public GameObject[] myBodyList;
     public Material myMaterialForDie;
 

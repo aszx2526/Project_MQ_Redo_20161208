@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/02_GameScene/Scenes/GameScene_2.unity
+- path: Assets/MQSET.unity
   isLoaded: 1
   isActive: 1

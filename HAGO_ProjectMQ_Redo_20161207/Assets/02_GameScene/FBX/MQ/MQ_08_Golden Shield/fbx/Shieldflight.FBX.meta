@@ -43,7 +43,7 @@ ModelImporter:
     4300010: Shieldhair
     4300012: shield3
     4300014: shieldwing1
-    7400000: Take 001
+    7400000: basic
     9500000: //RootNode
     13700000: shield002
     13700002: shield3
@@ -73,7 +73,65 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: basic
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Dummy001
+        weight: 1
+      - path: Dummy001/Bone001
+        weight: 1
+      - path: Dummy001/Bone002
+        weight: 1
+      - path: Dummy001/Bone003
+        weight: 1
+      - path: Dummy001/Bone005
+        weight: 1
+      - path: Dummy001/Bone005(mirrored)
+        weight: 1
+      - path: shield002
+        weight: 1
+      - path: shield3
+        weight: 1
+      - path: shield4
+        weight: 1
+      - path: Shieldbody
+        weight: 1
+      - path: Shieldchest
+        weight: 1
+      - path: Shieldhair
+        weight: 1
+      - path: shieldwing1
+        weight: 1
+      - path: shieldwing2
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

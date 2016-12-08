@@ -52,9 +52,6 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -69,9 +66,6 @@
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
@@ -125,11 +119,22 @@
     <Compile Include="Assets\02_GameScene\Scripts\onHotPoint_bigeye.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onLocker.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQVer3.cs" />
-    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_Basic.cs" />
-    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_Boom.cs" />
-    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_Ice.cs" />
-    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_Wizard.cs" />
-    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_Zombie.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_00_King.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_01_Basic.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_02_Nurse.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_03_21runner.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_04_Ice.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_05_Wizard.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_06_Virus.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_07_Hunter.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_08_GoldenShield.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_09_Boom.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_10_Robot.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_11_Singer.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_12_Zombie.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_13_Dracula_big.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_13_Dracula_smale.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_14_BlackHole.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onMainCameraVer2.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onMonsterName.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onMonsterVer3.cs" />

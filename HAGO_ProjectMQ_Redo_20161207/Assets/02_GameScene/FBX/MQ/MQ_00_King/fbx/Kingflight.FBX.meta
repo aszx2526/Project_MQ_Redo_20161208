@@ -40,7 +40,7 @@ ModelImporter:
     4300008: king2
     4300010: Kingchest
     4300012: kingwing1
-    7400000: Take 001
+    7400000: basic
     9500000: //RootNode
     13700000: king
     13700002: king2
@@ -69,7 +69,63 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: basic
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Dummy001
+        weight: 1
+      - path: Dummy001/Bone001
+        weight: 1
+      - path: Dummy001/Bone002
+        weight: 1
+      - path: Dummy001/Bone003
+        weight: 1
+      - path: Dummy001/Bone005
+        weight: 1
+      - path: Dummy001/Bone005(mirrored)
+        weight: 1
+      - path: king
+        weight: 1
+      - path: king2
+        weight: 1
+      - path: Kingbody
+        weight: 1
+      - path: Kingchest
+        weight: 1
+      - path: Kinghair
+        weight: 1
+      - path: kingwing1
+        weight: 1
+      - path: kingwing2
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
