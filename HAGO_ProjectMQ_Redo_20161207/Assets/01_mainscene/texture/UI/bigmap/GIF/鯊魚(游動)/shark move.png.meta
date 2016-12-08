@@ -1,0 +1,298 @@
+fileFormatVersion: 2
+guid: b46df4963f471b246a9f45b908e0dca3
+timeCreated: 1464143415
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: shark move_0
+    21300002: shark move_1
+    21300004: shark move_2
+    21300006: shark move_3
+    21300008: shark move_4
+    21300010: shark move_5
+    21300012: shark move_6
+    21300014: shark move_7
+    21300016: shark move_8
+    21300018: shark move_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: shark move_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: -25.799988}
+        - {x: 23, y: -25.799988}
+        - {x: 39, y: -14.799988}
+        - {x: 39, y: 4.200012}
+        - {x: 27, y: 31.200012}
+        - {x: 12, y: 31.200012}
+        - {x: -26, y: 1.2000122}
+        - {x: -26, y: -23.799988}
+    - name: shark move_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 34.100006, y: -1.7999878}
+        - {x: 30.100006, y: -1.7999878}
+        - {x: 26.100006, y: -7.799988}
+        - {x: 29.100006, y: -2.7999878}
+        - {x: 32.100006, y: 0.2000122}
+        - {x: 33.100006, y: 2.2000122}
+        - {x: 23.100006, y: 27.200012}
+        - {x: 12.100006, y: 27.200012}
+        - {x: -16.899994, y: 8.200012}
+        - {x: -16.899994, y: -23.799988}
+        - {x: 23.100006, y: -23.799988}
+        - {x: 35.100006, y: -11.799988}
+        - {x: 35.100006, y: -3.7999878}
+      - - {x: -22.899994, y: -15.799988}
+        - {x: -20.899994, y: -17.799988}
+        - {x: -17.899994, y: -16.799988}
+        - {x: -17.899994, y: -13.799988}
+        - {x: -19.899994, y: -11.799988}
+        - {x: -22.899994, y: -12.799988}
+    - name: shark move_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 26.200012, y: -4.799988}
+        - {x: 20.200012, y: -1.7999878}
+        - {x: 20.200012, y: 1.2000122}
+        - {x: 22.200012, y: -1.7999878}
+        - {x: 25.200012, y: -2.7999878}
+        - {x: 30.200012, y: 4.200012}
+        - {x: 25.200012, y: 18.200012}
+        - {x: 22.200012, y: 24.200012}
+        - {x: -1.7999878, y: 24.200012}
+        - {x: -19.799988, y: 7.200012}
+        - {x: -19.799988, y: -22.799988}
+        - {x: -13.799988, y: -24.799988}
+        - {x: 20.200012, y: -24.799988}
+        - {x: 30.200012, y: -13.799988}
+        - {x: 32.200012, y: -6.799988}
+        - {x: 30.200012, y: -4.799988}
+    - name: shark move_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 33.30005, y: -2.7999878}
+        - {x: 31.300049, y: -2.7999878}
+        - {x: 25.300049, y: -8.799988}
+        - {x: 35.30005, y: 3.2000122}
+        - {x: 24.300049, y: 27.200012}
+        - {x: 11.300049, y: 27.200012}
+        - {x: -16.699951, y: 8.200012}
+        - {x: -16.699951, y: -20.799988}
+        - {x: -8.699951, y: -23.799988}
+        - {x: 22.300049, y: -23.799988}
+        - {x: 32.30005, y: -17.799988}
+        - {x: 36.30005, y: -7.799988}
+        - {x: 36.30005, y: -4.799988}
+      - - {x: -22.699951, y: -15.799988}
+        - {x: -20.699951, y: -17.799988}
+        - {x: -17.699951, y: -16.799988}
+        - {x: -17.699951, y: -13.799988}
+        - {x: -19.699951, y: -11.799988}
+        - {x: -22.699951, y: -12.799988}
+    - name: shark move_4
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 27.400024, y: -4.799988}
+        - {x: 25.400024, y: -6.799988}
+        - {x: 30.400024, y: 6.200012}
+        - {x: 22.400024, y: 24.200012}
+        - {x: 9.400024, y: 24.200012}
+        - {x: -14.599976, y: 13.200012}
+        - {x: -19.599976, y: -4.799988}
+        - {x: -19.599976, y: -21.799988}
+        - {x: -13.599976, y: -24.799988}
+        - {x: 12.400024, y: -24.799988}
+        - {x: 23.400024, y: -22.799988}
+        - {x: 32.400024, y: -12.799988}
+        - {x: 32.400024, y: -5.799988}
+        - {x: 31.400024, y: -3.7999878}
+    - name: shark move_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21, y: 16.100006}
+        - {x: 1, y: 16.100006}
+        - {x: -13, y: 1.1000061}
+        - {x: -13, y: -16.899994}
+        - {x: -11, y: -18.899994}
+        - {x: 12, y: -18.899994}
+        - {x: 24, y: -12.899994}
+        - {x: 27, y: -3.899994}
+        - {x: 27, y: 12.100006}
+    - name: shark move_6
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.899994, y: 24.100006}
+        - {x: -25.899994, y: 9.100006}
+        - {x: -25.899994, y: -20.899994}
+        - {x: -23.899994, y: -25.899994}
+        - {x: 26.100006, y: -25.899994}
+        - {x: 39.100006, y: -17.899994}
+        - {x: 39.100006, y: 15.100006}
+        - {x: 26.100006, y: 24.100006}
+    - name: shark move_7
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6.200012, y: 16.100006}
+        - {x: -11.799988, y: 3.100006}
+        - {x: -11.799988, y: -18.899994}
+        - {x: 16.200012, y: -18.899994}
+        - {x: 27.200012, y: -4.899994}
+        - {x: 27.200012, y: 10.100006}
+        - {x: 20.200012, y: 16.100006}
+    - name: shark move_8
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 24.300049, y: -1.8999939}
+        - {x: 20.300049, y: -2.899994}
+        - {x: 18.300049, y: -3.899994}
+        - {x: 21.300049, y: -0.8999939}
+        - {x: 22.300049, y: -0.8999939}
+        - {x: 25.300049, y: 2.100006}
+        - {x: 25.300049, y: 5.100006}
+        - {x: 22.300049, y: 8.100006}
+        - {x: 13.300049, y: 9.100006}
+        - {x: 2.3000488, y: 9.100006}
+        - {x: -6.699951, y: 2.100006}
+        - {x: -6.699951, y: -10.899994}
+        - {x: -4.699951, y: -15.899994}
+        - {x: 25.300049, y: -15.899994}
+        - {x: 30.300049, y: -6.899994}
+        - {x: 30.300049, y: -2.899994}
+        - {x: 27.300049, y: -1.8999939}
+    - name: shark move_9
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3.5999756, y: 4.100006}
+        - {x: -3.5999756, y: -11.899994}
+        - {x: 15.400024, y: -11.899994}
+        - {x: 15.400024, y: 4.100006}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

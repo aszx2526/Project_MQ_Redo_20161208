@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9C3B571C-708A-D1BB-7814-D2629464E7ED}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <CompilerResponseFile></CompilerResponseFile>
+    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityBuildTarget>Android:13</UnityBuildTarget>
+    <UnityVersion>5.5.0f3</UnityVersion>
+    <RootNamespace></RootNamespace>
+    <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_0;UNITY_5_5;UNITY_5;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VIDEO;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_5_0;UNITY_5_5;UNITY_5;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;PLATFORM_SUPPORTS_MONO;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;UNITY_ANDROID;ENABLE_SUBSTANCE;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;ENABLE_VIDEO;ENABLE_VR;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="Boo.Lang" />
+    <Reference Include="UnityScript.Lang" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Advertisements">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PlaymodeTestsRunner">
+      <HintPath>Library\UnityAssemblies\UnityEngine.PlaymodeTestsRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HoloLens">
+      <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Purchasing">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VR">
+      <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="HAGO_ProjectMQ_Redo_20161207.CSharp.Plugins.csproj">
+      <Project>{D4FED6F1-9371-FC7B-3297-E7C845F75A5A}</Project>
+      <Name>HAGO_ProjectMQ_Redo_20161207.CSharp.Plugins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\01_mainscene\Script\SceneControll.cs" />
+    <Compile Include="Assets\01_mainscene\Script\SourceManager.cs" />
+    <Compile Include="Assets\01_mainscene\Script\onBigMap_ice.cs" />
+    <Compile Include="Assets\01_mainscene\Script\onCamera_GameMainController.cs" />
+    <Compile Include="Assets\01_mainscene\Script\onCloudForHidden.cs" />
+    <Compile Include="Assets\01_mainscene\Script\onGifObject.cs" />
+    <Compile Include="Assets\01_mainscene\Script\onLikeButton.cs" />
+    <Compile Include="Assets\01_mainscene\Script\onLockForHidden.cs" />
+    <Compile Include="Assets\01_mainscene\Script\onMap.cs" />
+    <Compile Include="Assets\01_mainscene\Script\onMap_ForAllLevelControl.cs" />
+    <Compile Include="Assets\01_mainscene\Script\onUIForHWasScreen.cs" />
+    <Compile Include="Assets\02_GameScene\FBX\MQ\Movie_AnimController\onMQ_Movie.cs" />
+    <Compile Include="Assets\02_GameScene\FBX\MQ\Movie_AnimController\onbigeyeanim.cs" />
+    <Compile Include="Assets\02_GameScene\FBX\MQ\Movie_AnimController\onicebearmovie.cs" />
+    <Compile Include="Assets\02_GameScene\FBX\MQ\Movie_AnimController\onrabbitformovie.cs" />
+    <Compile Include="Assets\02_GameScene\FBX\Monster\IceBear\onIceBearForAniControll.cs" />
+    <Compile Include="Assets\02_GameScene\FBX\Monster\Rabbit\onRabbitForAniControll.cs" />
+    <Compile Include="Assets\02_GameScene\FBX\Monster\bigeye0808\killsomething.cs" />
+    <Compile Include="Assets\02_GameScene\FBX\Monster\bigeye0808\onBigeyeForAniControll.cs" />
+    <Compile Include="Assets\02_GameScene\FBX\Monster\bigeye0808\onBigeyeForAniControllVer2.cs" />
+    <Compile Include="Assets\02_GameScene\Materials\LoadingUsing\onLoadingScene.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\Blip.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\MiniMap.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\OnCameraForShootMQ.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\OnCameraLookAt.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\OnMiniMap.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onAmount_UI.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onBTN_Battle.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onBighitNum.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onCameraLookController_Bigeye.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onCanvasForUIControll.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onHitEffect_formovePos.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onHitPoint_UpdateHureValue.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onHitUI.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onHotPoint_Icebear.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onHotPoint_bigeye.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onLocker.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQVer3.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_Basic.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_Boom.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_Ice.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_Wizard.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_Zombie.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMainCameraVer2.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMonsterName.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMonsterVer3.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMoraleBarControl.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMyScore_Text.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onQTEIcon.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onTriggerMQIn.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onUI_5Skill.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onUI_EventClear.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onUI_LevelClear.cs" />
+    <Compile Include="Assets\02_GameScene\UI\UI_storymovie\StoryMovie\OnCanvas_StoryMod.cs" />
+    <Compile Include="Assets\99_someThings\test\CameraTest\NewBehaviourScript.cs" />
+    <Compile Include="Assets\99_someThings\test\CameraTest\onCameraVer2_MobileControll.cs" />
+    <Compile Include="Assets\99_someThings\test\CameraTest\onCamera_dtg.cs" />
+    <Compile Include="Assets\99_someThings\test\HSBCImageEffect.cs" />
+    <Compile Include="Assets\99_someThings\test\asdfasdf.cs" />
+    <Compile Include="Assets\99_someThings\test\lerp.cs" />
+    <Compile Include="Assets\99_someThings\test\onPSForBombMQ.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX2_Demo.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RandomDir.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX2_AutoRotate.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_AutoDestructShuriken.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_AutodestructWhenNoChildren.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_InspectorHelp.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_ShurikenThreadFix.cs" />
+    <Compile Include="Assets\JMO Assets\Cartoon FX\Spawn System\CFX_SpawnSystem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\02_GameScene\FBX\MQ\MQ_01_Basic\FBX\Materials\trytofindapha.shader" />
+    <None Include="Assets\02_GameScene\Shader\OutlineShader.shader" />
+    <None Include="Assets\02_GameScene\UI\SceneUI\F_02\選單動畫說明.txt" />
+    <None Include="Assets\99_someThings\test\HSBC Effect.shader" />
+    <None Include="Assets\99_someThings\test\aaaaaaaaaaaaaa.shader" />
+    <None Include="Assets\99_someThings\test\hehehaha.shader" />
+    <None Include="Assets\JMO Assets\!JMO Assets Readme.txt" />
+    <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
+    <None Include="Assets\JMO Assets\Cartoon FX\CartoonFX2 Readme.txt" />
+    <None Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_WaterWiggle.shader" />
+    <None Include="Assets\JMO Assets\Cartoon FX\Shaders (Mobile)\CFXM_MobileParticleAdd_Alpha8.shader" />
+    <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX2 Particle Alpha Blend Add.shader" />
+    <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFX2 Particle Alpha Blend Tint.shader" />
+    <None Include="Assets\Plugins\Pixelplacement\iTween\ReadMe!\ReadMe!.txt" />
+    <None Include="Assets\fonts\Arphic\arlishugbmd_test\Readme.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
+</Project>

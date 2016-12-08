@@ -1,0 +1,191 @@
+fileFormatVersion: 2
+guid: 4eff69db3bc279d46a33111221fbb067
+timeCreated: 1472477766
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: bomb1
+    100002: bomb2
+    100004: bomb3
+    100006: Bone001
+    100008: Bone002
+    100010: Bone003
+    100012: Bone005
+    100014: Bone005(mirrored)
+    100016: Dummy001
+    100018: //RootNode
+    100020: Object002
+    100022: Object008
+    100024: Object015
+    100026: Object019
+    100028: soldierwingbomb1
+    100030: soldierwingbomb2
+    400000: bomb1
+    400002: bomb2
+    400004: bomb3
+    400006: Bone001
+    400008: Bone002
+    400010: Bone003
+    400012: Bone005
+    400014: Bone005(mirrored)
+    400016: Dummy001
+    400018: //RootNode
+    400020: Object002
+    400022: Object008
+    400024: Object015
+    400026: Object019
+    400028: soldierwingbomb1
+    400030: soldierwingbomb2
+    4300000: soldierwingbomb1
+    4300002: soldierwingbomb2
+    4300004: bomb2
+    4300006: bomb1
+    4300008: bomb3
+    7400000: BombHit
+    9500000: //RootNode
+    13700000: bomb1
+    13700002: bomb2
+    13700004: bomb3
+    13700006: soldierwingbomb1
+    13700008: soldierwingbomb2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: BombHit
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0
+        functionName: onFirstFram_Hit
+        data: 
+        objectReferenceParameter: {fileID: 151436, guid: 82e80905d01d3254681db00e8527cbfa,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5402985
+        functionName: OnLastFram_Hit
+        data: 
+        objectReferenceParameter: {fileID: 151436, guid: 82e80905d01d3254681db00e8527cbfa,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: bomb1
+        weight: 1
+      - path: bomb2
+        weight: 1
+      - path: bomb3
+        weight: 1
+      - path: Dummy001
+        weight: 1
+      - path: Dummy001/Bone001
+        weight: 1
+      - path: Dummy001/Bone002
+        weight: 1
+      - path: Dummy001/Bone003
+        weight: 1
+      - path: Dummy001/Bone005
+        weight: 1
+      - path: Dummy001/Bone005(mirrored)
+        weight: 1
+      - path: Object002
+        weight: 1
+      - path: Object008
+        weight: 1
+      - path: Object015
+        weight: 1
+      - path: Object019
+        weight: 1
+      - path: soldierwingbomb1
+        weight: 1
+      - path: soldierwingbomb2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

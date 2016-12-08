@@ -1,0 +1,194 @@
+fileFormatVersion: 2
+guid: 7f1945b2de40b8b42b249e121591b9cc
+timeCreated: 1472477767
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Bone001
+    100002: Bone002
+    100004: Bone003
+    100006: Bone005
+    100008: Bone005(mirrored)
+    100010: Box002
+    100012: Dummy001
+    100014: //RootNode
+    100016: Object002
+    100018: Object002 1
+    100020: Object008
+    100022: Object008 1
+    100024: zombie
+    100026: zombie001
+    100028: zombiebody
+    100030: zombiehair
+    100032: zombiewing1
+    100034: zombiewing2
+    400000: Bone001
+    400002: Bone002
+    400004: Bone003
+    400006: Bone005
+    400008: Bone005(mirrored)
+    400010: Box002
+    400012: Dummy001
+    400014: //RootNode
+    400016: Object002
+    400018: Object002 1
+    400020: Object008
+    400022: Object008 1
+    400024: zombie
+    400026: zombie001
+    400028: zombiebody
+    400030: zombiehair
+    400032: zombiewing1
+    400034: zombiewing2
+    2300000: Box002
+    3300000: Box002
+    4300000: Box002
+    4300002: zombiehair
+    4300004: zombiewing2
+    4300006: zombiewing1
+    4300008: zombiebody
+    4300010: zombie001
+    7400000: ZombieAttack
+    9500000: //RootNode
+    13700000: zombie001
+    13700002: zombiebody
+    13700004: zombiehair
+    13700006: zombiewing1
+    13700008: zombiewing2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: ZombieAttack
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.7343283
+        functionName: OnLastFram_Attack
+        data: 
+        objectReferenceParameter: {fileID: 172868, guid: 706f53c5c0e752d4c889feed8f2ab587,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Box002
+        weight: 1
+      - path: Dummy001
+        weight: 1
+      - path: Dummy001/Bone001
+        weight: 1
+      - path: Dummy001/Bone002
+        weight: 1
+      - path: Dummy001/Bone003
+        weight: 1
+      - path: Dummy001/Bone005
+        weight: 1
+      - path: Dummy001/Bone005(mirrored)
+        weight: 1
+      - path: Object002
+        weight: 1
+      - path: Object002 1
+        weight: 1
+      - path: Object008
+        weight: 1
+      - path: Object008 1
+        weight: 1
+      - path: zombie
+        weight: 1
+      - path: zombie001
+        weight: 1
+      - path: zombiebody
+        weight: 1
+      - path: zombiehair
+        weight: 1
+      - path: zombiewing1
+        weight: 1
+      - path: zombiewing2
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

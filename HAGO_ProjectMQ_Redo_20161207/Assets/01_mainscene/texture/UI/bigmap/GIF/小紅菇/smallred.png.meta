@@ -1,0 +1,286 @@
+fileFormatVersion: 2
+guid: 31344e37c20470c41be0e144967462c0
+timeCreated: 1464431505
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: smallred_0
+    21300002: smallred_1
+    21300004: smallred_2
+    21300006: smallred_3
+    21300008: smallred_4
+    21300010: smallred_5
+    21300012: smallred_6
+    21300014: smallred_7
+    21300016: smallred_8
+    21300018: smallred_9
+    21300020: smallred_10
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: smallred_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2, y: 13.200012}
+        - {x: -16, y: 3.2000122}
+        - {x: -16, y: -22.799988}
+        - {x: -7, y: -26.799988}
+        - {x: 27, y: -26.799988}
+        - {x: 29, y: -22.799988}
+        - {x: 29, y: -3.7999878}
+        - {x: 18, y: 13.200012}
+    - name: smallred_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.899994, y: 10.200012}
+        - {x: -15.899994, y: 0.2000122}
+        - {x: -15.899994, y: -11.799988}
+        - {x: -9.899994, y: -23.799988}
+        - {x: -7.899994, y: -26.799988}
+        - {x: 18.100006, y: -26.799988}
+        - {x: 29.100006, y: -23.799988}
+        - {x: 29.100006, y: 1.2000122}
+        - {x: 17.100006, y: 10.200012}
+    - name: smallred_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19.200012, y: 14.200012}
+        - {x: 0.2000122, y: 14.200012}
+        - {x: -15.799988, y: 6.200012}
+        - {x: -15.799988, y: -13.799988}
+        - {x: -6.799988, y: -26.799988}
+        - {x: 19.200012, y: -26.799988}
+        - {x: 26.200012, y: -25.799988}
+        - {x: 29.200012, y: -20.799988}
+        - {x: 29.200012, y: -4.799988}
+        - {x: 21.200012, y: 12.200012}
+    - name: smallred_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5.699951, y: 10.200012}
+        - {x: -14.699951, y: 1.2000122}
+        - {x: -14.699951, y: -18.799988}
+        - {x: -12.699951, y: -26.799988}
+        - {x: 25.300049, y: -26.799988}
+        - {x: 29.300049, y: -17.799988}
+        - {x: 29.300049, y: 0.2000122}
+        - {x: 18.300049, y: 10.200012}
+    - name: smallred_4
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1.4000244, y: 13.200012}
+        - {x: -15.599976, y: 10.200012}
+        - {x: -15.599976, y: -17.799988}
+        - {x: -11.599976, y: -26.799988}
+        - {x: 25.400024, y: -26.799988}
+        - {x: 29.400024, y: -19.799988}
+        - {x: 29.400024, y: 4.200012}
+        - {x: 21.400024, y: 13.200012}
+    - name: smallred_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 13.100006}
+        - {x: -15, y: 6.100006}
+        - {x: -16, y: 1.1000061}
+        - {x: -16, y: -11.899994}
+        - {x: -8, y: -25.899994}
+        - {x: -1, y: -26.899994}
+        - {x: 20, y: -26.899994}
+        - {x: 29, y: -15.899994}
+        - {x: 29, y: 4.100006}
+        - {x: 19, y: 13.100006}
+    - name: smallred_6
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -0.8999939, y: 13.100006}
+        - {x: -15.899994, y: 4.100006}
+        - {x: -15.899994, y: -9.899994}
+        - {x: -7.899994, y: -26.899994}
+        - {x: 20.100006, y: -26.899994}
+        - {x: 29.100006, y: -23.899994}
+        - {x: 29.100006, y: 3.100006}
+        - {x: 27.100006, y: 13.100006}
+    - name: smallred_7
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5.200012, y: 13.100006}
+        - {x: -14.799988, y: 7.100006}
+        - {x: -15.799988, y: 4.100006}
+        - {x: -15.799988, y: -14.899994}
+        - {x: -7.799988, y: -21.899994}
+        - {x: 2.2000122, y: -26.899994}
+        - {x: 13.200012, y: -26.899994}
+        - {x: 29.200012, y: -19.899994}
+        - {x: 29.200012, y: -1.8999939}
+        - {x: 15.200012, y: 13.100006}
+    - name: smallred_8
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -4.699951, y: 13.100006}
+        - {x: -14.699951, y: 9.100006}
+        - {x: -14.699951, y: -14.899994}
+        - {x: -9.699951, y: -23.899994}
+        - {x: 3.3000488, y: -26.899994}
+        - {x: 24.300049, y: -26.899994}
+        - {x: 29.300049, y: -23.899994}
+        - {x: 29.300049, y: -2.899994}
+        - {x: 23.300049, y: 13.100006}
+    - name: smallred_9
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 5.4000244, y: 10.100006}
+        - {x: -15.599976, y: 2.100006}
+        - {x: -15.599976, y: -12.899994}
+        - {x: -10.599976, y: -25.899994}
+        - {x: -7.5999756, y: -26.899994}
+        - {x: 20.400024, y: -26.899994}
+        - {x: 29.400024, y: -21.899994}
+        - {x: 29.400024, y: -4.899994}
+        - {x: 16.400024, y: 10.100006}
+    - name: smallred_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 13}
+        - {x: -16, y: 3}
+        - {x: -16, y: -22}
+        - {x: -6, y: -27}
+        - {x: 25, y: -27}
+        - {x: 29, y: -22}
+        - {x: 29, y: 2}
+        - {x: 14, y: 13}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

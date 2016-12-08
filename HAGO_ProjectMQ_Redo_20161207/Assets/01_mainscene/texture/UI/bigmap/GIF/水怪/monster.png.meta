@@ -1,0 +1,447 @@
+fileFormatVersion: 2
+guid: 889917a5a245bf744a1298ba1348dbfc
+timeCreated: 1464431884
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: monster_0
+    21300002: monster_1
+    21300004: monster_2
+    21300006: monster_3
+    21300008: monster_4
+    21300010: monster_5
+    21300012: monster_6
+    21300014: monster_7
+    21300016: monster_8
+    21300018: monster_9
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: monster_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 38.5}
+        - {x: -20, y: 19.5}
+        - {x: -20, y: -0.5}
+        - {x: -19, y: -4.5}
+        - {x: -10, y: -7.5}
+        - {x: -3, y: -3.5}
+        - {x: -3, y: 1.5}
+        - {x: -6, y: 4.5}
+        - {x: -4, y: 4.5}
+        - {x: 15, y: 14.5}
+        - {x: -20, y: -23.5}
+        - {x: -17, y: -59.5}
+        - {x: 23, y: -59.5}
+        - {x: 36, y: -12.5}
+        - {x: 36, y: 38.5}
+      - - {x: -14, y: -17.5}
+        - {x: -20, y: -23.5}
+        - {x: -20, y: -39.5}
+        - {x: -18, y: -40.5}
+        - {x: -7, y: -34.5}
+        - {x: -7, y: -17.5}
+      - - {x: -9, y: -4.5}
+        - {x: -11, y: -6.5}
+        - {x: -11, y: -10.5}
+        - {x: -9, y: -12.5}
+        - {x: -6, y: -12.5}
+        - {x: -4, y: -10.5}
+        - {x: -4, y: -7.5}
+        - {x: -7, y: -4.5}
+    - name: monster_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14.5, y: 35.5}
+        - {x: -21.5, y: 34.5}
+        - {x: -21.5, y: -48.5}
+        - {x: -19.5, y: -57.5}
+        - {x: -15.5, y: -59.5}
+        - {x: 20.5, y: -59.5}
+        - {x: 36.5, y: -1.5}
+        - {x: 36.5, y: 24.5}
+        - {x: 29.5, y: 35.5}
+      - - {x: -16.5, y: -20.5}
+        - {x: -19.5, y: -25.5}
+        - {x: -19.5, y: -40.5}
+        - {x: -17.5, y: -41.5}
+        - {x: -14.5, y: -41.5}
+        - {x: -7.5, y: -30.5}
+        - {x: -7.5, y: -21.5}
+        - {x: -9.5, y: -20.5}
+    - name: monster_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: 31.5}
+        - {x: -22, y: 28.5}
+        - {x: -22, y: -9.5}
+        - {x: -16, y: -20.5}
+        - {x: -9, y: -20.5}
+        - {x: -5, y: -19.5}
+        - {x: -6, y: -22.5}
+        - {x: -15, y: -22.5}
+        - {x: -22, y: -26.5}
+        - {x: -22, y: -29.5}
+        - {x: -19, y: -43.5}
+        - {x: -16, y: -41.5}
+        - {x: -14, y: -39.5}
+        - {x: -15, y: -47.5}
+        - {x: -15, y: -54.5}
+        - {x: -10, y: -58.5}
+        - {x: -9, y: -59.5}
+        - {x: 11, y: -59.5}
+        - {x: 34, y: -17.5}
+        - {x: 34, y: 22.5}
+        - {x: 31, y: 31.5}
+    - name: monster_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15.5, y: 35.5}
+        - {x: -21.5, y: 33.5}
+        - {x: -21.5, y: -10.5}
+        - {x: -18.5, y: -22.5}
+        - {x: -5.5, y: -19.5}
+        - {x: -1.5, y: -3.5}
+        - {x: -3.5, y: -17.5}
+        - {x: -10.5, y: -29.5}
+        - {x: -16.5, y: -54.5}
+        - {x: -11.5, y: -59.5}
+        - {x: 12.5, y: -59.5}
+        - {x: 16.5, y: -58.5}
+        - {x: 36.5, y: -28.5}
+        - {x: 36.5, y: 28.5}
+        - {x: 32.5, y: 35.5}
+      - - {x: -6.5, y: -20.5}
+        - {x: -15.5, y: -20.5}
+        - {x: -18.5, y: -21.5}
+        - {x: -18.5, y: -38.5}
+        - {x: -17.5, y: -40.5}
+        - {x: -16.5, y: -40.5}
+        - {x: -13.5, y: -38.5}
+        - {x: -12.5, y: -34.5}
+        - {x: -8.5, y: -30.5}
+        - {x: -6.5, y: -25.5}
+    - name: monster_4
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5, y: 38.5}
+        - {x: -20, y: 33.5}
+        - {x: -20, y: -6.5}
+        - {x: -11, y: -5.5}
+        - {x: -10, y: -2.5}
+        - {x: -10, y: 0.5}
+        - {x: -10, y: -5.5}
+        - {x: -11, y: -6.5}
+        - {x: -11, y: -10.5}
+        - {x: -9, y: -12.5}
+        - {x: -6, y: -12.5}
+        - {x: -4, y: -10.5}
+        - {x: -18, y: -46.5}
+        - {x: -13, y: -59.5}
+        - {x: 21, y: -59.5}
+        - {x: 36, y: -10.5}
+        - {x: 36, y: 38.5}
+      - - {x: -7, y: -19.5}
+        - {x: -9, y: -17.5}
+        - {x: -17, y: -17.5}
+        - {x: -20, y: -27.5}
+        - {x: -20, y: -40.5}
+        - {x: -14, y: -40.5}
+        - {x: -13, y: -39.5}
+        - {x: -12, y: -34.5}
+        - {x: -7, y: -24.5}
+    - name: monster_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 23, y: 36}
+        - {x: 17, y: 37}
+        - {x: -7, y: 37}
+        - {x: -20, y: 23}
+        - {x: -20, y: -7}
+        - {x: -12, y: -7}
+        - {x: -11, y: -4}
+        - {x: -11, y: -1}
+        - {x: -11, y: -3}
+        - {x: -8, y: -6}
+        - {x: -5, y: -7}
+        - {x: -2, y: 0}
+        - {x: -6, y: 4}
+        - {x: -4, y: 4}
+        - {x: 15, y: 6}
+        - {x: 0, y: -12}
+        - {x: -13, y: -34}
+        - {x: -19, y: -57}
+        - {x: -9, y: -61}
+        - {x: 10, y: -61}
+        - {x: 11, y: -60}
+        - {x: 36, y: -13}
+        - {x: 36, y: 30}
+      - - {x: -7, y: -21}
+        - {x: -9, y: -19}
+        - {x: -15, y: -19}
+        - {x: -20, y: -25}
+        - {x: -20, y: -40}
+        - {x: -18, y: -42}
+        - {x: -15, y: -41}
+        - {x: -14, y: -36}
+        - {x: -13, y: -32}
+        - {x: -7, y: -25}
+      - - {x: -9, y: -6}
+        - {x: -11, y: -8}
+        - {x: -11, y: -12}
+        - {x: -9, y: -14}
+        - {x: -6, y: -14}
+        - {x: -4, y: -12}
+        - {x: -4, y: -8}
+        - {x: -6, y: -6}
+    - name: monster_6
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.5, y: 37}
+        - {x: -19.5, y: 23}
+        - {x: -19.5, y: 4}
+        - {x: -14.5, y: -7}
+        - {x: -11.5, y: -6}
+        - {x: -9.5, y: -4}
+        - {x: -9.5, y: -1}
+        - {x: -9.5, y: -4}
+        - {x: -7.5, y: -6}
+        - {x: -4.5, y: -6}
+        - {x: -2.5, y: -2}
+        - {x: -2.5, y: 1}
+        - {x: -5.5, y: 4}
+        - {x: -7.5, y: 4}
+        - {x: -4.5, y: 4}
+        - {x: 4.5, y: 5}
+        - {x: -19.5, y: -39}
+        - {x: -19.5, y: -61}
+        - {x: 19.5, y: -61}
+        - {x: 36.5, y: -10}
+        - {x: 36.5, y: 37}
+      - - {x: -11.5, y: -19}
+        - {x: -18.5, y: -24}
+        - {x: -18.5, y: -40}
+        - {x: -16.5, y: -41}
+        - {x: -13.5, y: -40}
+        - {x: -6.5, y: -25}
+        - {x: -6.5, y: -21}
+        - {x: -8.5, y: -19}
+      - - {x: -8.5, y: -6}
+        - {x: -10.5, y: -8}
+        - {x: -10.5, y: -12}
+        - {x: -8.5, y: -14}
+        - {x: -5.5, y: -14}
+        - {x: -3.5, y: -12}
+        - {x: -3.5, y: -8}
+        - {x: -5.5, y: -6}
+    - name: monster_7
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: 37}
+        - {x: -20, y: 20}
+        - {x: -20, y: -2}
+        - {x: -18, y: -9}
+        - {x: -11, y: -8}
+        - {x: -17, y: -56}
+        - {x: -12, y: -61}
+        - {x: 11, y: -61}
+        - {x: 36, y: -18}
+        - {x: 36, y: 23}
+        - {x: 30, y: 37}
+      - - {x: -16, y: -19}
+        - {x: -20, y: -25}
+        - {x: -20, y: -41}
+        - {x: -14, y: -41}
+        - {x: -7, y: -32}
+        - {x: -7, y: -21}
+        - {x: -9, y: -19}
+      - - {x: -11, y: 4}
+        - {x: -11, y: -14}
+        - {x: -3, y: -14}
+        - {x: -3, y: 4}
+    - name: monster_8
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9.5, y: 34}
+        - {x: -21.5, y: 15}
+        - {x: -21.5, y: -2}
+        - {x: -20.5, y: -7}
+        - {x: -11.5, y: -19}
+        - {x: -3.5, y: -17}
+        - {x: -3.5, y: -4}
+        - {x: -8.5, y: -1}
+        - {x: -10.5, y: -1}
+        - {x: -6.5, y: -1}
+        - {x: -4.5, y: 1}
+        - {x: 14.5, y: 5}
+        - {x: -2.5, y: -18}
+        - {x: -16.5, y: -48}
+        - {x: -11.5, y: -61}
+        - {x: 12.5, y: -61}
+        - {x: 36.5, y: -22}
+        - {x: 36.5, y: 22}
+        - {x: 30.5, y: 34}
+      - - {x: -17.5, y: -21}
+        - {x: -19.5, y: -26}
+        - {x: -19.5, y: -42}
+        - {x: -13.5, y: -42}
+        - {x: -6.5, y: -26}
+        - {x: -6.5, y: -24}
+        - {x: -9.5, y: -21}
+    - name: monster_9
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 37}
+        - {x: -20, y: 23}
+        - {x: -20, y: 0}
+        - {x: -15, y: -7}
+        - {x: -12, y: -6}
+        - {x: -10, y: -4}
+        - {x: -10, y: -1}
+        - {x: -10, y: -5}
+        - {x: -11, y: -8}
+        - {x: -11, y: -12}
+        - {x: -9, y: -14}
+        - {x: -6, y: -14}
+        - {x: -3, y: -13}
+        - {x: -12, y: -32}
+        - {x: -20, y: -56}
+        - {x: -20, y: -57}
+        - {x: -12, y: -61}
+        - {x: 13, y: -61}
+        - {x: 36, y: -17}
+        - {x: 36, y: 37}
+      - - {x: -16, y: -19}
+        - {x: -20, y: -22}
+        - {x: -20, y: -41}
+        - {x: -12, y: -41}
+        - {x: -7, y: -29}
+        - {x: -7, y: -19}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
