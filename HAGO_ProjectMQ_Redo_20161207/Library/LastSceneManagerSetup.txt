@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/JMO Assets/Cartoon FX/Demo/CFX2 Demo.unity
+- path: Assets/02_GameScene/Scenes/GameScene_2.unity
   isLoaded: 1
   isActive: 1
