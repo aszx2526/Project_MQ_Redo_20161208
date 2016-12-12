@@ -3,8 +3,17 @@ using System.Collections;
 using UnityEngine.UI;
 public class OnCameraForShootMQ : MonoBehaviour
 {
+    [Header("蚊子出生點清單")]
     public GameObject[] myFirePoint;
+    [Header("蚊子清單")]
     public GameObject[] myBullet;
+    [Header("各隊蚊子種類")]
+    public int myTeamAMQTypeID;
+    public int myTeamBMQTypeID;
+    public int myTeamCMQTypeID;
+    public int myTeamDMQTypeID;
+    public int myTeamEMQTypeID;
+
     public int myTeamBTNClick;
     float myTimer;
     public Text MQCount;
@@ -14,9 +23,11 @@ public class OnCameraForShootMQ : MonoBehaviour
     public GameObject[] myTeamAmount_Image;
     //---------------
     public bool[] myWhichTeam;
-    public float myPutMQTimer;
+    [Header("生一隻蚊子的時間")]
     public float myPutMQTime;
-    public bool isPutMQTime;
+    float myPutMQTimer;
+    bool isPutMQTime;
+
     public bool[] isTeamSkillCD;
     public float[] isTeamSkillCDTimer;
     public float[] isTeamSkillCdTime;
@@ -39,11 +50,8 @@ public class OnCameraForShootMQ : MonoBehaviour
 
 
     public GameObject[] myCDBlack;
-    /* public int myTeamABTNMod;
-     public int myTeamBBTNMod;
-     public int myTeamCBTNMod;
-     public int myTeamDBTNMod;
-     public int myTeamEBTNMod;*/
+
+   
 
     //-----------
     public bool isSuperStarTime;
@@ -115,11 +123,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                     else {myAutoFireTimer += Time.deltaTime;}
                 }   
             }
-        }
-        //PlayerFunction();
-        //CheckIsWin();
-        if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) {
-            myPutMQCheckFN();
+            myPutMQCheckFN();//用來檢查可以放蚊子了嗎？
             myCheckIsWhichTeam();
             myTeamCDController();
             myAmountUpdate();//看看各隊伍剩下多少蚊子
@@ -138,49 +142,8 @@ public class OnCameraForShootMQ : MonoBehaviour
             myBTNShake_FN(2);
             myBTNShake_FN(3);
             myBTNShake_FN(4);
-
-            
         }
     }
-    //onCanvasForUIControll will call this function
-    /*public void myGameAwakeTestFN() {
-        for (int teama = 0; teama < myTeamMQCount[0]; teama++)
-        {
-            GameObject myMQ = Instantiate(myBullet[0], myMQSpawnPoint.transform.position, myMQSpawnPoint.transform.rotation) as GameObject;
-            myMQ.GetComponent<onMQVer3>().myMQMod = 0;
-            myMQ.transform.parent = myMQSpawnPoint.transform.GetChild(0);
-            myMQ.SetActive(false);
-        }
-        for (int teama = 0; teama < myTeamMQCount[1]; teama++)
-        {
-            GameObject myMQ = Instantiate(myBullet[1], myMQSpawnPoint.transform.position, myMQSpawnPoint.transform.rotation) as GameObject;
-            myMQ.gameObject.GetComponent<onMQVer3>().myMQMod = 0;
-            myMQ.gameObject.transform.parent = myMQSpawnPoint.transform.GetChild(1);
-            myMQ.gameObject.SetActive(false);
-        }
-        for (int teama = 0; teama < myTeamMQCount[2]; teama++)
-        {
-            GameObject myMQ = Instantiate(myBullet[2], myMQSpawnPoint.transform.position, myMQSpawnPoint.transform.rotation) as GameObject;
-            myMQ.gameObject.GetComponent<onMQVer3>().myMQMod = 0;
-            myMQ.gameObject.transform.parent = myMQSpawnPoint.transform.GetChild(2);
-            myMQ.gameObject.SetActive(false);
-        }
-        for (int teama = 0; teama < myTeamMQCount[3]; teama++)
-        {
-            GameObject myMQ = Instantiate(myBullet[3], myMQSpawnPoint.transform.position, myMQSpawnPoint.transform.rotation) as GameObject;
-            myMQ.gameObject.GetComponent<onMQVer3>().myMQMod = 0;
-            myMQ.gameObject.transform.parent = myMQSpawnPoint.transform.GetChild(3);
-            myMQ.gameObject.SetActive(false);
-        }
-        for (int teama = 0; teama < myTeamMQCount[4]; teama++)
-        {
-            GameObject myMQ = Instantiate(myBullet[4], myMQSpawnPoint.transform.position, myMQSpawnPoint.transform.rotation) as GameObject;
-            myMQ.gameObject.GetComponent<onMQVer3>().myMQMod = 0;
-            myMQ.gameObject.transform.parent = myMQSpawnPoint.transform.GetChild(4);
-            myMQ.gameObject.SetActive(false);
-        }
-    }
-    */
     public void myPutMQCheckFN() {
         if (isPutMQTime) { }
         else {
@@ -279,8 +242,6 @@ public class OnCameraForShootMQ : MonoBehaviour
                         else {
                             myfadwaittimer += Time.deltaTime;
                         }
-
-
                         break;
                     case 2:
                         if (mySkillBTN[juju].transform.parent.transform.GetChild(4).GetComponent<Image>().color.a < 0)
@@ -293,7 +254,6 @@ public class OnCameraForShootMQ : MonoBehaviour
                             a.a -= Time.deltaTime * 2;
                             mySkillBTN[juju].transform.parent.transform.GetChild(4).GetComponent<Image>().color = a;
                         }
-
                         break;
                 }
             }
@@ -357,7 +317,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                     if (myTeamMQCount[myTeam_Num] > 0)
                     {
                         mySpawnPointRandom = Random.Range(0, 14);
-                        GameObject myTeamAMQ = Instantiate(myBullet[myTeam_Num], myFirePoint[mySpawnPointRandom].transform.position, myFirePoint[mySpawnPointRandom].transform.rotation) as GameObject;
+                        GameObject myTeamAMQ = Instantiate(myBullet[myTeamAMQTypeID], myFirePoint[mySpawnPointRandom].transform.position, myFirePoint[mySpawnPointRandom].transform.rotation) as GameObject;
                         myTeamAMQ.GetComponent<onMQVer3>().myTargetPoint = transform.parent.gameObject.GetComponent<onCamera_dtg>().theLookAtPointOnMonster[transform.parent.gameObject.GetComponent<onCamera_dtg>().myCameraMod];
                         myTeamMQCount[myTeam_Num]--;
                     }
@@ -367,7 +327,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                     if (myTeamMQCount[myTeam_Num] > 0)
                     {
                         mySpawnPointRandom = Random.Range(0, 14);
-                        GameObject myTeamAMQ = Instantiate(myBullet[myTeam_Num], myFirePoint[mySpawnPointRandom].transform.position, myFirePoint[mySpawnPointRandom].transform.rotation) as GameObject;
+                        GameObject myTeamAMQ = Instantiate(myBullet[myTeamBMQTypeID], myFirePoint[mySpawnPointRandom].transform.position, myFirePoint[mySpawnPointRandom].transform.rotation) as GameObject;
                         myTeamAMQ.GetComponent<onMQVer3>().myTargetPoint = transform.parent.gameObject.GetComponent<onCamera_dtg>().theLookAtPointOnMonster[transform.parent.gameObject.GetComponent<onCamera_dtg>().myCameraMod];
                         myTeamMQCount[myTeam_Num]--;
                     }
@@ -377,7 +337,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                     if (myTeamMQCount[myTeam_Num] > 0)
                     {
                         mySpawnPointRandom = Random.Range(0, 14);
-                        GameObject myTeamAMQ = Instantiate(myBullet[myTeam_Num], myFirePoint[mySpawnPointRandom].transform.position, myFirePoint[mySpawnPointRandom].transform.rotation) as GameObject;
+                        GameObject myTeamAMQ = Instantiate(myBullet[myTeamCMQTypeID], myFirePoint[mySpawnPointRandom].transform.position, myFirePoint[mySpawnPointRandom].transform.rotation) as GameObject;
                         myTeamAMQ.GetComponent<onMQVer3>().myTargetPoint = transform.parent.gameObject.GetComponent<onCamera_dtg>().theLookAtPointOnMonster[transform.parent.gameObject.GetComponent<onCamera_dtg>().myCameraMod];
                         myTeamMQCount[myTeam_Num]--;
                     }
@@ -387,7 +347,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                     if (myTeamMQCount[myTeam_Num] > 0)
                     {
                         mySpawnPointRandom = Random.Range(0, 14);
-                        GameObject myTeamAMQ = Instantiate(myBullet[myTeam_Num], myFirePoint[mySpawnPointRandom].transform.position, myFirePoint[mySpawnPointRandom].transform.rotation) as GameObject;
+                        GameObject myTeamAMQ = Instantiate(myBullet[myTeamDMQTypeID], myFirePoint[mySpawnPointRandom].transform.position, myFirePoint[mySpawnPointRandom].transform.rotation) as GameObject;
                         myTeamAMQ.GetComponent<onMQVer3>().myTargetPoint = transform.parent.gameObject.GetComponent<onCamera_dtg>().theLookAtPointOnMonster[transform.parent.gameObject.GetComponent<onCamera_dtg>().myCameraMod];
                         myTeamMQCount[myTeam_Num]--;
                     }
@@ -397,7 +357,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                     if (myTeamMQCount[myTeam_Num] > 0)
                     {
                         mySpawnPointRandom = Random.Range(0, 14);
-                        GameObject myTeamAMQ = Instantiate(myBullet[myTeam_Num], myFirePoint[mySpawnPointRandom].transform.position, myFirePoint[mySpawnPointRandom].transform.rotation) as GameObject;
+                        GameObject myTeamAMQ = Instantiate(myBullet[myTeamEMQTypeID], myFirePoint[mySpawnPointRandom].transform.position, myFirePoint[mySpawnPointRandom].transform.rotation) as GameObject;
                         myTeamAMQ.GetComponent<onMQVer3>().myTargetPoint = transform.parent.gameObject.GetComponent<onCamera_dtg>().theLookAtPointOnMonster[transform.parent.gameObject.GetComponent<onCamera_dtg>().myCameraMod];
                         myTeamMQCount[myTeam_Num]--;
                     }
@@ -415,24 +375,6 @@ public class OnCameraForShootMQ : MonoBehaviour
         }
         else { print("沒MQ...."); }
     }
-  /*  public void myCreatAMQ(){myCreatMQFN(0);}
-    public void myCreatBMQ(){myCreatMQFN(1);}
-    public void myCreatCMQ(){myCreatMQFN(2);}
-    public void myCreatDMQ(){myCreatMQFN(3);}
-    public void myCreatEMQ(){myCreatMQFN(4);}*/
-    //檢查輸贏
-    public void CheckIsWin()
-    {
-        /*   bool a = GameObject.Find("lookatPointA").GetComponent<OnLookAtPoint>().isGG;
-           bool b = GameObject.Find("lookatPointB").GetComponent<OnLookAtPoint>().isGG;
-           bool c = GameObject.Find("lookatPointC").GetComponent<OnLookAtPoint>().isGG;
-           if (a == true && b == true && c == true) {
-               //print("win");
-               
-           }*/
-       // winlose.gameObject.SetActive(true);
-        //winlose.text = "You win"+ "/n"+ "Thanks for Playing";
-    }
     public void BTN_TeamADown() {myForBTNDown(0);}
     public void BTN_TeamBDown() {myForBTNDown(1);}
     public void BTN_TeamCDown() {myForBTNDown(2);}
@@ -448,24 +390,6 @@ public class OnCameraForShootMQ : MonoBehaviour
         a.a = 0;
         mySkillBTN[btn_num].transform.parent.transform.GetChild(1).transform.GetChild(1).GetComponent<Image>().color = a;
     }
-  
-    /*
-    public void BTN_TeamAUp(){
-      myWhichTeam[0] = false;
-        mySkillBTN[0].transform.parent.transform.GetChild(1).GetComponent<Image>().sprite = mySkillBTN_Sprite[0];
-
-          if (isTeamSkillCD[0]) { }
-           else {
-
-                if (myBTNHoldTimer < 0.2)
-                {
-                    myTeamASkill();
-                    myBTNHoldTimer = 0;
-                }
-                else { myBTNHoldTimer = 0; }
-           }
-    }
-        */
     public void BTN_TeamAUp(){myForBTNUp(0);}
     public void BTN_TeamBUp(){myForBTNUp(1);}
     public void BTN_TeamCUp(){myForBTNUp(2);}
@@ -487,7 +411,6 @@ public class OnCameraForShootMQ : MonoBehaviour
         {
             myFireBTNPress_fadinFN(0);
             if (isPutMQTime) {
-                //myCreatAMQ();
                 myCreatMQFN(0);
                 isPutMQTime = false;
             }
@@ -497,7 +420,6 @@ public class OnCameraForShootMQ : MonoBehaviour
             myFireBTNPress_fadinFN(1);
             if (isPutMQTime) {
                 isPutMQTime = false;
-                //myCreatBMQ();
                 myCreatMQFN(1);
             }
         }
@@ -506,7 +428,6 @@ public class OnCameraForShootMQ : MonoBehaviour
             myFireBTNPress_fadinFN(2);
             if (isPutMQTime) {
                 isPutMQTime = false;
-                //myCreatCMQ();
                 myCreatMQFN(2);
             }
         }
@@ -515,7 +436,6 @@ public class OnCameraForShootMQ : MonoBehaviour
             myFireBTNPress_fadinFN(3);
             if (isPutMQTime) {
                 isPutMQTime = false;
-                //myCreatDMQ();
                 myCreatMQFN(3);
             }
         }
@@ -524,7 +444,6 @@ public class OnCameraForShootMQ : MonoBehaviour
             myFireBTNPress_fadinFN(4);
             if (isPutMQTime) {
                 isPutMQTime = false;
-                //myCreatEMQ();
                 myCreatMQFN(4);
             }
         }

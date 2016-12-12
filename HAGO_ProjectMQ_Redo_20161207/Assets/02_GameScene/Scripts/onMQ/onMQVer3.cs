@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class onMQVer3 : MonoBehaviour {
-    public int WhatKindOfMQAmI;//0基本,1炸彈,2冰,3殭屍,4未定 5嫩
+    public int WhatKindOfMQAmI;//0國王,1基本,2冰護士,3光速21,4冰 5巫師 6生化 7獵人 8金盾 9炸彈 10機器 11歌手 12殭屍 13吸血鬼大 14吸血鬼小 15黑洞
     [Header("蚊子滿血血量")]
     public int myFullHP;//血量
     [Header("蚊子血量")]

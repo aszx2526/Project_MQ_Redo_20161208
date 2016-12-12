@@ -153,6 +153,8 @@
     <Compile Include="Assets\99_someThings\test\asdfasdf.cs" />
     <Compile Include="Assets\99_someThings\test\lerp.cs" />
     <Compile Include="Assets\99_someThings\test\onPSForBombMQ.cs" />
+    <Compile Include="Assets\BlackfireStudio\Winter\Image Effects\Frost.cs" />
+    <Compile Include="Assets\BlackfireStudio\onCameraForFrost.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX2_Demo.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
@@ -163,6 +165,7 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_ShurikenThreadFix.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Spawn System\CFX_SpawnSystem.cs" />
+    <Compile Include="Assets\onMQ_LastFram_Attack.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\02_GameScene\FBX\MQ\MQ_01_Basic\FBX\Materials\trytofindapha.shader" />
@@ -171,6 +174,27 @@
     <None Include="Assets\99_someThings\test\HSBC Effect.shader" />
     <None Include="Assets\99_someThings\test\aaaaaaaaaaaaaa.shader" />
     <None Include="Assets\99_someThings\test\hehehaha.shader" />
+    <None Include="Assets\BlackfireStudio\Winter\Image Effects\Shaders\Frost.shader" />
+    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Advanced Blend Glitter.shader" />
+    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Advanced Blend Reflective Glitter.shader" />
+    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Advanced Blend Reflective.shader" />
+    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Advanced Blend.shader" />
+    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Full Glitter.shader" />
+    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Full Reflective Glitter.shader" />
+    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Full Reflective.shader" />
+    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Full.shader" />
+    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Height Blend Glitter.shader" />
+    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Height Blend Reflective Glitter.shader" />
+    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Height Blend Reflective.shader" />
+    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Height Blend.shader" />
+    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Texture Blend Glitter.shader" />
+    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Texture Blend Reflective Glitter.shader" />
+    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Texture Blend Reflective.shader" />
+    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Texture Blend.shader" />
+    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\SnowCore.cginc" />
+    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\SnowInputs.cginc" />
+    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\SnowLighting.cginc" />
+    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\SnowSurface.cginc" />
     <None Include="Assets\JMO Assets\!JMO Assets Readme.txt" />
     <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
     <None Include="Assets\JMO Assets\Cartoon FX\CartoonFX2 Readme.txt" />
