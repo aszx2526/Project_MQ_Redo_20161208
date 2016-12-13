@@ -189,18 +189,31 @@ public class OnCameraForShootMQ : MonoBehaviour
             mySkillCheck();//技能檢查
             myWhenNotPressBTN_forfadeout_FN();
             myJuJuFN();
-
+            /*
             if (!isSkillBtnEdgeTime[0]) myBTNShakeFN(0);
             if (!isSkillBtnEdgeTime[1]) myBTNShakeFN(1);
             if (!isSkillBtnEdgeTime[2]) myBTNShakeFN(2);
             if (!isSkillBtnEdgeTime[3]) myBTNShakeFN(3);
             if (!isSkillBtnEdgeTime[4]) myBTNShakeFN(4);
-
+            */
+            myBTNShakeFN(0);
+            myBTNShakeFN(1);
+            myBTNShakeFN(2);
+            myBTNShakeFN(3);
+            myBTNShakeFN(4);
+            /*
             myBTNShake_FN(0);
             myBTNShake_FN(1);
             myBTNShake_FN(2);
             myBTNShake_FN(3);
             myBTNShake_FN(4);
+            */
+          /*  mySkillCheck_nothide_FN(0);
+            mySkillCheck_nothide_FN(1);
+            mySkillCheck_nothide_FN(2);
+            mySkillCheck_nothide_FN(3);
+            mySkillCheck_nothide_FN(4);*/
+
         }
     }
     public void myPutMQCheckFN() {
@@ -325,13 +338,14 @@ public class OnCameraForShootMQ : MonoBehaviour
         if (myWhichTeam[3] == false) {myWhenNotPressBTN_forfadeout_if_FN(3); }
         if (myWhichTeam[4] == false) {myWhenNotPressBTN_forfadeout_if_FN(4); }
     }
+    //光暈相關
     public void myWhenNotPressBTN_forfadeout_if_FN(int btn_num) {
-        if (mySkillBTN[btn_num].transform.parent.transform.GetChild(1).transform.GetChild(1).GetComponent<Image>().color.a < 0) { }
+       /* if (mySkillBTN[btn_num].transform.parent.transform.GetChild(1).transform.GetChild(1).GetComponent<Image>().color.a < 0) { }
         else {
             Color a = mySkillBTN[btn_num].transform.parent.transform.GetChild(1).transform.GetChild(1).GetComponent<Image>().color;
             a.a -= Time.deltaTime * 5;
             mySkillBTN[btn_num].transform.parent.transform.GetChild(1).transform.GetChild(1).GetComponent<Image>().color = a;
-        }
+        }*/
     }
     //生蚊子的韓式
     public int mySpawnPointRandom;
@@ -354,7 +368,7 @@ public class OnCameraForShootMQ : MonoBehaviour
             if (mySkillBtnShakeTimer[myTeam_Num] > bb) {
                 mySkillBtnShakeRandom[myTeam_Num] = Random.Range(0, 11);
                 if (mySkillBtnShakeRandom[myTeam_Num] > 7) {
-                    iTween.ShakePosition(mySkillBTN[myTeam_Num].transform.parent.transform.GetChild(1).gameObject, iTween.Hash("z", 20.3f, "time", 0.5f, "delay", 0.0f));
+                    iTween.ShakePosition(mySkillBTN[myTeam_Num].transform.parent.transform.GetChild(4).gameObject, iTween.Hash("y", 20.3f, "time", 0.5f, "delay", 0.0f));
                 }
                 mySkillBtnShakeTimer[myTeam_Num] = 0;
             }
@@ -439,11 +453,11 @@ public class OnCameraForShootMQ : MonoBehaviour
     {
         myWhichTeam[btn_num] = true;
         myTeamBTNClick = btn_num + 1;
-        mySkillBTN[btn_num].transform.parent.transform.GetChild(1).GetComponent<Image>().sprite = mySkillBTN_Sprite[1];
+      /*  mySkillBTN[btn_num].transform.parent.transform.GetChild(1).GetComponent<Image>().sprite = mySkillBTN_Sprite[1];
         mySkillBTN[btn_num].transform.parent.transform.GetChild(1).transform.GetChild(1).GetComponent<Image>().sprite = myTeamBTN_hide[1];
         Color a = mySkillBTN[btn_num].transform.parent.transform.GetChild(1).transform.GetChild(1).GetComponent<Image>().color;
         a.a = 0;
-        mySkillBTN[btn_num].transform.parent.transform.GetChild(1).transform.GetChild(1).GetComponent<Image>().color = a;
+        mySkillBTN[btn_num].transform.parent.transform.GetChild(1).transform.GetChild(1).GetComponent<Image>().color = a;*/
     }
     public void BTN_TeamAUp(){myForBTNUp(0);}
     public void BTN_TeamBUp(){myForBTNUp(1);}
@@ -453,11 +467,11 @@ public class OnCameraForShootMQ : MonoBehaviour
     public void myForBTNUp(int btn_num)
     {
         myWhichTeam[btn_num] = false;
-        mySkillBTN[btn_num].transform.parent.transform.GetChild(1).GetComponent<Image>().sprite = mySkillBTN_Sprite[0];
+       /* mySkillBTN[btn_num].transform.parent.transform.GetChild(1).GetComponent<Image>().sprite = mySkillBTN_Sprite[0];
         mySkillBTN[btn_num].transform.parent.transform.GetChild(1).transform.GetChild(1).GetComponent<Image>().sprite = myTeamBTN_hide[0];
         Color a = mySkillBTN[btn_num].transform.parent.transform.GetChild(1).transform.GetChild(1).GetComponent<Image>().color;
         a.a = 1;
-        mySkillBTN[btn_num].transform.parent.transform.GetChild(1).transform.GetChild(1).GetComponent<Image>().color = a;
+        mySkillBTN[btn_num].transform.parent.transform.GetChild(1).transform.GetChild(1).GetComponent<Image>().color = a;*/
     }
    
     public void myCheckIsWhichTeam()
@@ -503,10 +517,11 @@ public class OnCameraForShootMQ : MonoBehaviour
             }
         }
     }
+    //放蚊子時的光暈
     public void myFireBTNPress_fadinFN(int btn_num) {
-        Color a = mySkillBTN[btn_num].transform.parent.transform.GetChild(1).transform.GetChild(1).GetComponent<Image>().color;
+    /*    Color a = mySkillBTN[btn_num].transform.parent.transform.GetChild(1).transform.GetChild(1).GetComponent<Image>().color;
         a.a += Time.deltaTime * 5f;
-        mySkillBTN[btn_num].transform.parent.transform.GetChild(1).transform.GetChild(1).GetComponent<Image>().color = a;
+        mySkillBTN[btn_num].transform.parent.transform.GetChild(1).transform.GetChild(1).GetComponent<Image>().color = a;*/
     }
     //放技能
     //public GameObject[] MQ;
@@ -522,33 +537,33 @@ public class OnCameraForShootMQ : MonoBehaviour
 
     public void myASkillCheck()
     {
-        GameObject[] MQA = GameObject.FindGameObjectsWithTag("MQA");
+     /*   GameObject[] MQA = GameObject.FindGameObjectsWithTag("MQA");
         if (MQA != null && MQA.Length > 29)        {            mySkillCheck_nothide_FN(0);}
-        else { mySkillCheck_hide_FN(0); }
+        else { mySkillCheck_hide_FN(0); }*/
     }
     public void myBSkillCheck()
     {
-        GameObject[] MQB = GameObject.FindGameObjectsWithTag("MQB");
+      /*GameObject[] MQB = GameObject.FindGameObjectsWithTag("MQB");
         if (MQB != null && MQB.Length > 19)        {            mySkillCheck_nothide_FN(1);        }
-        else { mySkillCheck_hide_FN(1); }
+        else { mySkillCheck_hide_FN(1); }*/
     }
     public void myCSkillCheck()
     {
-        GameObject[] MQC = GameObject.FindGameObjectsWithTag("MQC");
+       /* GameObject[] MQC = GameObject.FindGameObjectsWithTag("MQC");
         if (MQC != null && MQC.Length > 19)        {            mySkillCheck_nothide_FN(2);        }
-        else { mySkillCheck_hide_FN(2); }
+        else { mySkillCheck_hide_FN(2); }*/
     }
     public void myDSkillCheck()
     {
-        GameObject[] MQD = GameObject.FindGameObjectsWithTag("MQD");
+     /*   GameObject[] MQD = GameObject.FindGameObjectsWithTag("MQD");
         if (MQD != null && MQD.Length > 19)        {            mySkillCheck_nothide_FN(3);        }
-        else { mySkillCheck_hide_FN(3); }
+        else { mySkillCheck_hide_FN(3); }*/
     }
     public void myESkillCheck()
     {
-        GameObject[] MQE = GameObject.FindGameObjectsWithTag("MQE");
+    /*    GameObject[] MQE = GameObject.FindGameObjectsWithTag("MQE");
         if (MQE != null && MQE.Length > 19)        {            mySkillCheck_nothide_FN(4);        }
-        else { mySkillCheck_hide_FN(4); }
+        else { mySkillCheck_hide_FN(4); }*/
     }
     public void mySkillCheck_nothide_FN(int btn_skillnum)
     {
