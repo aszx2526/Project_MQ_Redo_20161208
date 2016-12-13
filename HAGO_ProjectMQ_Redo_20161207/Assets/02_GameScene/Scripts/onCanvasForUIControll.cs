@@ -184,12 +184,12 @@ public class onCanvasForUIControll : MonoBehaviour {
         myChangeArmy.SetActive(false);
         
     }
-    public void BTN_forSetting() {
+    /*public void BTN_forSetting() {
         //if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) { }
         isGameStart = false;
         mySoundEffectFN();
         myMainUI.SetActive(true);
-    }
+    }*/
 
     public void mySoundEffectFN() {
        // print("UI sound");

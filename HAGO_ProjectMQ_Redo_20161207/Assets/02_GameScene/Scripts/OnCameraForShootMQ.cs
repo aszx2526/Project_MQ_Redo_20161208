@@ -18,45 +18,109 @@ public class OnCameraForShootMQ : MonoBehaviour
     float myTimer;
     public Text MQCount;
     public int myHowManyMQOnScene;
-    //-----------------
+    [Header("=======================")]
     public int[] myTeamMQCount;
     public GameObject[] myTeamAmount_Image;
-    //---------------
+    [Header("=======================")]
     public bool[] myWhichTeam;
     [Header("生一隻蚊子的時間")]
     public float myPutMQTime;
     float myPutMQTimer;
     bool isPutMQTime;
+//    [Header("=======================")]
+    [System.Serializable]
+    public struct MQSkillSettingDetail
+    {
+        [Header("技能是否發動")]
+        public bool isSkillWorking;
+        [Header("技能是否CD")]
+        public bool isSkillCDTime;
+        [Header("技能CD時間")]
+        public float mySkillCDTime;
+        public float mySkillCDTimer;
+        [Header("蚊子需求數量")]
+        public int myMQNeedAmount;
+        [Header("=======================")]
+        [Header("傷害目標:0怪物1我方")]
+        public int mySkillTargetType;
+        [Header("傷害型別:0瞬發1持續")]
+        public int mySkillStateType;
+        [Header("持續行傷害秒數")]
+        public float mySkillKeepTime;
+        public float mySkillKeepTimer;
+        [Header("=======================")]
+        [Header("傷害種類:0點數1士氣")]
+        public int mySkillHurtRangeOfType;
+        [Header("傷害點數")]
+        public int mySkillHurtValue_Point;
+        [Header("傷害氣勢(%)")]
+        public int mySkillHurtValue_Morale;
+        [Header("=======================")]
+        [Header("蚊子是否消滅")]
+        public bool isMQNeedToKill;
+    }
+    [System.Serializable]
+    public struct Pathfinding
+    {
+        [Header("蚊子技能_士兵")]
+        public MQSkillSettingDetail MQ01_skill;
+        [Header("蚊子技能_護士")]
+        public MQSkillSettingDetail MQ02_skill;
+        [Header("蚊子技能_美足")]
+        public MQSkillSettingDetail MQ03_skill;
+        [Header("蚊子技能_急凍")]
+        public MQSkillSettingDetail MQ04_skill;
+        [Header("蚊子技能_巫師")]
+        public MQSkillSettingDetail MQ05_skill;
+        [Header("蚊子技能_病毒")]
+        public MQSkillSettingDetail MQ06_skill;
+        [Header("蚊子技能_獵人")]
+        public MQSkillSettingDetail MQ07_skill;
+        [Header("蚊子技能_金盾")]
+        public MQSkillSettingDetail MQ08_skill;
+        [Header("蚊子技能_炸彈")]
+        public MQSkillSettingDetail MQ09_skill;
+        [Header("蚊子技能_機械")]
+        public MQSkillSettingDetail MQ10_skill;
+        [Header("蚊子技能_吟遊詩人")]
+        public MQSkillSettingDetail MQ11_skill;
+        [Header("蚊子技能_喪屍")]
+        public MQSkillSettingDetail MQ12_skill;
+        [Header("蚊子技能_德古拉")]
+        public MQSkillSettingDetail MQ13_skill;
+        [Header("蚊子技能_黑洞")]
+        public MQSkillSettingDetail MQ14_skill;
+    }
+    [Header("蚊子技能相關設定")]
+    public Pathfinding myMQSkillSettingMenu;
+    [Header("=======================")]
 
     public bool[] isTeamSkillCD;
-    public float[] isTeamSkillCDTimer;
-    public float[] isTeamSkillCdTime;
-
-    //放大縮小相關
+    public float[] myTeamSkillCDTimer;
+    public float[] myTeamSkillCDTime;
+    [Header("=======================")]
+    [Header("放大縮小相關")]
     public bool[] isSkillBTNJuiceTime;
     public int[] mySkillBTNJuiceMod;
-
-    //技能按鈕後面光暈相關
+    [Header("技能按鈕後面光暈相關")]
     public bool[] isSkillBtnEdgeTime;
     public int[] mySkillBTNEdgeMod;
     public int[] mySkillBTNEdgeRandom;
     public float[] mySkillBTNEdgeTimer;
     float myfadwaittimer;
 
-
-    //施放蚊子按鈕抖動相關
+    [Header("=======================")]
+    [Header("施放蚊子按鈕抖動相關")]
     public int[] mySkillBtnShakeRandom;
     public float[] mySkillBtnShakeTimer;
-
+    [Header("=======================")]
 
     public GameObject[] myCDBlack;
 
    
 
     //-----------
-    public bool isSuperStarTime;
-    float isSuperStarTimer;
-
+    
     public bool[] isTeamSkillReady;
     public GameObject[] mySkillBTN;
     public Sprite[] mySkillBTN_Sprite;
@@ -74,6 +138,9 @@ public class OnCameraForShootMQ : MonoBehaviour
     public int myAutoFireRandom;
     public GameObject[] myLocalMQList;
     public GameObject myMQSpawnPoint;
+    //--------------
+   
+
     void Start()
     {
         isPutMQTime = true;
@@ -93,15 +160,7 @@ public class OnCameraForShootMQ : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isSuperStarTime)
-        {
-            if (isSuperStarTimer >= 5)
-            {
-                isSuperStarTimer = 0;
-                isSuperStarTime = false;
-            }
-            else {isSuperStarTimer += Time.deltaTime;}
-        }
+       
         MQCount.text = "場上蚊子數量：" + myHowManyMQOnScene.ToString();
         if (gameObject.GetComponent<onMainCameraVer2>().isNeedToFollow)
         {
@@ -127,7 +186,7 @@ public class OnCameraForShootMQ : MonoBehaviour
             myCheckIsWhichTeam();
             myTeamCDController();
             myAmountUpdate();//看看各隊伍剩下多少蚊子
-            mySkillCheck();//看看各隊伍有多少蚊子
+            mySkillCheck();//技能檢查
             myWhenNotPressBTN_forfadeout_FN();
             myJuJuFN();
 
@@ -288,10 +347,6 @@ public class OnCameraForShootMQ : MonoBehaviour
         }
         
     }
-    public void aaaaa(int juju) {
-        
-    }
-
     public void myBTNShakeFN(int myTeam_Num) {
         if (myTeamMQCount[myTeam_Num] > 0) {
             //按鈕晃動
@@ -468,8 +523,7 @@ public class OnCameraForShootMQ : MonoBehaviour
     public void myASkillCheck()
     {
         GameObject[] MQA = GameObject.FindGameObjectsWithTag("MQA");
-        if (MQA.Length > 29)        {            mySkillCheck_nothide_FN(0);            //mySkillBTN[0].SetActive(true);
-        }
+        if (MQA != null && MQA.Length > 29)        {            mySkillCheck_nothide_FN(0);}
         else { mySkillCheck_hide_FN(0); }
     }
     public void myBSkillCheck()
@@ -530,10 +584,10 @@ public class OnCameraForShootMQ : MonoBehaviour
     {
         /*myAudioSource.clip = mySoundEffectData[0];
         myAudioSource.enabled = false;
-        myAudioSource.enabled = true;*/
+        myAudioSource.enabled = true;
         print("team a be call");
         isTeamSkillCD[0] = true;
-        isSuperStarTime = true;
+      //  isSuperStarTime = true;
         isTeamSkillReady[0] = false;
         myCDBlack[0].GetComponent<Image>().fillAmount = 1;
         mySkillBTN[0].GetComponent<Button>().enabled = false;
@@ -546,10 +600,43 @@ public class OnCameraForShootMQ : MonoBehaviour
         for (int a = 0; a < MQ.Length; a++)
         {
             print("發動技能-無敵星星3秒鐘");
-            //MQ[a].GetComponent<onMQVer3>().SendMessage("myMQSkill");
             MQ[a].GetComponent<onMQVer3>().isSuperStarTime = true;
-        }//*/
-
+        }*/
+        switch (myTeamAMQTypeID) {
+            case 0:
+            //    myMQSkillSettingMenu.MQ01_skill.
+                
+                break;
+            case 1:
+              //  myMQSkillSettingMenu.MQ01_skill.
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+            case 5:
+                break;
+            case 6:
+                break;
+            case 7:
+                break;
+            case 8:
+                break;
+            case 9:
+                break;
+            case 10:
+                break;
+            case 11:
+                break;
+            case 12:
+                break;
+            case 13:
+                break;
+            case 14:
+                break;
+        }
     }
     public void myTeamBSkill()
     {
@@ -607,7 +694,6 @@ public class OnCameraForShootMQ : MonoBehaviour
         UI.transform.parent = GameObject.Find("Canvas").transform;
         UI.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
         for (int a = 0; a < MQ.Length; a++) { MQ[a].GetComponent<onMQVer3>().myAttackTimerTarget = (int)MQ[a].GetComponent<onMQVer3>().myAttackTimerTarget * 0.5f; }
-
     }
     public void myTeamESkill()
     {
@@ -625,23 +711,63 @@ public class OnCameraForShootMQ : MonoBehaviour
         UI.transform.parent = GameObject.Find("Canvas").transform;
         UI.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
         for (int a = 0; a < MQ.Length; a++) { MQ[a].GetComponent<onMQVer3>().myCritHit = (int)MQ[a].GetComponent<onMQVer3>().myCritHit * 2; }
-
     }
     //技能CD
     public void myTeamCDController()
     {
-        if (isTeamSkillCD[0]){myTeamCD_inIF_FN(0);}
-        if (isTeamSkillCD[1]){myTeamCD_inIF_FN(1);}
-        if (isTeamSkillCD[2]){myTeamCD_inIF_FN(2);}
-        if (isTeamSkillCD[3]){myTeamCD_inIF_FN(3);}
-        if (isTeamSkillCD[4]){myTeamCD_inIF_FN(4);}
+        switch (myTeamAMQTypeID) {
+            case 1:
+                if (myMQSkillSettingMenu.MQ01_skill.isSkillCDTime) { myTeamCD_inIF_FN(1); }
+                break;
+            case 2:
+                if (myMQSkillSettingMenu.MQ02_skill.isSkillCDTime) { myTeamCD_inIF_FN(1); }
+                break;
+            case 3:
+                if (myMQSkillSettingMenu.MQ03_skill.isSkillCDTime) { myTeamCD_inIF_FN(1); }
+                break;
+            case 4:
+                if (myMQSkillSettingMenu.MQ04_skill.isSkillCDTime) { myTeamCD_inIF_FN(1); }
+                break;
+            case 5:
+                if (myMQSkillSettingMenu.MQ05_skill.isSkillCDTime) { myTeamCD_inIF_FN(1); }
+                break;
+            case 6:
+                if (myMQSkillSettingMenu.MQ06_skill.isSkillCDTime) { myTeamCD_inIF_FN(1); }
+                break;
+            case 7:
+                if (myMQSkillSettingMenu.MQ07_skill.isSkillCDTime) { myTeamCD_inIF_FN(1); }
+                break;
+            case 8:
+                if (myMQSkillSettingMenu.MQ08_skill.isSkillCDTime) { myTeamCD_inIF_FN(1); }
+                break;
+            case 9:
+                if (myMQSkillSettingMenu.MQ09_skill.isSkillCDTime) { myTeamCD_inIF_FN(1); }
+                break;
+            case 10:
+                if (myMQSkillSettingMenu.MQ10_skill.isSkillCDTime) { myTeamCD_inIF_FN(1); }
+                break;
+            case 11:
+                if (myMQSkillSettingMenu.MQ11_skill.isSkillCDTime) { myTeamCD_inIF_FN(1); }
+                break;
+            case 12:
+                if (myMQSkillSettingMenu.MQ12_skill.isSkillCDTime) { myTeamCD_inIF_FN(1); }
+                break;
+            case 13:
+                if (myMQSkillSettingMenu.MQ13_skill.isSkillCDTime) { myTeamCD_inIF_FN(1); }
+                break;
+            case 14:
+                if (myMQSkillSettingMenu.MQ14_skill.isSkillCDTime) { myTeamCD_inIF_FN(1); }
+                break;
+        }
     }
     public void myTeamCD_inIF_FN(int myteanskill_num)
     {
-        if (isTeamSkillCDTimer[myteanskill_num] > isTeamSkillCdTime[myteanskill_num])//cd秒數
+        //開始遊戲的時候把選定的角色的CD時間灌進來
+        //我TMD真是個天才
+        if (myTeamSkillCDTimer[myteanskill_num] > myTeamSkillCDTime[myteanskill_num])//cd秒數
         {
             myCDBlack[myteanskill_num].GetComponent<Image>().fillAmount = 0;
-            isTeamSkillCDTimer[myteanskill_num] = 0;
+            myTeamSkillCDTimer[myteanskill_num] = 0;
             isTeamSkillCD[myteanskill_num] = false;
             mySkillBTN[myteanskill_num].GetComponent<Image>().raycastTarget = true;
             isSkillBTNJuiceTime[myteanskill_num] = true;
@@ -654,19 +780,13 @@ public class OnCameraForShootMQ : MonoBehaviour
         else {
             myCDBlack[myteanskill_num].GetComponent<Image>().raycastTarget = true;
             mySkillBTN[myteanskill_num].GetComponent<Image>().raycastTarget = false;
-            myCDBlack[myteanskill_num].GetComponent<Image>().fillAmount = 1 - (isTeamSkillCDTimer[myteanskill_num] / isTeamSkillCdTime[myteanskill_num]);
-            isTeamSkillCDTimer[myteanskill_num] += Time.deltaTime;
+            myCDBlack[myteanskill_num].GetComponent<Image>().fillAmount = 1 - (myTeamSkillCDTimer[myteanskill_num] / myTeamSkillCDTime[myteanskill_num]);
+            myTeamSkillCDTimer[myteanskill_num] += Time.deltaTime;
         }
     }
-    //蚊子數量更新
+    //蚊子數量更新_UI
     public void myAmountUpdate()
     {
-        /* Text_myTeamAAmount.text = myABulletCount.ToString();//TeamAAmount.ToString();
-         myTeamAmount_Image[1].text = myBBulletCount.ToString();
-         myTeamAmount_Image[2].text = myCBulletCount.ToString();
-         myTeamAmount_Image[3].text = myDBulletCount.ToString();
-         myTeamAmount_Image[4].text = myEBulletCount.ToString();*/
-
         for (int a = 0; a < 10; a++)
         {
             if (myTeamMQCount[0].ToString().Length == 3) {

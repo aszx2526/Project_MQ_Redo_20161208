@@ -479,8 +479,8 @@ public class onRabbitForAniControll : MonoBehaviour {
   
     public void myFindAllMQAndAttack_Skill1()
     {
-        if (GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().isSuperStarTime) { }
-        else {
+      /*  if (GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().isSuperStarTime) { }
+        else {*/
             GameObject[] myMQ = GameObject.FindGameObjectsWithTag("MQ");
             for (int a = 0; a < myMQ.Length; a++)
             {
@@ -498,7 +498,7 @@ public class onRabbitForAniControll : MonoBehaviour {
                     }
                 }
             }
-        }
+     //   }
     }
     public void myFindAllMQAndAttack_Skill2()
     {

@@ -104,13 +104,8 @@ public class onMonsterVer3 : MonoBehaviour {
         // setTargetCube();
         agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
         
-        if (myPathfindingsetting.idleforever)
-        {
-            myMod = 1;
-        }
-        else {
-            myMod = 2;
-        }
+        if (myPathfindingsetting.idleforever){myMod = 1;}
+        else {myMod = 2;}
     }
     public void setTargetCube()
     {
@@ -152,7 +147,7 @@ public class onMonsterVer3 : MonoBehaviour {
                     Destroy(MQ_All[a].gameObject);
                 }
                 //GameObject.Find("Canvas").SendMessage("BTN_forSetting");
-                GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().SendMessage("CheckIsWin");
+                //GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().SendMessage("CheckIsWin");
                 //GameObject.Find("KillBigeyeText").GetComponent<Text>().text = "Kill Bigeye(1/1)";
                 //Destroy(gameObject);
             }
