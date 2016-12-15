@@ -23,6 +23,7 @@ public class OnCameraForShootMQ : MonoBehaviour
     public GameObject[] myTeamAmount_Image;
     [Header("=======================")]
     public bool[] myWhichTeam;
+    public int myTeamID;
     [Header("生一隻蚊子的時間")]
     public float myPutMQTime;
     float myPutMQTimer;
@@ -91,6 +92,8 @@ public class OnCameraForShootMQ : MonoBehaviour
     [Header("蚊子技能相關設定")]
     public Pathfinding myMQSkillSettingMenu;
     [Header("=======================")]
+    [Header("我的隊伍選擇圖")]
+    public GameObject[] myTeamBTNSelectUI;
     [Header("是否可以施放技能")]
     public bool[] isTeamSkillReady;
     [Header("我的技能按鈕")]
@@ -221,7 +224,7 @@ public class OnCameraForShootMQ : MonoBehaviour
               mySkillCheck_nothide_FN(2);
               mySkillCheck_nothide_FN(3);
               mySkillCheck_nothide_FN(4);*/
-
+            mySelectBoxUpdateFN();
         }
     }
     public void myPutMQCheckFN() {
@@ -452,11 +455,11 @@ public class OnCameraForShootMQ : MonoBehaviour
         }
         else { print("沒MQ...."); }
     }
-    public void BTN_TeamADown() {myForBTNDown(0);}
-    public void BTN_TeamBDown() {myForBTNDown(1);}
-    public void BTN_TeamCDown() {myForBTNDown(2);}
-    public void BTN_TeamDDown() {myForBTNDown(3);}
-    public void BTN_TeamEDown() {myForBTNDown(4);}
+    public void BTN_TeamADown() {myForBTNDown(0); myTeamID = 1; }
+    public void BTN_TeamBDown() {myForBTNDown(1); myTeamID = 2; }
+    public void BTN_TeamCDown() {myForBTNDown(2); myTeamID = 3; }
+    public void BTN_TeamDDown() {myForBTNDown(3); myTeamID = 4; }
+    public void BTN_TeamEDown() {myForBTNDown(4); myTeamID = 5; }
     public void myForBTNDown(int btn_num)
     {
         myWhichTeam[btn_num] = true;
@@ -5736,6 +5739,47 @@ public class OnCameraForShootMQ : MonoBehaviour
                 myTeamAmount_Image[4].GetComponent<onAmount_UI>().myAmountString[1].GetComponent<Image>().sprite = myTeamAmount_Image[3].GetComponent<onAmount_UI>().myNumSprite[0];
             }
 
+        }
+    }
+    public void mySelectBoxUpdateFN()
+    {
+        switch (myTeamID)
+        {
+            case 1:
+                myTeamBTNSelectUI[0].gameObject.SetActive(true);
+                myTeamBTNSelectUI[1].gameObject.SetActive(false);
+                myTeamBTNSelectUI[2].gameObject.SetActive(false);
+                myTeamBTNSelectUI[3].gameObject.SetActive(false);
+                myTeamBTNSelectUI[4].gameObject.SetActive(false);
+                break;
+            case 2:
+                myTeamBTNSelectUI[0].gameObject.SetActive(false);
+                myTeamBTNSelectUI[1].gameObject.SetActive(true);
+                myTeamBTNSelectUI[2].gameObject.SetActive(false);
+                myTeamBTNSelectUI[3].gameObject.SetActive(false);
+                myTeamBTNSelectUI[4].gameObject.SetActive(false);
+                break;
+            case 3:
+                myTeamBTNSelectUI[0].gameObject.SetActive(false);
+                myTeamBTNSelectUI[1].gameObject.SetActive(false);
+                myTeamBTNSelectUI[2].gameObject.SetActive(true);
+                myTeamBTNSelectUI[3].gameObject.SetActive(false);
+                myTeamBTNSelectUI[4].gameObject.SetActive(false);
+                break;
+            case 4:
+                myTeamBTNSelectUI[0].gameObject.SetActive(false);
+                myTeamBTNSelectUI[1].gameObject.SetActive(false);
+                myTeamBTNSelectUI[2].gameObject.SetActive(false);
+                myTeamBTNSelectUI[3].gameObject.SetActive(true);
+                myTeamBTNSelectUI[4].gameObject.SetActive(false);
+                break;
+            case 5:
+                myTeamBTNSelectUI[0].gameObject.SetActive(false);
+                myTeamBTNSelectUI[1].gameObject.SetActive(false);
+                myTeamBTNSelectUI[2].gameObject.SetActive(false);
+                myTeamBTNSelectUI[3].gameObject.SetActive(false);
+                myTeamBTNSelectUI[4].gameObject.SetActive(true);
+                break;
         }
     }
 }

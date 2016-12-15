@@ -73,6 +73,7 @@ public class onCanvasForUIControll : MonoBehaviour {
             myLevelClear.SetActive(true);
         }
         else if (myAllLocalMQCount<=0) {
+            print("myAllLocalMQCount");
             myLevelClear.SetActive(true);
         }
 
@@ -158,8 +159,14 @@ public class onCanvasForUIControll : MonoBehaviour {
         GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myTeamMQCount[3] = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamDAmount;
         GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myTeamMQCount[4] = GameObject.Find("MiniMap").GetComponent<OnMiniMap>().TeamEAmount;
 
+        GameObject.Find("MoraleBar").GetComponent<onMoraleBarControl>().monstermoraleTarget = myMonsterMorale;
+        GameObject.Find("MoraleBar").GetComponent<onMoraleBarControl>().myLocalMQ_AmountTarget = myLocalMQ_Amount;
+
+        GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myAutoFireBulletFullAmount = myLocalMQ_AmountFull;
+        GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myAutoFireBulletAmount = myLocalMQ_Amount;
+        GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myTeamID = 1;
         //GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().SendMessage("myGameAwakeTestFN");
-       
+
         //myMonsterMoraleBloodValue = myMonsterBasicMorale / (float)GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myMonsterList[GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum - 1].GetComponent<onMonsterVer3>().myFullHP;
         myMainUI.SetActive(false);
         

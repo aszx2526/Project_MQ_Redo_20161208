@@ -9,7 +9,6 @@ public class onMQ_LastFram_Attack : MonoBehaviour {
     void Start () {
         //myFather.GetComponent<onMQVer3>()
         myFather = transform.parent.gameObject;
-
     }
 	
 	// Update is called once per frame
@@ -18,7 +17,6 @@ public class onMQ_LastFram_Attack : MonoBehaviour {
 	}
     public void OnLastFram_Attack()
     {
-        print("1s OnLastFram_Attack be call");
         myFather.GetComponent<onMQVer3>().myAttackTimer = 0;
         //1秒打一下
         GameObject myTargetObject = myFather.GetComponent<onMQVer3>().myTargetPoint;
