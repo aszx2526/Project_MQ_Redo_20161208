@@ -28,8 +28,7 @@ public class onMQVer3 : MonoBehaviour {
     public float myAttackTimer;
     public float deadtimer;
     [Header("===========================")]
-    public bool isSuperStarTime;
-    float isSuperStarTimer;
+    float myNurseTimer;
 
     public bool isAttackPowerUpTime;
     float isAttackPowerUpTimer;
@@ -129,10 +128,16 @@ public class onMQVer3 : MonoBehaviour {
         MQBuff();
     }
     public void MQBuff() {
-        if (isSuperStarTime)
+        if (GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myMQSkillSettingMenu.MQ02_skill.isSkillWorking)
         {
-            if (isSuperStarTimer >= 5){isSuperStarTimer = 0;isSuperStarTime = false;}
-            else {isSuperStarTimer += Time.deltaTime;}
+            if (myNurseTimer >= 1.85f){
+                myNurseTimer = 0;
+                if (myHP > myFullHP) { myHP = myFullHP; }
+                else {
+                    myHP += (int)((float)myFullHP * (GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myMQSkillSettingMenu.MQ02_skill.mySkillHurtValue_Morale/100));
+                }
+            }
+            else { myNurseTimer += Time.deltaTime;}
         }
         if (isAttackPowerUpTime) {
             if (isAttackPowerUpTimer >= 5) { isAttackPowerUpTimer = 0; isAttackPowerUpTime = false; }

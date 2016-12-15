@@ -7,18 +7,23 @@ public class onMoraleBarControl : MonoBehaviour {
     public Image myUI_MoraleBar_MQ;
     public Image myUI_MoraleBar_Monster;
     public Image myUI_LocalMQ_Amount;
+    public GameObject myUI_LocalMQ_AmountMark;
     float myMoraleAddTimer;
     public float monstermorale;
     // Use this for initialization
     void Start () {
-        myUI_LocalMQ_Amount = transform.GetChild(0).GetComponent<Image>();
-        myUI_MoraleBar_MQ = transform.GetChild(1).GetComponent<Image>();
-        myUI_MoraleBar_Monster = transform.GetChild(2).GetComponent<Image>();
+        myUI_LocalMQ_Amount = transform.GetChild(1).GetComponent<Image>();
+        myUI_MoraleBar_MQ = transform.GetChild(2).GetComponent<Image>();
+        myUI_MoraleBar_Monster = transform.GetChild(3).GetComponent<Image>();
+        myUI_LocalMQ_AmountMark = transform.GetChild(5).gameObject;
     }
 	
 	// Update is called once per frame
 	void Update () {
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) {
+            Vector3 myAmountMarkPos = myUI_LocalMQ_AmountMark.GetComponent<RectTransform>().localPosition;
+            myAmountMarkPos.x = (-450)+(myUI_LocalMQ_Amount.fillAmount * 915);
+            myUI_LocalMQ_AmountMark.GetComponent<RectTransform>().localPosition = myAmountMarkPos;
             if (myUI_MoraleBar_Monster.fillAmount == 0) {
                 //怪物死調惹
                 //print("怪物死調惹_onMoraleBarControl");

@@ -86,10 +86,10 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.7066116
+      - time: 0.69454545
         functionName: OnLastFram_Attack
         data: 
-        objectReferenceParameter: {fileID: 191960, guid: ea522b918cbba7d45bc0d827029a1e4c,
+        objectReferenceParameter: {fileID: 1668656742306750, guid: 5c2cd7996dd6c924bbfc00304b067271,
           type: 2}
         floatParameter: 0
         intParameter: 0

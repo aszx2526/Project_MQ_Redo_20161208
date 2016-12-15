@@ -169,7 +169,7 @@ public class onCamera_dtg : MonoBehaviour {
     public void myCameraFN(float rotateValue,float myfieldOfView, float myPosYTrimming) {
         
         //怪物死亡旋轉
-        if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 0)
+        if (GameObject.Find("Morale_Bar_Monster").GetComponent<Image>().fillAmount == 0)
         {
             Quaternion a = myMonsterList[myPickUpNum - 1].transform.rotation;
             myA += Time.deltaTime;

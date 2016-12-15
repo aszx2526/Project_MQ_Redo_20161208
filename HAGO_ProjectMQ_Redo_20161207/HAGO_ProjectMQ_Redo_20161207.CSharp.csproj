@@ -107,7 +107,6 @@
     <Compile Include="Assets\02_GameScene\Scripts\UI\Blip.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\UI\MiniMap.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\UI\OnMiniMap.cs" />
-    <Compile Include="Assets\02_GameScene\Scripts\UI\UI_onSkillBoxUP.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\UI\onAmount_UI.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\UI\onBTN_Battle.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\UI\onBighitNum.cs" />
@@ -169,6 +168,7 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_ShurikenThreadFix.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Spawn System\CFX_SpawnSystem.cs" />
+    <Compile Include="Assets\onLeftBTNForHideBTN.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\02_GameScene\FBX\MQ\MQ_01_Basic\FBX\Materials\trytofindapha.shader" />

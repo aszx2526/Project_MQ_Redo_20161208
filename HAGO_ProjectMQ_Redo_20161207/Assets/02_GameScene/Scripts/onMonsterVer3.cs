@@ -138,7 +138,7 @@ public class onMonsterVer3 : MonoBehaviour {
 
         //輸贏判定區
         
-            if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 0 )//怪物的士氣為0就做些什麼
+            if (GameObject.Find("Morale_Bar_Monster").GetComponent<Image>().fillAmount == 0 )//怪物的士氣為0就做些什麼
             {
                 //GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myAttackPartLocker.SetActive(false);
                 GameObject[] MQ_All = GameObject.FindGameObjectsWithTag("MQ");

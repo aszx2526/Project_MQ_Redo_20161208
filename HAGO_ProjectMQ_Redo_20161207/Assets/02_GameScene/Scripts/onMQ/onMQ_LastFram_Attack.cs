@@ -18,7 +18,7 @@ public class onMQ_LastFram_Attack : MonoBehaviour {
 	}
     public void OnLastFram_Attack()
     {
-        //print("1s OnLastFram_Attack be call");
+        print("1s OnLastFram_Attack be call");
         myFather.GetComponent<onMQVer3>().myAttackTimer = 0;
         //1秒打一下
         GameObject myTargetObject = myFather.GetComponent<onMQVer3>().myTargetPoint;

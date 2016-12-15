@@ -86,7 +86,7 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
     void Update()
     {
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart&&myFatherObject.GetComponent<onMonsterVer3>().isMeToFight) {
-            if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 0)//怪物死翹翹
+            if (GameObject.Find("Morale_Bar_Monster").GetComponent<Image>().fillAmount == 0)//怪物死翹翹
             { myAniMod = 4;}
             else {
                 /*myBigeyeHP = myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP;
@@ -164,7 +164,7 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
     }
     public void myBigeyeAttackMod()
     {
-        if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount < 0.2 && isBigEyegood)//20%以下時
+        if (GameObject.Find("Morale_Bar_Monster").GetComponent<Image>().fillAmount < 0.2 && isBigEyegood)//20%以下時
         {
             if (is21CD)
             {
