@@ -460,6 +460,14 @@ public class OnCameraForShootMQ : MonoBehaviour
     public void BTN_TeamCDown() {myForBTNDown(2); myTeamID = 3; }
     public void BTN_TeamDDown() {myForBTNDown(3); myTeamID = 4; }
     public void BTN_TeamEDown() {myForBTNDown(4); myTeamID = 5; }
+    public void BTN_ScreenFireDown() {
+        if (isPutMQTime)
+        {
+            myForBTNDown(myTeamID-1);
+            myCreatMQFN(myTeamID-1);
+            isPutMQTime = false;
+        }
+    }
     public void myForBTNDown(int btn_num)
     {
         myWhichTeam[btn_num] = true;
@@ -475,6 +483,7 @@ public class OnCameraForShootMQ : MonoBehaviour
     public void BTN_TeamCUp(){myForBTNUp(2);}
     public void BTN_TeamDUp(){myForBTNUp(3);}
     public void BTN_TeamEUp(){myForBTNUp(4);}
+    public void BTN_ScreenFireUp() {myForBTNUp(myTeamID-1);}
     public void myForBTNUp(int btn_num)
     {
         myWhichTeam[btn_num] = false;

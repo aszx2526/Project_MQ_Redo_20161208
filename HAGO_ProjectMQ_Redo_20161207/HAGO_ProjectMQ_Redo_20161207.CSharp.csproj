@@ -52,9 +52,6 @@
     <Reference Include="UnityEngine">
       <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
     </Reference>
@@ -69,9 +66,6 @@
     </Reference>
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.VR">
       <HintPath>Library\UnityAssemblies\UnityEngine.VR.dll</HintPath>
@@ -128,10 +122,13 @@
     <Compile Include="Assets\02_GameScene\Scripts\UI\onUI_EventClear.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\UI\onUI_LevelClear.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onCameraLookController_Bigeye.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onCamera_ForFingerTouchGetsure.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onCamera_dtg.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onHitEffect_formovePos.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onHitPoint_UpdateHureValue.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onHotPoint_Icebear.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onHotPoint_bigeye.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onLeftBTNForHideBTN.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQVer3.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_00_King.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_01_Basic.cs" />
@@ -155,9 +152,7 @@
     <Compile Include="Assets\02_GameScene\Scripts\onMonsterVer3.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onTriggerMQIn.cs" />
     <Compile Include="Assets\02_GameScene\UI\UI_storymovie\StoryMovie\OnCanvas_StoryMod.cs" />
-    <Compile Include="Assets\99_someThings\test\CameraTest\NewBehaviourScript.cs" />
     <Compile Include="Assets\99_someThings\test\CameraTest\onCameraVer2_MobileControll.cs" />
-    <Compile Include="Assets\99_someThings\test\CameraTest\onCamera_dtg.cs" />
     <Compile Include="Assets\99_someThings\test\HSBCImageEffect.cs" />
     <Compile Include="Assets\99_someThings\test\asdfasdf.cs" />
     <Compile Include="Assets\99_someThings\test\lerp.cs" />
@@ -174,7 +169,6 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_ShurikenThreadFix.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Spawn System\CFX_SpawnSystem.cs" />
-    <Compile Include="Assets\onLeftBTNForHideBTN.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\02_GameScene\FBX\MQ\MQ_01_Basic\FBX\Materials\trytofindapha.shader" />
