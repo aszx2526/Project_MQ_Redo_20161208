@@ -64,7 +64,10 @@ public class onMoraleBarControl : MonoBehaviour {
                     if (myMoraleAddTimer >= 1)//1秒調整
                     {
                         myMoraleAddTimer = 0;
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale += GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleRestoreValue;
+                        if (GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myMQSkillSettingMenu.MQ04_skill.isSkillWorking) { }
+                        else {
+                            GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale += GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleRestoreValue;
+                        }
                     }
                 }
                 myUI_MoraleBar_MQ.fillAmount = 1 - myUI_MoraleBar_Monster.fillAmount;

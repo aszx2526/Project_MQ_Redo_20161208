@@ -108,7 +108,7 @@ public class onIceBearForAniControll : MonoBehaviour
     public float myGrohitLoopTimer;
 
     [Header("========================")]
-
+    public bool isFreezeTime;
     //-------------
     public GameObject myHotPoint;
     void Start()
@@ -126,60 +126,65 @@ public class onIceBearForAniControll : MonoBehaviour
     {
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart && myFatherObject.GetComponent<onMonsterVer3>().isMeToFight)
         {
-            if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 0)//怪物死翹翹
-            {
-                myAniam.speed = 1;
-                myAniMod = 2;
-                print("myAniMod = 2;");
-            }
+            if (isFreezeTime) { }
             else {
-                if (isQTETime) {
-                    switch (myQTEMod)
-                    {
-                        case "A":
-                            if (myQTE_A_Count == 5)
-                            {
-                                myAniam.speed = 1;
-                                if (isLeggood) { myAniMod = 34; }
-                                else { myAniMod = 33; }
-                                isCDTtime_eatfish = true;
-                                myQTE_A_Count = 0;
-                                print("qte a 成功");
-                            }
-                            break;
-                        case "B":
-                            if (myQTE_B_Count > myQTE_B_TargetValue)
-                            {
-                                myAniam.speed = 1;
-                                if (isLeggood) { myAniMod = 34; }
-                                else { myAniMod = 33; }
-                                print("qte B 成功");
-                                isCDTtime_eatfish = true;
-                                myQTE_B_Count = 0;
-                            }
-                            break;
-                        case "C":
-                            if (myQTE_C_Count == 8)
-                            {
-                                myAniam.speed = 1;
-                                if (isLeggood) { myAniMod = 34; }
-                                else { myAniMod = 33; }
-                                isCDTtime_eatfish = true;
-                                myQTE_C_Count = 0;
-                                print("qte C 成功");
-                            }
-                            break;
-                        default:
-                            print("你忘記設定QTE的ABC模式囉！！");
-                            break;
-                    }
+                if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 0)//怪物死翹翹
+                {
+                    myAniam.speed = 1;
+                    myAniMod = 2;
+                    print("myAniMod = 2;");
                 }
                 else {
-                    myBearAttackMod();
+                    if (isQTETime)
+                    {
+                        switch (myQTEMod)
+                        {
+                            case "A":
+                                if (myQTE_A_Count == 5)
+                                {
+                                    myAniam.speed = 1;
+                                    if (isLeggood) { myAniMod = 34; }
+                                    else { myAniMod = 33; }
+                                    isCDTtime_eatfish = true;
+                                    myQTE_A_Count = 0;
+                                    print("qte a 成功");
+                                }
+                                break;
+                            case "B":
+                                if (myQTE_B_Count > myQTE_B_TargetValue)
+                                {
+                                    myAniam.speed = 1;
+                                    if (isLeggood) { myAniMod = 34; }
+                                    else { myAniMod = 33; }
+                                    print("qte B 成功");
+                                    isCDTtime_eatfish = true;
+                                    myQTE_B_Count = 0;
+                                }
+                                break;
+                            case "C":
+                                if (myQTE_C_Count == 8)
+                                {
+                                    myAniam.speed = 1;
+                                    if (isLeggood) { myAniMod = 34; }
+                                    else { myAniMod = 33; }
+                                    isCDTtime_eatfish = true;
+                                    myQTE_C_Count = 0;
+                                    print("qte C 成功");
+                                }
+                                break;
+                            default:
+                                print("你忘記設定QTE的ABC模式囉！！");
+                                break;
+                        }
+                    }
+                    else {
+                        myBearAttackMod();
+                    }
+
+                    //myBearModControll();
                 }
-                
-                //myBearModControll();
             }
+        
             //QTE時光
             //if (isQTETime) { myQTEFN(); }
             myAniControll();

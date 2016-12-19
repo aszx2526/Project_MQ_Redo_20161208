@@ -74,6 +74,9 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
     public bool isBeHitTime;
     public float myBeHitTime;
     public float myBeHitTimer;
+
+    public bool isFreezeTime;
+
     void Start()
     {
         isWinggood = true;
@@ -86,15 +89,18 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
     void Update()
     {
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart&&myFatherObject.GetComponent<onMonsterVer3>().isMeToFight) {
-            if (GameObject.Find("Morale_Bar_Monster").GetComponent<Image>().fillAmount == 0)//怪物死翹翹
-            { myAniMod = 4;}
+            if (isFreezeTime) { }
             else {
-                /*myBigeyeHP = myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP;
-                myWingHP = myWingHitpoint.GetComponent<OnLookAtPoint>().myHP;*/
-                myIsFidgetyTimeFN();
-                myBigeyeAttackMod();
+                if (GameObject.Find("Morale_Bar_Monster").GetComponent<Image>().fillAmount == 0)//怪物死翹翹
+                { myAniMod = 4; }
+                else {
+                    /*myBigeyeHP = myBigeyeHitpoint.GetComponent<OnLookAtPoint>().myHP;
+                    myWingHP = myWingHitpoint.GetComponent<OnLookAtPoint>().myHP;*/
+                    myIsFidgetyTimeFN();
+                    myBigeyeAttackMod();
+                }
+                myAniControll();
             }
-            myAniControll();
         }
     }
     public void myIsFidgetyTimeFN() {

@@ -130,27 +130,34 @@ public class onMQVer3 : MonoBehaviour {
     public void MQBuff() {
         if (GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myMQSkillSettingMenu.MQ02_skill.isSkillWorking)
         {
-            if (myNurseTimer >= 1.85f){
+            int myhurttimes = GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myMQSkillSettingMenu.MQ02_skill.mySkillHurtTimes;
+            float myskillkeeptime = GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myMQSkillSettingMenu.MQ02_skill.mySkillKeepTime;
+            float myworkingTime = myskillkeeptime / (float)myhurttimes;
+            if (myNurseTimer >= myworkingTime)
+            {
                 myNurseTimer = 0;
-                if (myHP > myFullHP) { myHP = myFullHP; }
-                else {
-                    myHP += (int)((float)myFullHP * (GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myMQSkillSettingMenu.MQ02_skill.mySkillHurtValue_Morale/100));
+                if (myHP < myFullHP)
+                {
+                    //         print("myhp ++");
+                    myHP += (int)((float)myFullHP * (GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myMQSkillSettingMenu.MQ02_skill.mySkillHurtValue_Morale / 100));
                 }
+                else { myHP = myFullHP; }
             }
-            else { myNurseTimer += Time.deltaTime;}
+            else { myNurseTimer += Time.deltaTime; }
         }
-        if (isAttackPowerUpTime) {
-            if (isAttackPowerUpTimer >= 5) { isAttackPowerUpTimer = 0; isAttackPowerUpTime = false; }
-            else { isAttackPowerUpTimer += Time.deltaTime; }
-        }
-        if (isAttackSpeedUpTime) {
-            if (isAttackSpeedUpTimer >= 5) { isAttackSpeedUpTimer = 0; isAttackSpeedUpTime = false; }
-            else { isAttackSpeedUpTimer += Time.deltaTime; }
-        }
-        if (isCritHitUpTime) {
-            if (isCritHitUpTimer >= 5) { isCritHitUpTimer = 0; isCritHitUpTime = false; }
-            else { isCritHitUpTimer += Time.deltaTime; }
-        }
+
+        /*   if (isAttackPowerUpTime) {
+               if (isAttackPowerUpTimer >= 5) { isAttackPowerUpTimer = 0; isAttackPowerUpTime = false; }
+               else { isAttackPowerUpTimer += Time.deltaTime; }
+           }
+           if (isAttackSpeedUpTime) {
+               if (isAttackSpeedUpTimer >= 5) { isAttackSpeedUpTimer = 0; isAttackSpeedUpTime = false; }
+               else { isAttackSpeedUpTimer += Time.deltaTime; }
+           }
+           if (isCritHitUpTime) {
+               if (isCritHitUpTimer >= 5) { isCritHitUpTimer = 0; isCritHitUpTime = false; }
+               else { isCritHitUpTimer += Time.deltaTime; }
+           }*/
 
     }
     public void myMQModController()
@@ -271,7 +278,7 @@ public class onMQVer3 : MonoBehaviour {
         myFlyToTarget();
     }
     public void myMQSkill() {
-        if (GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myTeamBTNClick == WhatKindOfMQAmI) {
+        if (GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().myTeamID == WhatKindOfMQAmI) {
             switch (WhatKindOfMQAmI)
             {
                 case 1:

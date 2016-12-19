@@ -3,6 +3,8 @@ using System.Collections;
 using UnityEngine.UI;
 public class OnCameraForShootMQ : MonoBehaviour
 {
+    [Header("我的父物件")]
+    public onCamera_dtg myFather_DTG;
     [Header("蚊子出生點清單")]
     public GameObject[] myFirePoint;
     [Header("蚊子清單")]
@@ -14,15 +16,21 @@ public class OnCameraForShootMQ : MonoBehaviour
     public int myTeamDMQTypeID;
     public int myTeamEMQTypeID;
 
-    public int myTeamBTNClick;
+  //  public int myTeamBTNClick;
     float myTimer;
+    [Header("看場上總共多少蚊子_text")]
     public Text MQCount;
+    [Header("場上蚊子累加機")]
     public int myHowManyMQOnScene;
     [Header("=======================")]
+    [Header("各隊蚊子數量計算")]
     public int[] myTeamMQCount;
+    [Header("蚊子數量數字圖")]
     public GameObject[] myTeamAmount_Image;
     [Header("=======================")]
+    [Header("看看選到哪隊")]
     public bool[] myWhichTeam;
+    [Header("隊伍ID")]
     public int myTeamID;
     [Header("生一隻蚊子的時間")]
     public float myPutMQTime;
@@ -46,9 +54,14 @@ public class OnCameraForShootMQ : MonoBehaviour
         public int mySkillTargetType;
         [Header("傷害型別:0瞬發1持續")]
         public int mySkillStateType;
+        [Header("傷害次數")]
+        public int mySkillHurtTimes;
         [Header("持續行傷害秒數")]
         public float mySkillKeepTime;
         public float mySkillKeepTimer;
+        [Header("技能運行秒數")]
+        public float mySkilltimer;
+
         [Header("=======================")]
         [Header("傷害種類:0點數1士氣")]
         public int mySkillHurtRangeOfType;
@@ -135,24 +148,27 @@ public class OnCameraForShootMQ : MonoBehaviour
     public AudioSource myAudioSource;
 
     //-----auto fire
+    [Header("自動發射原生蚊")]
     public bool isAutoFire;
     public int myAutoFireBulletFullAmount;
     public int myAutoFireBulletAmount;
     public float myAutoFireTime;
     public float myAutoFireTimer;
     public int myAutoFireRandom;
+    [Header("原生蚊清單")]
     public GameObject[] myLocalMQList;
     public GameObject myMQSpawnPoint;
     //--------------
-   
 
+    public GameObject[] myHitEffect;
     void Start()
     {
-          myMQSkillSettingMenu.MQ01_skill.isSkillCDTime = true;
-          myMQSkillSettingMenu.MQ02_skill.isSkillCDTime = true;
-          myMQSkillSettingMenu.MQ03_skill.isSkillCDTime = true;
-          myMQSkillSettingMenu.MQ04_skill.isSkillCDTime = true;
-          myMQSkillSettingMenu.MQ05_skill.isSkillCDTime = true;
+        myFather_DTG = transform.parent.gameObject.GetComponent<onCamera_dtg>();
+        myMQSkillSettingMenu.MQ01_skill.isSkillCDTime = true;
+        myMQSkillSettingMenu.MQ02_skill.isSkillCDTime = true;
+        myMQSkillSettingMenu.MQ03_skill.isSkillCDTime = true;
+        myMQSkillSettingMenu.MQ04_skill.isSkillCDTime = true;
+        myMQSkillSettingMenu.MQ05_skill.isSkillCDTime = true;
         isPutMQTime = true;
         myPutMQTime = 0.3f;
         myAudioSource = gameObject.GetComponent<AudioSource>();
@@ -360,6 +376,7 @@ public class OnCameraForShootMQ : MonoBehaviour
     }
     //生蚊子的韓式
     public int mySpawnPointRandom;
+    //自動生蚊子
     public void myAutoCreatMQ()
     {
         if (myAutoFireBulletAmount == 0) {
@@ -372,6 +389,7 @@ public class OnCameraForShootMQ : MonoBehaviour
         }
         
     }
+    //按鈕晃動
     public void myBTNShakeFN(int myTeam_Num) {
         if (myTeamMQCount[myTeam_Num] > 0) {
             //按鈕晃動
@@ -471,7 +489,7 @@ public class OnCameraForShootMQ : MonoBehaviour
     public void myForBTNDown(int btn_num)
     {
         myWhichTeam[btn_num] = true;
-        myTeamBTNClick = btn_num + 1;
+        //myTeamBTNClick = btn_num + 1;
       /*  mySkillBTN[btn_num].transform.parent.transform.GetChild(1).GetComponent<Image>().sprite = mySkillBTN_Sprite[1];
         mySkillBTN[btn_num].transform.parent.transform.GetChild(1).transform.GetChild(1).GetComponent<Image>().sprite = myTeamBTN_hide[1];
         Color a = mySkillBTN[btn_num].transform.parent.transform.GetChild(1).transform.GetChild(1).GetComponent<Image>().color;
@@ -714,14 +732,24 @@ public class OnCameraForShootMQ : MonoBehaviour
                         GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ03_skill.mySkillHurtValue_Morale;
                     }
                     else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ03_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ03_skill.mySkillKeepTime)
+                        if (myMQSkillSettingMenu.MQ03_skill.mySkillKeepTimer <= myMQSkillSettingMenu.MQ03_skill.mySkillKeepTime)
                         {
-                            myMQSkillSettingMenu.MQ03_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ03_skill.isSkillWorking = false;
-                        }
-                        else {
                             myMQSkillSettingMenu.MQ03_skill.mySkillKeepTimer += Time.deltaTime;
                             //這邊就是丟持續要做的事情
+                            int myhurttimes = myMQSkillSettingMenu.MQ03_skill.mySkillHurtTimes;
+                            float myskillkeeptime = myMQSkillSettingMenu.MQ03_skill.mySkillKeepTime;
+                            float myworkingTime = myskillkeeptime / (float)myhurttimes;
+
+                            if (myMQSkillSettingMenu.MQ03_skill.mySkilltimer <= myworkingTime) { myMQSkillSettingMenu.MQ03_skill.mySkilltimer += Time.deltaTime; }
+                            else {
+                                myMQSkillSettingMenu.MQ03_skill.mySkilltimer = 0;
+                                int a = Random.Range(0, myFather_DTG.theLookAtPointOnMonster.Length);
+                                myAttackFN(myMQSkillSettingMenu.MQ03_skill.mySkillHurtValue_Point, myFather_DTG.theLookAtPointOnMonster[a]);
+                            }
+                        }
+                        else {
+                            myMQSkillSettingMenu.MQ03_skill.mySkillKeepTimer = 0;
+                            myMQSkillSettingMenu.MQ03_skill.isSkillWorking = false;
                         }
                     }
                 }
@@ -774,12 +802,17 @@ public class OnCameraForShootMQ : MonoBehaviour
                     else {//持續傷害
                         if (myMQSkillSettingMenu.MQ04_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ04_skill.mySkillKeepTime)
                         {
+                            int a = Random.Range(0, myFather_DTG.theLookAtPointOnMonster.Length);
+                            myAttackFN(myMQSkillSettingMenu.MQ04_skill.mySkillHurtValue_Point, myFather_DTG.theLookAtPointOnMonster[a]);
+                            myReFreezeFN(myFather_DTG.theLookAtPointOnMonster[1]);
                             myMQSkillSettingMenu.MQ04_skill.mySkillKeepTimer = 0;
                             myMQSkillSettingMenu.MQ04_skill.isSkillWorking = false;
                         }
                         else {
                             myMQSkillSettingMenu.MQ04_skill.mySkillKeepTimer += Time.deltaTime;
                             //這邊就是丟持續要做的事情
+                            myFreezeFN(myFather_DTG.theLookAtPointOnMonster[1]);
+
                         }
                     }
                 }
@@ -5788,6 +5821,110 @@ public class OnCameraForShootMQ : MonoBehaviour
                 myTeamBTNSelectUI[2].gameObject.SetActive(false);
                 myTeamBTNSelectUI[3].gameObject.SetActive(false);
                 myTeamBTNSelectUI[4].gameObject.SetActive(true);
+                break;
+        }
+    }
+    public void forHitEffect_Ver2(int if_0_IsPush_1_IsCritis, int myHurtValue,GameObject myHitEffectPoint)
+    {
+        switch (if_0_IsPush_1_IsCritis)
+        {
+            case 0:
+                GameObject pusheffect = Instantiate(myHitEffect[0], myHitEffectPoint.transform.position, myHitEffectPoint.transform.rotation) as GameObject;
+                break;
+            case 1:
+                GameObject critiseffect = Instantiate(myHitEffect[1], myHitEffectPoint.transform.position, myHitEffectPoint.transform.rotation) as GameObject;
+                critiseffect.transform.GetChild(1).GetComponent<onHitUI>().myBigHitValue = myHurtValue;
+                critiseffect.transform.GetChild(1).GetComponent<onHitUI>().isBigHit = if_0_IsPush_1_IsCritis;
+                break;
+            default:
+                break;
+        }
+    }
+    public void myAttackFN(int myHurtValue, GameObject myAttackTarget)
+    {
+        //GameObject myTargetObject = myFather.GetComponent<onMQVer3>().myTargetPoint;
+        switch (myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.name)
+        {
+            case "Bigeye_"://↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓大眼怪的攻擊判定↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                switch (myAttackTarget.name)
+                {
+                    case "hitpoint-1":
+                        forHitEffect_Ver2(0, myHurtValue, myAttackTarget);
+                        myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.GetComponent<onBigeyeForAniControllVer2>().myBigeyeGetHurtValue += myHurtValue;
+                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= (float)myHurtValue * GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleBloodValue;
+                        break;
+                    case "hitpoint-2":
+                    case "hitpoint-3":
+                        forHitEffect_Ver2(0, myHurtValue, myAttackTarget);
+                        myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.GetComponent<onBigeyeForAniControllVer2>().myBigeyeGetHurtValue += myHurtValue;
+                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= (float)myHurtValue * GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleBloodValue;
+                        break;
+                    case "hitpoint-4":
+                    case "hitpoint-5":
+                        forHitEffect_Ver2(0, myHurtValue, myAttackTarget);
+                        myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.GetComponent<onBigeyeForAniControllVer2>().myWingGetHurtValue += myHurtValue;
+                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= (float)myHurtValue * GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleBloodValue;
+                        break;
+                }
+                break;
+            case "Bear"://↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓熊的攻擊判定↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                switch (myAttackTarget.name)
+                {
+                    case "hitpoint-1":
+                        forHitEffect_Ver2(0, myHurtValue, myAttackTarget);
+                        myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.GetComponent<onIceBearForAniControll>().myHeadGetHurtValue += myHurtValue;
+                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= (float)myHurtValue * GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleBloodValue;
+                        break;
+                    case "hitpoint-2":
+                    case "hitpoint-3":
+                        forHitEffect_Ver2(0, myHurtValue, myAttackTarget);
+                        myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.GetComponent<onIceBearForAniControll>().myHeadGetHurtValue += myHurtValue;
+                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= (float)myHurtValue * GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleBloodValue;
+                        break;
+                    case "hitpoint-4":
+                    case "hitpoint-5":
+                        forHitEffect_Ver2(0, myHurtValue, myAttackTarget);
+                        myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.GetComponent<onIceBearForAniControll>().myLegGetHurtValue += myHurtValue;
+                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= (float)myHurtValue * GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleBloodValue;
+                        break;
+                }
+                break;
+            default:
+                print("這隻怪物尚未進行蚊子的攻擊判定");
+                break;
+        }
+    }
+    public void myFreezeFN(GameObject myAttackTarget)
+    {
+        switch (myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.name)
+        {
+            case "Bigeye_"://↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓大眼怪的攻擊判定↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.GetComponent<onBigeyeForAniControllVer2>().myAniam.speed = 0;
+                myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.GetComponent<onBigeyeForAniControllVer2>().isFreezeTime = true;
+                break;
+            case "Bear"://↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓熊的攻擊判定↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.GetComponent<onIceBearForAniControll>().myAniam.speed = 0;
+                myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.GetComponent<onIceBearForAniControll>().isFreezeTime = true;
+                break;
+            default:
+                print("這隻怪物尚未進行蚊子的攻擊判定");
+                break;
+        }
+    }
+    public void myReFreezeFN(GameObject myAttackTarget)
+    {
+        switch (myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.name)
+        {
+            case "Bigeye_"://↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓大眼怪的攻擊判定↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.GetComponent<onBigeyeForAniControllVer2>().myAniam.speed = 1;
+                myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.GetComponent<onBigeyeForAniControllVer2>().isFreezeTime = false;
+                break;
+            case "Bear"://↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓熊的攻擊判定↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
+                myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.GetComponent<onIceBearForAniControll>().myAniam.speed = 1;
+                myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.GetComponent<onIceBearForAniControll>().isFreezeTime = false;
+                break;
+            default:
+                print("這隻怪物尚未進行蚊子的攻擊判定");
                 break;
         }
     }

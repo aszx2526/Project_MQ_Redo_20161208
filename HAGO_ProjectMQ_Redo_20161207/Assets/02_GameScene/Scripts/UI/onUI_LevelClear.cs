@@ -48,9 +48,6 @@ public class onUI_LevelClear : MonoBehaviour {
             a = (float)myScore * 1;
             myCoin_Text.text = "$$：" + ((int)a).ToString();
         }
-
-
-
     }
     public void BTN_BackToBigMap() {
         if (myCountScore >= 1)//3星

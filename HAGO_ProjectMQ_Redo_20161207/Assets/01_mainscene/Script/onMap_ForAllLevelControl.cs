@@ -19,11 +19,11 @@ public class onMap_ForAllLevelControl : MonoBehaviour {
     // Use this for initialization
     void Start () {
         myLevelStarCountFN();
-        print("start");
+      //  print("start");
     }
     void Awake() {
         myLevelStarCountFN();
-        print("awake");
+       // print("awake");
     }
 	// Update is called once per frame
 	void Update () {
