@@ -169,6 +169,7 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_ShurikenThreadFix.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Spawn System\CFX_SpawnSystem.cs" />
+    <Compile Include="Assets\onIsland_Cloud.cs" />
     <Compile Include="Assets\onMainSceneCameraForFingerTouchControll.cs" />
   </ItemGroup>
   <ItemGroup>

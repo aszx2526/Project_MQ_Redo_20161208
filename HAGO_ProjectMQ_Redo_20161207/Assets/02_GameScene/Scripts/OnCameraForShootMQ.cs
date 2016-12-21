@@ -565,19 +565,19 @@ public class OnCameraForShootMQ : MonoBehaviour
     //public GameObject[] MQ;
     public void mySkillCheck()
     {
-        if (!isTeamSkillCD[0]) myASkillCheck();
-        if (!isTeamSkillCD[1]) myBSkillCheck();
-        if (!isTeamSkillCD[2]) myCSkillCheck();
-        if (!isTeamSkillCD[3]) myDSkillCheck();
-        if (!isTeamSkillCD[4]) myESkillCheck();
+        if (!isTeamSkillCD[0]) myTeamSkillCheck(myTeamAMQTypeID, 0);
+        if (!isTeamSkillCD[1]) myTeamSkillCheck(myTeamBMQTypeID, 1);
+        if (!isTeamSkillCD[2]) myTeamSkillCheck(myTeamCMQTypeID, 2);
+        if (!isTeamSkillCD[3]) myTeamSkillCheck(myTeamDMQTypeID, 3);
+        if (!isTeamSkillCD[4]) myTeamSkillCheck(myTeamEMQTypeID, 4);
     }
-    public void myASkillCheck()
-    {
-        switch (myTeamAMQTypeID)
+    public void myTeamSkillCheck(int myTeamMQTypeID,int myTeamID) {
+        switch (myTeamMQTypeID)
         {
             case 1://===============================士兵=================================
                 //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[0] >= myMQSkillSettingMenu.MQ01_skill.myMQNeedAmount){
+                if (myTeamMQCount[myTeamID] >= myMQSkillSettingMenu.MQ01_skill.myMQNeedAmount)
+                {
                     //檢查是否CD時間
                     if (myMQSkillSettingMenu.MQ01_skill.isSkillCDTime)
                     {
@@ -585,44 +585,47 @@ public class OnCameraForShootMQ : MonoBehaviour
                         {
                             myMQSkillSettingMenu.MQ01_skill.mySkillCDTimer = 0;
                             myMQSkillSettingMenu.MQ01_skill.isSkillCDTime = false;
-                            mySkillBTN[0].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
+                            mySkillBTN[myTeamID].GetComponent<Image>().raycastTarget = true;
+                            mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
 
                             //CD完成將CD遮罩處理掉
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = false;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 0;
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = false;
 
                             //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[0] = true;
+                            isSkillBTNJuiceTime[myTeamID] = true;
                         }
                         else {
                             //技能CD時間計算
                             myMQSkillSettingMenu.MQ01_skill.mySkillCDTimer += Time.deltaTime;
 
                             //技能CD遮罩
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ01_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ01_skill.mySkillCDTime);
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = true;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ01_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ01_skill.mySkillCDTime);
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = true;
                         }
                     }
                 }
                 else {
-                    mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
+                    mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
                 }
-               
+
                 //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ01_skill.isSkillWorking) {
+                if (myMQSkillSettingMenu.MQ01_skill.isSkillWorking)
+                {
                     //0=瞬發
-                    if (myMQSkillSettingMenu.MQ01_skill.mySkillStateType == 0) {
+                    if (myMQSkillSettingMenu.MQ01_skill.mySkillStateType == 0)
+                    {
                         myMQSkillSettingMenu.MQ01_skill.isSkillWorking = false;
                         //這邊就是丟瞬間要做的事情
                         GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ01_skill.mySkillHurtValue_Morale;
                     }
                     else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ01_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ01_skill.mySkillKeepTime) {
+                        if (myMQSkillSettingMenu.MQ01_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ01_skill.mySkillKeepTime)
+                        {
                             myMQSkillSettingMenu.MQ01_skill.mySkillKeepTimer = 0;
                             myMQSkillSettingMenu.MQ01_skill.isSkillWorking = false;
                         }
-                        else{
+                        else {
                             myMQSkillSettingMenu.MQ01_skill.mySkillKeepTimer += Time.deltaTime;
                             //這邊就是丟持續要做的事情
                         }
@@ -631,7 +634,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                 break;
             case 2://===============================護士=================================
                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[0] >= myMQSkillSettingMenu.MQ02_skill.myMQNeedAmount)
+                if (myTeamMQCount[myTeamID] >= myMQSkillSettingMenu.MQ02_skill.myMQNeedAmount)
                 { //檢查是否CD時間
                     if (myMQSkillSettingMenu.MQ02_skill.isSkillCDTime)
                     {
@@ -639,30 +642,30 @@ public class OnCameraForShootMQ : MonoBehaviour
                         {
                             myMQSkillSettingMenu.MQ02_skill.mySkillCDTimer = 0;
                             myMQSkillSettingMenu.MQ02_skill.isSkillCDTime = false;
-                            mySkillBTN[0].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
+                            mySkillBTN[myTeamID].GetComponent<Image>().raycastTarget = true;
+                            mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
                             //CD完成將CD遮罩處理掉
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = false;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 0;
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = false;
 
                             //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[0] = true;
+                            isSkillBTNJuiceTime[myTeamID] = true;
                         }
                         else {
                             //技能CD時間計算
                             myMQSkillSettingMenu.MQ02_skill.mySkillCDTimer += Time.deltaTime;
 
                             //技能CD遮罩
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ02_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ02_skill.mySkillCDTime);
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = true;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ02_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ02_skill.mySkillCDTime);
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = true;
                         }
                     }
-                    
+
                 }
                 else {
-                    mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
+                    mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
                 }
-               
+
                 //檢查技能是否啟動
                 if (myMQSkillSettingMenu.MQ02_skill.isSkillWorking)
                 {
@@ -688,7 +691,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                 break;
             case 3://===============================衝鋒=================================
                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[0] >= myMQSkillSettingMenu.MQ03_skill.myMQNeedAmount)
+                if (myTeamMQCount[myTeamID] >= myMQSkillSettingMenu.MQ03_skill.myMQNeedAmount)
                 {
                     //檢查是否CD時間
                     if (myMQSkillSettingMenu.MQ03_skill.isSkillCDTime)
@@ -697,28 +700,28 @@ public class OnCameraForShootMQ : MonoBehaviour
                         {
                             myMQSkillSettingMenu.MQ03_skill.mySkillCDTimer = 0;
                             myMQSkillSettingMenu.MQ03_skill.isSkillCDTime = false;
-                            mySkillBTN[0].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
+                            mySkillBTN[myTeamID].GetComponent<Image>().raycastTarget = true;
+                            mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
 
                             //CD完成將CD遮罩處理掉
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = false;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 0;
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = false;
 
                             //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[0] = true;
+                            isSkillBTNJuiceTime[myTeamID] = true;
                         }
                         else {
                             //技能CD時間計算
                             myMQSkillSettingMenu.MQ03_skill.mySkillCDTimer += Time.deltaTime;
 
                             //技能CD遮罩
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ03_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ03_skill.mySkillCDTime);
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = true;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ03_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ03_skill.mySkillCDTime);
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = true;
                         }
                     }
                 }
                 else {
-                    mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
+                    mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
                 }
 
                 //檢查技能是否啟動
@@ -756,7 +759,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                 break;
             case 4://===============================冰凍=================================
                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[0] >= myMQSkillSettingMenu.MQ04_skill.myMQNeedAmount)
+                if (myTeamMQCount[myTeamID] >= myMQSkillSettingMenu.MQ04_skill.myMQNeedAmount)
                 {
                     //檢查是否CD時間
                     if (myMQSkillSettingMenu.MQ04_skill.isSkillCDTime)
@@ -765,28 +768,28 @@ public class OnCameraForShootMQ : MonoBehaviour
                         {
                             myMQSkillSettingMenu.MQ04_skill.mySkillCDTimer = 0;
                             myMQSkillSettingMenu.MQ04_skill.isSkillCDTime = false;
-                            mySkillBTN[0].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
+                            mySkillBTN[myTeamID].GetComponent<Image>().raycastTarget = true;
+                            mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
 
                             //CD完成將CD遮罩處理掉
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = false;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 0;
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = false;
 
                             //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[0] = true;
+                            isSkillBTNJuiceTime[myTeamID] = true;
                         }
                         else {
                             //技能CD時間計算
                             myMQSkillSettingMenu.MQ04_skill.mySkillCDTimer += Time.deltaTime;
 
                             //技能CD遮罩
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ04_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ04_skill.mySkillCDTime);
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = true;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ04_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ04_skill.mySkillCDTime);
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = true;
                         }
                     }
                 }
                 else {
-                    mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
+                    mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
                 }
 
                 //檢查技能是否啟動
@@ -820,7 +823,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                 break;
             case 5://===============================法師=================================
                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[0] >= myMQSkillSettingMenu.MQ05_skill.myMQNeedAmount)
+                if (myTeamMQCount[myTeamID] >= myMQSkillSettingMenu.MQ05_skill.myMQNeedAmount)
                 {
                     //檢查是否CD時間
                     if (myMQSkillSettingMenu.MQ05_skill.isSkillCDTime)
@@ -829,28 +832,28 @@ public class OnCameraForShootMQ : MonoBehaviour
                         {
                             myMQSkillSettingMenu.MQ05_skill.mySkillCDTimer = 0;
                             myMQSkillSettingMenu.MQ05_skill.isSkillCDTime = false;
-                            mySkillBTN[0].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
+                            mySkillBTN[myTeamID].GetComponent<Image>().raycastTarget = true;
+                            mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
 
                             //CD完成將CD遮罩處理掉
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = false;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 0;
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = false;
 
                             //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[0] = true;
+                            isSkillBTNJuiceTime[myTeamID] = true;
                         }
                         else {
                             //技能CD時間計算
                             myMQSkillSettingMenu.MQ05_skill.mySkillCDTimer += Time.deltaTime;
 
                             //技能CD遮罩
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ05_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ05_skill.mySkillCDTime);
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = true;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ05_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ05_skill.mySkillCDTime);
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = true;
                         }
                     }
                 }
                 else {
-                    mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
+                    mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
                 }
 
                 //檢查技能是否啟動
@@ -861,6 +864,11 @@ public class OnCameraForShootMQ : MonoBehaviour
                     {
                         myMQSkillSettingMenu.MQ05_skill.isSkillWorking = false;
                         //這邊就是丟瞬間要做的事情
+                        
+                        
+                        for (int a = 0; a < myFather_DTG.theLookAtPointOnMonster.Length; a++) {
+                            myAttackFN(myMQSkillSettingMenu.MQ05_skill.mySkillHurtValue_Point, myFather_DTG.theLookAtPointOnMonster[a]);
+                        }
                         GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ05_skill.mySkillHurtValue_Morale;
                     }
                     else {//持續傷害
@@ -879,7 +887,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                 break;
             case 6://===============================生化=================================
                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[0] >= myMQSkillSettingMenu.MQ06_skill.myMQNeedAmount)
+                if (myTeamMQCount[myTeamID] >= myMQSkillSettingMenu.MQ06_skill.myMQNeedAmount)
                 {
                     //檢查是否CD時間
                     if (myMQSkillSettingMenu.MQ06_skill.isSkillCDTime)
@@ -888,28 +896,28 @@ public class OnCameraForShootMQ : MonoBehaviour
                         {
                             myMQSkillSettingMenu.MQ06_skill.mySkillCDTimer = 0;
                             myMQSkillSettingMenu.MQ06_skill.isSkillCDTime = false;
-                            mySkillBTN[0].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
+                            mySkillBTN[myTeamID].GetComponent<Image>().raycastTarget = true;
+                            mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
 
                             //CD完成將CD遮罩處理掉
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = false;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 0;
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = false;
 
                             //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[0] = true;
+                            isSkillBTNJuiceTime[myTeamID] = true;
                         }
                         else {
                             //技能CD時間計算
                             myMQSkillSettingMenu.MQ06_skill.mySkillCDTimer += Time.deltaTime;
 
                             //技能CD遮罩
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ06_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ06_skill.mySkillCDTime);
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = true;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ06_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ06_skill.mySkillCDTime);
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = true;
                         }
                     }
                 }
                 else {
-                    mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
+                    mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
                 }
 
                 //檢查技能是否啟動
@@ -938,7 +946,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                 break;
             case 7://===============================獵人=================================
                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[0] >= myMQSkillSettingMenu.MQ07_skill.myMQNeedAmount)
+                if (myTeamMQCount[myTeamID] >= myMQSkillSettingMenu.MQ07_skill.myMQNeedAmount)
                 {
                     //檢查是否CD時間
                     if (myMQSkillSettingMenu.MQ07_skill.isSkillCDTime)
@@ -947,28 +955,28 @@ public class OnCameraForShootMQ : MonoBehaviour
                         {
                             myMQSkillSettingMenu.MQ07_skill.mySkillCDTimer = 0;
                             myMQSkillSettingMenu.MQ07_skill.isSkillCDTime = false;
-                            mySkillBTN[0].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
+                            mySkillBTN[myTeamID].GetComponent<Image>().raycastTarget = true;
+                            mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
 
                             //CD完成將CD遮罩處理掉
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = false;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 0;
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = false;
 
                             //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[0] = true;
+                            isSkillBTNJuiceTime[myTeamID] = true;
                         }
                         else {
                             //技能CD時間計算
                             myMQSkillSettingMenu.MQ07_skill.mySkillCDTimer += Time.deltaTime;
 
                             //技能CD遮罩
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ07_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ07_skill.mySkillCDTime);
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = true;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ07_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ07_skill.mySkillCDTime);
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = true;
                         }
                     }
                 }
                 else {
-                    mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
+                    mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
                 }
 
                 //檢查技能是否啟動
@@ -997,7 +1005,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                 break;
             case 8://===============================金盾=================================
                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[0] >= myMQSkillSettingMenu.MQ08_skill.myMQNeedAmount)
+                if (myTeamMQCount[myTeamID] >= myMQSkillSettingMenu.MQ08_skill.myMQNeedAmount)
                 {
                     //檢查是否CD時間
                     if (myMQSkillSettingMenu.MQ08_skill.isSkillCDTime)
@@ -1006,28 +1014,28 @@ public class OnCameraForShootMQ : MonoBehaviour
                         {
                             myMQSkillSettingMenu.MQ08_skill.mySkillCDTimer = 0;
                             myMQSkillSettingMenu.MQ08_skill.isSkillCDTime = false;
-                            mySkillBTN[0].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
+                            mySkillBTN[myTeamID].GetComponent<Image>().raycastTarget = true;
+                            mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
 
                             //CD完成將CD遮罩處理掉
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = false;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 0;
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = false;
 
                             //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[0] = true;
+                            isSkillBTNJuiceTime[myTeamID] = true;
                         }
                         else {
                             //技能CD時間計算
                             myMQSkillSettingMenu.MQ08_skill.mySkillCDTimer += Time.deltaTime;
 
                             //技能CD遮罩
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ08_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ08_skill.mySkillCDTime);
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = true;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ08_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ08_skill.mySkillCDTime);
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = true;
                         }
                     }
                 }
                 else {
-                    mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
+                    mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
                 }
 
                 //檢查技能是否啟動
@@ -1056,7 +1064,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                 break;
             case 9://===============================炸彈=================================
                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[0] >= myMQSkillSettingMenu.MQ09_skill.myMQNeedAmount)
+                if (myTeamMQCount[myTeamID] >= myMQSkillSettingMenu.MQ09_skill.myMQNeedAmount)
                 {
                     //檢查是否CD時間
                     if (myMQSkillSettingMenu.MQ09_skill.isSkillCDTime)
@@ -1065,28 +1073,28 @@ public class OnCameraForShootMQ : MonoBehaviour
                         {
                             myMQSkillSettingMenu.MQ09_skill.mySkillCDTimer = 0;
                             myMQSkillSettingMenu.MQ09_skill.isSkillCDTime = false;
-                            mySkillBTN[0].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
+                            mySkillBTN[myTeamID].GetComponent<Image>().raycastTarget = true;
+                            mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
 
                             //CD完成將CD遮罩處理掉
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = false;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 0;
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = false;
 
                             //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[0] = true;
+                            isSkillBTNJuiceTime[myTeamID] = true;
                         }
                         else {
                             //技能CD時間計算
                             myMQSkillSettingMenu.MQ09_skill.mySkillCDTimer += Time.deltaTime;
 
                             //技能CD遮罩
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ09_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ09_skill.mySkillCDTime);
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = true;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ09_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ09_skill.mySkillCDTime);
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = true;
                         }
                     }
                 }
                 else {
-                    mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
+                    mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
                 }
 
                 //檢查技能是否啟動
@@ -1114,7 +1122,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                 break;
             case 10://===============================機械=================================
                     //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[0] >= myMQSkillSettingMenu.MQ10_skill.myMQNeedAmount)
+                if (myTeamMQCount[myTeamID] >= myMQSkillSettingMenu.MQ10_skill.myMQNeedAmount)
                 {
                     //檢查是否CD時間
                     if (myMQSkillSettingMenu.MQ10_skill.isSkillCDTime)
@@ -1123,28 +1131,28 @@ public class OnCameraForShootMQ : MonoBehaviour
                         {
                             myMQSkillSettingMenu.MQ10_skill.mySkillCDTimer = 0;
                             myMQSkillSettingMenu.MQ10_skill.isSkillCDTime = false;
-                            mySkillBTN[0].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
+                            mySkillBTN[myTeamID].GetComponent<Image>().raycastTarget = true;
+                            mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
 
                             //CD完成將CD遮罩處理掉
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = false;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 0;
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = false;
 
                             //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[0] = true;
+                            isSkillBTNJuiceTime[myTeamID] = true;
                         }
                         else {
                             //技能CD時間計算
                             myMQSkillSettingMenu.MQ10_skill.mySkillCDTimer += Time.deltaTime;
 
                             //技能CD遮罩
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ10_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ10_skill.mySkillCDTime);
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = true;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ10_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ10_skill.mySkillCDTime);
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = true;
                         }
                     }
                 }
                 else {
-                    mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
+                    mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
                 }
 
                 //檢查技能是否啟動
@@ -1173,7 +1181,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                 break;
             case 11://===============================詩人=================================
                 //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[0] >= myMQSkillSettingMenu.MQ11_skill.myMQNeedAmount)
+                if (myTeamMQCount[myTeamID] >= myMQSkillSettingMenu.MQ11_skill.myMQNeedAmount)
                 {
                     //檢查是否CD時間
                     if (myMQSkillSettingMenu.MQ11_skill.isSkillCDTime)
@@ -1182,28 +1190,28 @@ public class OnCameraForShootMQ : MonoBehaviour
                         {
                             myMQSkillSettingMenu.MQ11_skill.mySkillCDTimer = 0;
                             myMQSkillSettingMenu.MQ11_skill.isSkillCDTime = false;
-                            mySkillBTN[0].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
+                            mySkillBTN[myTeamID].GetComponent<Image>().raycastTarget = true;
+                            mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
 
                             //CD完成將CD遮罩處理掉
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = false;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 0;
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = false;
 
                             //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[0] = true;
+                            isSkillBTNJuiceTime[myTeamID] = true;
                         }
                         else {
                             //技能CD時間計算
                             myMQSkillSettingMenu.MQ11_skill.mySkillCDTimer += Time.deltaTime;
 
                             //技能CD遮罩
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ11_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ11_skill.mySkillCDTime);
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = true;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ11_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ11_skill.mySkillCDTime);
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = true;
                         }
                     }
                 }
                 else {
-                    mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
+                    mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
                 }
 
                 //檢查技能是否啟動
@@ -1232,7 +1240,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                 break;
             case 12://===============================喪屍=================================
                     //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[0] >= myMQSkillSettingMenu.MQ12_skill.myMQNeedAmount)
+                if (myTeamMQCount[myTeamID] >= myMQSkillSettingMenu.MQ12_skill.myMQNeedAmount)
                 {
                     //檢查是否CD時間
                     if (myMQSkillSettingMenu.MQ12_skill.isSkillCDTime)
@@ -1241,28 +1249,28 @@ public class OnCameraForShootMQ : MonoBehaviour
                         {
                             myMQSkillSettingMenu.MQ12_skill.mySkillCDTimer = 0;
                             myMQSkillSettingMenu.MQ12_skill.isSkillCDTime = false;
-                            mySkillBTN[0].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
+                            mySkillBTN[myTeamID].GetComponent<Image>().raycastTarget = true;
+                            mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
 
                             //CD完成將CD遮罩處理掉
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = false;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 0;
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = false;
 
                             //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[0] = true;
+                            isSkillBTNJuiceTime[myTeamID] = true;
                         }
                         else {
                             //技能CD時間計算
                             myMQSkillSettingMenu.MQ12_skill.mySkillCDTimer += Time.deltaTime;
 
                             //技能CD遮罩
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ12_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ12_skill.mySkillCDTime);
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = true;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ12_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ12_skill.mySkillCDTime);
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = true;
                         }
                     }
                 }
                 else {
-                    mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
+                    mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
                 }
 
                 //檢查技能是否啟動
@@ -1291,7 +1299,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                 break;
             case 13://===============================吸血=================================
                     //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[0] >= myMQSkillSettingMenu.MQ13_skill.myMQNeedAmount)
+                if (myTeamMQCount[myTeamID] >= myMQSkillSettingMenu.MQ13_skill.myMQNeedAmount)
                 {
                     //檢查是否CD時間
                     if (myMQSkillSettingMenu.MQ13_skill.isSkillCDTime)
@@ -1300,28 +1308,28 @@ public class OnCameraForShootMQ : MonoBehaviour
                         {
                             myMQSkillSettingMenu.MQ13_skill.mySkillCDTimer = 0;
                             myMQSkillSettingMenu.MQ13_skill.isSkillCDTime = false;
-                            mySkillBTN[0].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
+                            mySkillBTN[myTeamID].GetComponent<Image>().raycastTarget = true;
+                            mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
 
                             //CD完成將CD遮罩處理掉
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = false;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 0;
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = false;
 
                             //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[0] = true;
+                            isSkillBTNJuiceTime[myTeamID] = true;
                         }
                         else {
                             //技能CD時間計算
                             myMQSkillSettingMenu.MQ13_skill.mySkillCDTimer += Time.deltaTime;
 
                             //技能CD遮罩
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ13_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ13_skill.mySkillCDTime);
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = true;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ13_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ13_skill.mySkillCDTime);
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = true;
                         }
                     }
                 }
                 else {
-                    mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
+                    mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
                 }
 
                 //檢查技能是否啟動
@@ -1350,7 +1358,7 @@ public class OnCameraForShootMQ : MonoBehaviour
                 break;
             case 14://===============================黑洞=================================
                     //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[0] >= myMQSkillSettingMenu.MQ14_skill.myMQNeedAmount)
+                if (myTeamMQCount[myTeamID] >= myMQSkillSettingMenu.MQ14_skill.myMQNeedAmount)
                 {
                     //檢查是否CD時間
                     if (myMQSkillSettingMenu.MQ14_skill.isSkillCDTime)
@@ -1359,28 +1367,28 @@ public class OnCameraForShootMQ : MonoBehaviour
                         {
                             myMQSkillSettingMenu.MQ14_skill.mySkillCDTimer = 0;
                             myMQSkillSettingMenu.MQ14_skill.isSkillCDTime = false;
-                            mySkillBTN[0].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
+                            mySkillBTN[myTeamID].GetComponent<Image>().raycastTarget = true;
+                            mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
 
                             //CD完成將CD遮罩處理掉
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = false;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 0;
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = false;
 
                             //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[0] = true;
+                            isSkillBTNJuiceTime[myTeamID] = true;
                         }
                         else {
                             //技能CD時間計算
                             myMQSkillSettingMenu.MQ14_skill.mySkillCDTimer += Time.deltaTime;
 
                             //技能CD遮罩
-                            myCDBlack[0].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ14_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ14_skill.mySkillCDTime);
-                            myCDBlack[0].GetComponent<Image>().raycastTarget = true;
+                            myCDBlack[myTeamID].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ14_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ14_skill.mySkillCDTime);
+                            myCDBlack[myTeamID].GetComponent<Image>().raycastTarget = true;
                         }
                     }
                 }
                 else {
-                    mySkillBTN[0].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
+                    mySkillBTN[myTeamID].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
                 }
 
                 //檢查技能是否啟動
@@ -1408,3318 +1416,12 @@ public class OnCameraForShootMQ : MonoBehaviour
 
                 break;
         }
+
     }
-    public void myBSkillCheck()
+    public void myASkillCheck()
     {
-        switch (myTeamBMQTypeID)
-        {
-            case 1://===============================士兵=================================
-                //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[1] >= myMQSkillSettingMenu.MQ01_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ01_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ01_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ01_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ01_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ01_skill.isSkillCDTime = false;
-                            mySkillBTN[1].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[1] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ01_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ01_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ01_skill.mySkillCDTime);
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ01_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ01_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ01_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ01_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ01_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ01_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ01_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ01_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ01_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-                break;
-            case 2://===============================護士=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[1] >= myMQSkillSettingMenu.MQ02_skill.myMQNeedAmount)
-                { //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ02_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ02_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ02_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ02_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ02_skill.isSkillCDTime = false;
-                            mySkillBTN[1].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[1] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ02_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ02_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ02_skill.mySkillCDTime);
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-
-                }
-                else {
-                    mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ02_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ02_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ02_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ02_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ02_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ02_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ02_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ02_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ02_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-                break;
-            case 3://===============================衝鋒=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[1] >= myMQSkillSettingMenu.MQ03_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ03_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ03_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ03_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ03_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ03_skill.isSkillCDTime = false;
-                            mySkillBTN[1].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[1] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ03_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ03_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ03_skill.mySkillCDTime);
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ03_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ03_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ03_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ03_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ03_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ03_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ03_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ03_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ03_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-                break;
-            case 4://===============================冰凍=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[1] >= myMQSkillSettingMenu.MQ04_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ04_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ04_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ04_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ04_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ04_skill.isSkillCDTime = false;
-                            mySkillBTN[1].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[1] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ04_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ04_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ04_skill.mySkillCDTime);
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ04_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ04_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ04_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ04_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ04_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ04_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ04_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ04_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ04_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 5://===============================法師=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[1] >= myMQSkillSettingMenu.MQ05_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ05_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ05_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ05_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ05_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ05_skill.isSkillCDTime = false;
-                            mySkillBTN[1].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[1] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ05_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ05_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ05_skill.mySkillCDTime);
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ05_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ05_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ05_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ05_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ05_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ05_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ05_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ05_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ05_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 6://===============================生化=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[1] >= myMQSkillSettingMenu.MQ06_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ06_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ06_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ06_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ06_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ06_skill.isSkillCDTime = false;
-                            mySkillBTN[1].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[1] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ06_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ06_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ06_skill.mySkillCDTime);
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ06_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ06_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ06_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ06_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ06_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ06_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ06_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ06_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ06_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 7://===============================獵人=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[1] >= myMQSkillSettingMenu.MQ07_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ07_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ07_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ07_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ07_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ07_skill.isSkillCDTime = false;
-                            mySkillBTN[1].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[1] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ07_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ07_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ07_skill.mySkillCDTime);
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ07_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ07_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ07_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ07_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ07_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ07_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ07_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ07_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ07_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 8://===============================金盾=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[1] >= myMQSkillSettingMenu.MQ08_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ08_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ08_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ08_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ08_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ08_skill.isSkillCDTime = false;
-                            mySkillBTN[1].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[1] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ08_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ08_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ08_skill.mySkillCDTime);
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ08_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ08_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ08_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ08_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ08_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ08_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ08_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ08_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ08_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 9://===============================炸彈=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[1] >= myMQSkillSettingMenu.MQ09_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ09_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ09_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ09_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ09_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ09_skill.isSkillCDTime = false;
-                            mySkillBTN[1].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[1] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ09_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ09_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ09_skill.mySkillCDTime);
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ09_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ09_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ09_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ09_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ09_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ09_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ09_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ09_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ09_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-                break;
-            case 10://===============================機械=================================
-                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[1] >= myMQSkillSettingMenu.MQ10_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ10_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ10_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ10_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ10_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ10_skill.isSkillCDTime = false;
-                            mySkillBTN[1].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[1] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ10_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ10_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ10_skill.mySkillCDTime);
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ10_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ10_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ10_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ10_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ10_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ10_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ10_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ10_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ10_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 11://===============================詩人=================================
-                //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[1] >= myMQSkillSettingMenu.MQ11_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ11_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ11_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ11_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ11_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ11_skill.isSkillCDTime = false;
-                            mySkillBTN[1].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[1] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ11_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ11_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ11_skill.mySkillCDTime);
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ11_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ11_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ11_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ11_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ11_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ11_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ11_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ11_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ11_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 12://===============================喪屍=================================
-                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[1] >= myMQSkillSettingMenu.MQ12_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ12_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ12_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ12_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ12_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ12_skill.isSkillCDTime = false;
-                            mySkillBTN[1].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[1] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ12_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ12_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ12_skill.mySkillCDTime);
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ12_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ12_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ12_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ12_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ12_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ12_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ12_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ12_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ12_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 13://===============================吸血=================================
-                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[1] >= myMQSkillSettingMenu.MQ13_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ13_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ13_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ13_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ13_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ13_skill.isSkillCDTime = false;
-                            mySkillBTN[1].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[1] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ13_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ13_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ13_skill.mySkillCDTime);
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ13_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ13_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ13_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ13_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ13_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ13_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ13_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ13_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ13_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 14://===============================黑洞=================================
-                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[1] >= myMQSkillSettingMenu.MQ14_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ14_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ14_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ14_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ14_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ14_skill.isSkillCDTime = false;
-                            mySkillBTN[1].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[1] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ14_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[1].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ14_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ14_skill.mySkillCDTime);
-                            myCDBlack[1].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[1].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ14_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ14_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ14_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ14_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ14_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ14_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ14_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ14_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ14_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-        }
-
+        
     }
-    public void myCSkillCheck()
-    {
-        switch (myTeamCMQTypeID)
-        {
-            case 1://===============================士兵=================================
-                //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[2] >= myMQSkillSettingMenu.MQ01_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ01_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ01_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ01_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ01_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ01_skill.isSkillCDTime = false;
-                            mySkillBTN[2].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[2] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ01_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ01_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ01_skill.mySkillCDTime);
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ01_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ01_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ01_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ01_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ01_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ01_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ01_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ01_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ01_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-                break;
-            case 2://===============================護士=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[2] >= myMQSkillSettingMenu.MQ02_skill.myMQNeedAmount)
-                { //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ02_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ02_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ02_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ02_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ02_skill.isSkillCDTime = false;
-                            mySkillBTN[2].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[2] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ02_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ02_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ02_skill.mySkillCDTime);
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-
-                }
-                else {
-                    mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ02_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ02_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ02_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ02_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ02_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ02_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ02_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ02_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ02_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-                break;
-            case 3://===============================衝鋒=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[2] >= myMQSkillSettingMenu.MQ03_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ03_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ03_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ03_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ03_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ03_skill.isSkillCDTime = false;
-                            mySkillBTN[2].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[2] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ03_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ03_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ03_skill.mySkillCDTime);
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ03_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ03_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ03_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ03_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ03_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ03_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ03_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ03_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ03_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-                break;
-            case 4://===============================冰凍=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[2] >= myMQSkillSettingMenu.MQ04_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ04_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ04_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ04_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ04_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ04_skill.isSkillCDTime = false;
-                            mySkillBTN[2].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[2] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ04_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ04_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ04_skill.mySkillCDTime);
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ04_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ04_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ04_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ04_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ04_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ04_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ04_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ04_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ04_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 5://===============================法師=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[2] >= myMQSkillSettingMenu.MQ05_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ05_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ05_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ05_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ05_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ05_skill.isSkillCDTime = false;
-                            mySkillBTN[2].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[2] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ05_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ05_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ05_skill.mySkillCDTime);
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ05_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ05_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ05_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ05_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ05_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ05_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ05_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ05_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ05_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 6://===============================生化=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[2] >= myMQSkillSettingMenu.MQ06_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ06_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ06_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ06_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ06_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ06_skill.isSkillCDTime = false;
-                            mySkillBTN[2].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[2] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ06_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ06_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ06_skill.mySkillCDTime);
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ06_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ06_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ06_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ06_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ06_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ06_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ06_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ06_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ06_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 7://===============================獵人=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[2] >= myMQSkillSettingMenu.MQ07_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ07_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ07_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ07_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ07_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ07_skill.isSkillCDTime = false;
-                            mySkillBTN[2].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[2] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ07_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ07_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ07_skill.mySkillCDTime);
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ07_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ07_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ07_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ07_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ07_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ07_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ07_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ07_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ07_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 8://===============================金盾=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[2] >= myMQSkillSettingMenu.MQ08_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ08_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ08_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ08_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ08_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ08_skill.isSkillCDTime = false;
-                            mySkillBTN[2].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[2] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ08_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ08_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ08_skill.mySkillCDTime);
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ08_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ08_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ08_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ08_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ08_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ08_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ08_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ08_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ08_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 9://===============================炸彈=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[2] >= myMQSkillSettingMenu.MQ09_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ09_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ09_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ09_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ09_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ09_skill.isSkillCDTime = false;
-                            mySkillBTN[2].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[2] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ09_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ09_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ09_skill.mySkillCDTime);
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ09_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ09_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ09_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ09_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ09_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ09_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ09_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ09_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ09_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-                break;
-            case 10://===============================機械=================================
-                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[2] >= myMQSkillSettingMenu.MQ10_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ10_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ10_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ10_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ10_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ10_skill.isSkillCDTime = false;
-                            mySkillBTN[2].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[2] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ10_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ10_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ10_skill.mySkillCDTime);
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ10_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ10_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ10_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ10_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ10_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ10_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ10_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ10_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ10_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 11://===============================詩人=================================
-                //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[2] >= myMQSkillSettingMenu.MQ11_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ11_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ11_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ11_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ11_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ11_skill.isSkillCDTime = false;
-                            mySkillBTN[2].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[2] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ11_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ11_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ11_skill.mySkillCDTime);
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ11_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ11_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ11_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ11_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ11_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ11_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ11_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ11_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ11_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 12://===============================喪屍=================================
-                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[2] >= myMQSkillSettingMenu.MQ12_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ12_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ12_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ12_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ12_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ12_skill.isSkillCDTime = false;
-                            mySkillBTN[2].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[2] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ12_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ12_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ12_skill.mySkillCDTime);
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ12_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ12_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ12_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ12_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ12_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ12_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ12_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ12_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ12_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 13://===============================吸血=================================
-                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[2] >= myMQSkillSettingMenu.MQ13_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ13_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ13_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ13_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ13_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ13_skill.isSkillCDTime = false;
-                            mySkillBTN[2].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[2] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ13_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ13_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ13_skill.mySkillCDTime);
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ13_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ13_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ13_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ13_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ13_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ13_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ13_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ13_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ13_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 14://===============================黑洞=================================
-                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[2] >= myMQSkillSettingMenu.MQ14_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ14_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ14_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ14_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ14_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ14_skill.isSkillCDTime = false;
-                            mySkillBTN[2].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[2] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ14_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[2].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ14_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ14_skill.mySkillCDTime);
-                            myCDBlack[2].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[2].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ14_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ14_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ14_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ14_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ14_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ14_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ14_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ14_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ14_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-                break;
-        }
-    }
-    public void myDSkillCheck()
-    {
-        switch (myTeamDMQTypeID)
-        {
-            case 1://===============================士兵=================================
-                //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[3] >= myMQSkillSettingMenu.MQ01_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ01_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ01_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ01_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ01_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ01_skill.isSkillCDTime = false;
-                            mySkillBTN[3].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[3] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ01_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ01_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ01_skill.mySkillCDTime);
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ01_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ01_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ01_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ01_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ01_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ01_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ01_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ01_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ01_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-                break;
-            case 2://===============================護士=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[3] >= myMQSkillSettingMenu.MQ02_skill.myMQNeedAmount)
-                { //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ02_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ02_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ02_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ02_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ02_skill.isSkillCDTime = false;
-                            mySkillBTN[3].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[3] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ02_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ02_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ02_skill.mySkillCDTime);
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-
-                }
-                else {
-                    mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ02_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ02_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ02_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ02_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ02_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ02_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ02_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ02_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ02_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-                break;
-            case 3://===============================衝鋒=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[3] >= myMQSkillSettingMenu.MQ03_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ03_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ03_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ03_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ03_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ03_skill.isSkillCDTime = false;
-                            mySkillBTN[3].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[3] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ03_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ03_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ03_skill.mySkillCDTime);
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ03_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ03_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ03_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ03_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ03_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ03_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ03_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ03_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ03_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-                break;
-            case 4://===============================冰凍=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[3] >= myMQSkillSettingMenu.MQ04_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ04_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ04_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ04_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ04_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ04_skill.isSkillCDTime = false;
-                            mySkillBTN[3].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[3] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ04_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ04_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ04_skill.mySkillCDTime);
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ04_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ04_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ04_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ04_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ04_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ04_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ04_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ04_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ04_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 5://===============================法師=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[3] >= myMQSkillSettingMenu.MQ05_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ05_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ05_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ05_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ05_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ05_skill.isSkillCDTime = false;
-                            mySkillBTN[3].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[3] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ05_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ05_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ05_skill.mySkillCDTime);
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ05_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ05_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ05_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ05_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ05_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ05_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ05_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ05_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ05_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 6://===============================生化=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[3] >= myMQSkillSettingMenu.MQ06_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ06_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ06_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ06_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ06_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ06_skill.isSkillCDTime = false;
-                            mySkillBTN[3].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[3] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ06_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ06_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ06_skill.mySkillCDTime);
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ06_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ06_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ06_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ06_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ06_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ06_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ06_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ06_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ06_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 7://===============================獵人=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[3] >= myMQSkillSettingMenu.MQ07_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ07_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ07_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ07_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ07_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ07_skill.isSkillCDTime = false;
-                            mySkillBTN[3].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[3] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ07_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ07_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ07_skill.mySkillCDTime);
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ07_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ07_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ07_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ07_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ07_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ07_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ07_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ07_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ07_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 8://===============================金盾=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[3] >= myMQSkillSettingMenu.MQ08_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ08_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ08_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ08_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ08_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ08_skill.isSkillCDTime = false;
-                            mySkillBTN[3].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[3] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ08_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ08_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ08_skill.mySkillCDTime);
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ08_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ08_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ08_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ08_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ08_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ08_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ08_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ08_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ08_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 9://===============================炸彈=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[3] >= myMQSkillSettingMenu.MQ09_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ09_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ09_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ09_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ09_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ09_skill.isSkillCDTime = false;
-                            mySkillBTN[3].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[3] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ09_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ09_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ09_skill.mySkillCDTime);
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ09_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ09_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ09_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ09_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ09_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ09_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ09_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ09_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ09_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-                break;
-            case 10://===============================機械=================================
-                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[3] >= myMQSkillSettingMenu.MQ10_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ10_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ10_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ10_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ10_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ10_skill.isSkillCDTime = false;
-                            mySkillBTN[3].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[3] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ10_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ10_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ10_skill.mySkillCDTime);
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ10_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ10_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ10_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ10_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ10_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ10_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ10_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ10_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ10_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 11://===============================詩人=================================
-                //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[3] >= myMQSkillSettingMenu.MQ11_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ11_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ11_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ11_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ11_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ11_skill.isSkillCDTime = false;
-                            mySkillBTN[3].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[3] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ11_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ11_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ11_skill.mySkillCDTime);
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ11_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ11_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ11_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ11_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ11_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ11_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ11_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ11_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ11_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 12://===============================喪屍=================================
-                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[3] >= myMQSkillSettingMenu.MQ12_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ12_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ12_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ12_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ12_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ12_skill.isSkillCDTime = false;
-                            mySkillBTN[3].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[3] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ12_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ12_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ12_skill.mySkillCDTime);
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ12_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ12_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ12_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ12_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ12_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ12_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ12_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ12_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ12_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 13://===============================吸血=================================
-                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[3] >= myMQSkillSettingMenu.MQ13_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ13_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ13_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ13_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ13_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ13_skill.isSkillCDTime = false;
-                            mySkillBTN[3].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[3] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ13_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ13_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ13_skill.mySkillCDTime);
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ13_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ13_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ13_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ13_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ13_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ13_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ13_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ13_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ13_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 14://===============================黑洞=================================
-                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[3] >= myMQSkillSettingMenu.MQ14_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ14_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ14_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ14_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ14_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ14_skill.isSkillCDTime = false;
-                            mySkillBTN[3].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[3] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ14_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[3].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ14_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ14_skill.mySkillCDTime);
-                            myCDBlack[3].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[3].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ14_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ14_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ14_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ14_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ14_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ14_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ14_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ14_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ14_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-        }
-
-    }
-    public void myESkillCheck()
-    {
-        switch (myTeamEMQTypeID)
-        {
-            case 1://===============================士兵=================================
-                //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[4] >= myMQSkillSettingMenu.MQ01_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ01_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ01_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ01_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ01_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ01_skill.isSkillCDTime = false;
-                            mySkillBTN[4].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[4] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ01_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ01_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ01_skill.mySkillCDTime);
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ01_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ01_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ01_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ01_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ01_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ01_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ01_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ01_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ01_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-                break;
-            case 2://===============================護士=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[4] >= myMQSkillSettingMenu.MQ02_skill.myMQNeedAmount)
-                { //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ02_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ02_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ02_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ02_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ02_skill.isSkillCDTime = false;
-                            mySkillBTN[4].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[4] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ02_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ02_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ02_skill.mySkillCDTime);
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-
-                }
-                else {
-                    mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ02_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ02_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ02_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ02_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ02_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ02_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ02_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ02_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ02_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-                break;
-            case 3://===============================衝鋒=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[4] >= myMQSkillSettingMenu.MQ03_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ03_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ03_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ03_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ03_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ03_skill.isSkillCDTime = false;
-                            mySkillBTN[4].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[4] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ03_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ03_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ03_skill.mySkillCDTime);
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ03_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ03_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ03_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ03_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ03_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ03_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ03_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ03_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ03_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-                break;
-            case 4://===============================冰凍=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[4] >= myMQSkillSettingMenu.MQ04_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ04_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ04_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ04_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ04_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ04_skill.isSkillCDTime = false;
-                            mySkillBTN[4].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[4] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ04_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ04_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ04_skill.mySkillCDTime);
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ04_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ04_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ04_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ04_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ04_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ04_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ04_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ04_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ04_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 5://===============================法師=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[4] >= myMQSkillSettingMenu.MQ05_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ05_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ05_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ05_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ05_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ05_skill.isSkillCDTime = false;
-                            mySkillBTN[4].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[4] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ05_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ05_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ05_skill.mySkillCDTime);
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ05_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ05_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ05_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ05_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ05_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ05_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ05_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ05_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ05_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 6://===============================生化=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[4] >= myMQSkillSettingMenu.MQ06_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ06_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ06_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ06_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ06_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ06_skill.isSkillCDTime = false;
-                            mySkillBTN[4].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[4] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ06_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ06_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ06_skill.mySkillCDTime);
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ06_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ06_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ06_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ06_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ06_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ06_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ06_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ06_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ06_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 7://===============================獵人=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[4] >= myMQSkillSettingMenu.MQ07_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ07_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ07_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ07_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ07_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ07_skill.isSkillCDTime = false;
-                            mySkillBTN[4].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[4] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ07_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ07_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ07_skill.mySkillCDTime);
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ07_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ07_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ07_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ07_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ07_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ07_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ07_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ07_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ07_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 8://===============================金盾=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[4] >= myMQSkillSettingMenu.MQ08_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ08_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ08_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ08_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ08_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ08_skill.isSkillCDTime = false;
-                            mySkillBTN[4].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[4] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ08_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ08_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ08_skill.mySkillCDTime);
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ08_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ08_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ08_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ08_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ08_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ08_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ08_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ08_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ08_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 9://===============================炸彈=================================
-                   //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[4] >= myMQSkillSettingMenu.MQ09_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ09_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ09_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ09_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ09_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ09_skill.isSkillCDTime = false;
-                            mySkillBTN[4].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[4] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ09_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ09_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ09_skill.mySkillCDTime);
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ09_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ09_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ09_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ09_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ09_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ09_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ09_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ09_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ09_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-                break;
-            case 10://===============================機械=================================
-                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[4] >= myMQSkillSettingMenu.MQ10_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ10_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ10_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ10_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ10_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ10_skill.isSkillCDTime = false;
-                            mySkillBTN[4].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[4] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ10_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ10_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ10_skill.mySkillCDTime);
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ10_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ10_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ10_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ10_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ10_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ10_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ10_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ10_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ10_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 11://===============================詩人=================================
-                //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[4] >= myMQSkillSettingMenu.MQ11_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ11_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ11_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ11_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ11_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ11_skill.isSkillCDTime = false;
-                            mySkillBTN[4].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[4] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ11_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ11_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ11_skill.mySkillCDTime);
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ11_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ11_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ11_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ11_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ11_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ11_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ11_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ11_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ11_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 12://===============================喪屍=================================
-                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[4] >= myMQSkillSettingMenu.MQ12_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ12_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ12_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ12_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ12_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ12_skill.isSkillCDTime = false;
-                            mySkillBTN[4].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[4] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ12_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ12_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ12_skill.mySkillCDTime);
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ12_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ12_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ12_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ12_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ12_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ12_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ12_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ12_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ12_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 13://===============================吸血=================================
-                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[4] >= myMQSkillSettingMenu.MQ13_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ13_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ13_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ13_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ13_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ13_skill.isSkillCDTime = false;
-                            mySkillBTN[4].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[4] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ13_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ13_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ13_skill.mySkillCDTime);
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ13_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ13_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ13_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ13_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ13_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ13_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ13_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ13_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ13_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-            case 14://===============================黑洞=================================
-                    //如果蚊子數量充足，彈出技能扭
-                if (myTeamMQCount[4] >= myMQSkillSettingMenu.MQ14_skill.myMQNeedAmount)
-                {
-                    //檢查是否CD時間
-                    if (myMQSkillSettingMenu.MQ14_skill.isSkillCDTime)
-                    {
-                        if (myMQSkillSettingMenu.MQ14_skill.mySkillCDTimer > myMQSkillSettingMenu.MQ14_skill.mySkillCDTime)
-                        {
-                            myMQSkillSettingMenu.MQ14_skill.mySkillCDTimer = 0;
-                            myMQSkillSettingMenu.MQ14_skill.isSkillCDTime = false;
-                            mySkillBTN[4].GetComponent<Image>().raycastTarget = true;
-                            mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = true;
-
-                            //CD完成將CD遮罩處理掉
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 0;
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = false;
-
-                            //CD好的時候讓框彈一下
-                            isSkillBTNJuiceTime[4] = true;
-                        }
-                        else {
-                            //技能CD時間計算
-                            myMQSkillSettingMenu.MQ14_skill.mySkillCDTimer += Time.deltaTime;
-
-                            //技能CD遮罩
-                            myCDBlack[4].GetComponent<Image>().fillAmount = 1 - (myMQSkillSettingMenu.MQ14_skill.mySkillCDTimer / myMQSkillSettingMenu.MQ14_skill.mySkillCDTime);
-                            myCDBlack[4].GetComponent<Image>().raycastTarget = true;
-                        }
-                    }
-                }
-                else {
-                    mySkillBTN[4].transform.parent.GetComponent<onSkillBTN_ForShowHideControll>().isShowTime = false;
-                }
-
-                //檢查技能是否啟動
-                if (myMQSkillSettingMenu.MQ14_skill.isSkillWorking)
-                {
-                    //0=瞬發
-                    if (myMQSkillSettingMenu.MQ14_skill.mySkillStateType == 0)
-                    {
-                        myMQSkillSettingMenu.MQ14_skill.isSkillWorking = false;
-                        //這邊就是丟瞬間要做的事情
-                        GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= myMQSkillSettingMenu.MQ14_skill.mySkillHurtValue_Morale;
-                    }
-                    else {//持續傷害
-                        if (myMQSkillSettingMenu.MQ14_skill.mySkillKeepTimer >= myMQSkillSettingMenu.MQ14_skill.mySkillKeepTime)
-                        {
-                            myMQSkillSettingMenu.MQ14_skill.mySkillKeepTimer = 0;
-                            myMQSkillSettingMenu.MQ14_skill.isSkillWorking = false;
-                        }
-                        else {
-                            myMQSkillSettingMenu.MQ14_skill.mySkillKeepTimer += Time.deltaTime;
-                            //這邊就是丟持續要做的事情
-                        }
-                    }
-                }
-
-                break;
-        }
-
-    }
-
     public void mySkillCheck_nothide_FN(int btn_skillnum)
     {
         isTeamSkillReady[btn_skillnum] = true;
@@ -4740,7 +1442,7 @@ public class OnCameraForShootMQ : MonoBehaviour
     }
     public void mySkillCheck_hide_FN(int btn_skillnum)
     {
-        isTeamSkillReady[btn_skillnum] = false;
+        isTeamSkillReady[btn_skillnum] = false; 
        /* myCDBlack[btn_skillnum].GetComponent<Image>().fillAmount = 1;
         myCDBlack[btn_skillnum].GetComponent<Image>().raycastTarget = true;
         mySkillBTN[btn_skillnum].GetComponent<Button>().enabled = false;*/
@@ -5849,19 +2551,19 @@ public class OnCameraForShootMQ : MonoBehaviour
                 switch (myAttackTarget.name)
                 {
                     case "hitpoint-1":
-                        forHitEffect_Ver2(0, myHurtValue, myAttackTarget);
+                        forHitEffect_Ver2(1, myHurtValue, myAttackTarget);
                         myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.GetComponent<onBigeyeForAniControllVer2>().myBigeyeGetHurtValue += myHurtValue;
                         GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= (float)myHurtValue * GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleBloodValue;
                         break;
                     case "hitpoint-2":
                     case "hitpoint-3":
-                        forHitEffect_Ver2(0, myHurtValue, myAttackTarget);
+                        forHitEffect_Ver2(1, myHurtValue, myAttackTarget);
                         myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.GetComponent<onBigeyeForAniControllVer2>().myBigeyeGetHurtValue += myHurtValue;
                         GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= (float)myHurtValue * GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleBloodValue;
                         break;
                     case "hitpoint-4":
                     case "hitpoint-5":
-                        forHitEffect_Ver2(0, myHurtValue, myAttackTarget);
+                        forHitEffect_Ver2(1, myHurtValue, myAttackTarget);
                         myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.GetComponent<onBigeyeForAniControllVer2>().myWingGetHurtValue += myHurtValue;
                         GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= (float)myHurtValue * GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleBloodValue;
                         break;
@@ -5871,19 +2573,19 @@ public class OnCameraForShootMQ : MonoBehaviour
                 switch (myAttackTarget.name)
                 {
                     case "hitpoint-1":
-                        forHitEffect_Ver2(0, myHurtValue, myAttackTarget);
+                        forHitEffect_Ver2(1, myHurtValue, myAttackTarget);
                         myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.GetComponent<onIceBearForAniControll>().myHeadGetHurtValue += myHurtValue;
                         GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= (float)myHurtValue * GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleBloodValue;
                         break;
                     case "hitpoint-2":
                     case "hitpoint-3":
-                        forHitEffect_Ver2(0, myHurtValue, myAttackTarget);
+                        forHitEffect_Ver2(1, myHurtValue, myAttackTarget);
                         myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.GetComponent<onIceBearForAniControll>().myHeadGetHurtValue += myHurtValue;
                         GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= (float)myHurtValue * GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleBloodValue;
                         break;
                     case "hitpoint-4":
                     case "hitpoint-5":
-                        forHitEffect_Ver2(0, myHurtValue, myAttackTarget);
+                        forHitEffect_Ver2(1, myHurtValue, myAttackTarget);
                         myAttackTarget.GetComponent<onHitPoint_UpdateHureValue>().myFather.GetComponent<onIceBearForAniControll>().myLegGetHurtValue += myHurtValue;
                         GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMorale -= (float)myHurtValue * GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMonsterMoraleBloodValue;
                         break;

@@ -14,6 +14,7 @@ public class onMap_ForAllLevelControl : MonoBehaviour {
 
     public int myLandMod;
     public bool[] isLevelClear;
+    [Header("迷霧")]
     public GameObject[] myCloud;
     public int[] myLevelGetStarCount;
     // Use this for initialization
@@ -32,30 +33,30 @@ public class onMap_ForAllLevelControl : MonoBehaviour {
         }
         myLandModControl();
         if (Input.GetKeyUp("a")) { myLandMod++; }
-        if (myAllStarCount >= LevelOpenStarCount_Wetland) { myLandMod = 3; }
+     /*   if (myAllStarCount >= LevelOpenStarCount_Wetland) { myLandMod = 4; }
         else {
-            if (myAllStarCount >= LevelOpenStarCount_Wild) { myLandMod = 2; }
+            if (myAllStarCount >= LevelOpenStarCount_Wild) { myLandMod = 3; }
             else {
-                if (myAllStarCount >= LevelOpenStarCount_Forest) { myLandMod = 1; }
+                if (myAllStarCount >= LevelOpenStarCount_Forest) { myLandMod = 2; }
                 else {
-                    myLandMod = 0;
+                    myLandMod = 1;
                 }
             }
-        }
+        }*/
     }
     public void myLandModControl() {
         switch (myLandMod) {
-            case 0:
-                myCloud[myLandMod].GetComponent<onCloudForHidden>().isTimeToDisappear = true;
-                break;
             case 1:
-                myCloud[myLandMod].GetComponent<onCloudForHidden>().isTimeToDisappear = true;
+                myCloud[myLandMod - 1].GetComponent<onIsland_Cloud>().isNeedToHideCloud = true;
                 break;
             case 2:
-                myCloud[myLandMod].GetComponent<onCloudForHidden>().isTimeToDisappear = true;
+                myCloud[myLandMod - 1].GetComponent<onIsland_Cloud>().isNeedToHideCloud = true;
                 break;
             case 3:
-                myCloud[myLandMod].GetComponent<onCloudForHidden>().isTimeToDisappear = true;
+                myCloud[myLandMod - 1].GetComponent<onIsland_Cloud>().isNeedToHideCloud = true;
+                break;
+            case 4:
+                myCloud[myLandMod - 1].GetComponent<onIsland_Cloud>().isNeedToHideCloud = true;
                 break;
             default:
                 print("hehehaha");
