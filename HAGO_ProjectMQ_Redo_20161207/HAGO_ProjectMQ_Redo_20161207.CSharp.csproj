@@ -87,6 +87,7 @@
     <Compile Include="Assets\01_mainscene\Script\onCamera_GameMainController.cs" />
     <Compile Include="Assets\01_mainscene\Script\onCloudForHidden.cs" />
     <Compile Include="Assets\01_mainscene\Script\onGifObject.cs" />
+    <Compile Include="Assets\01_mainscene\Script\onIsland_Cloud.cs" />
     <Compile Include="Assets\01_mainscene\Script\onLikeButton.cs" />
     <Compile Include="Assets\01_mainscene\Script\onLockForHidden.cs" />
     <Compile Include="Assets\01_mainscene\Script\onMap.cs" />
@@ -109,15 +110,20 @@
     <Compile Include="Assets\02_GameScene\Scripts\UI\OnMiniMap.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\UI\onAmount_UI.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\UI\onBTN_Battle.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\UI\onBTN_MQList.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\UI\onBighitNum.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\UI\onCanvasForUIControll.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\UI\onHitUI.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\UI\onLeftBTN_forChangeICON.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\UI\onLocker.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\UI\onMQYouPickUpImage.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\UI\onMainSceneCameraForFingerTouchControll.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\UI\onMoraleBarControl.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\UI\onMyScore_Text.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\UI\onQTEIcon.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\UI\onSkillBTN_ForShowHideControll.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\UI\onTeamSettingManager.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\UI\onTeamSetting_TeamBTN.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\UI\onUI_5Skill.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\UI\onUI_EventClear.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\UI\onUI_LevelClear.cs" />
@@ -157,8 +163,6 @@
     <Compile Include="Assets\99_someThings\test\asdfasdf.cs" />
     <Compile Include="Assets\99_someThings\test\lerp.cs" />
     <Compile Include="Assets\99_someThings\test\onPSForBombMQ.cs" />
-    <Compile Include="Assets\BlackfireStudio\Winter\Image Effects\Frost.cs" />
-    <Compile Include="Assets\BlackfireStudio\onCameraForFrost.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX2_Demo.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
@@ -169,8 +173,6 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_ShurikenThreadFix.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Spawn System\CFX_SpawnSystem.cs" />
-    <Compile Include="Assets\onIsland_Cloud.cs" />
-    <Compile Include="Assets\onMainSceneCameraForFingerTouchControll.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\02_GameScene\FBX\MQ\MQ_01_Basic\FBX\Materials\trytofindapha.shader" />
@@ -179,27 +181,6 @@
     <None Include="Assets\99_someThings\test\HSBC Effect.shader" />
     <None Include="Assets\99_someThings\test\aaaaaaaaaaaaaa.shader" />
     <None Include="Assets\99_someThings\test\hehehaha.shader" />
-    <None Include="Assets\BlackfireStudio\Winter\Image Effects\Shaders\Frost.shader" />
-    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Advanced Blend Glitter.shader" />
-    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Advanced Blend Reflective Glitter.shader" />
-    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Advanced Blend Reflective.shader" />
-    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Advanced Blend.shader" />
-    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Full Glitter.shader" />
-    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Full Reflective Glitter.shader" />
-    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Full Reflective.shader" />
-    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Full.shader" />
-    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Height Blend Glitter.shader" />
-    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Height Blend Reflective Glitter.shader" />
-    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Height Blend Reflective.shader" />
-    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Height Blend.shader" />
-    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Texture Blend Glitter.shader" />
-    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Texture Blend Reflective Glitter.shader" />
-    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Texture Blend Reflective.shader" />
-    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\Snow Texture Blend.shader" />
-    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\SnowCore.cginc" />
-    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\SnowInputs.cginc" />
-    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\SnowLighting.cginc" />
-    <None Include="Assets\BlackfireStudio\Winter\Shaders\Snow\SnowSurface.cginc" />
     <None Include="Assets\JMO Assets\!JMO Assets Readme.txt" />
     <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />
     <None Include="Assets\JMO Assets\Cartoon FX\CartoonFX2 Readme.txt" />

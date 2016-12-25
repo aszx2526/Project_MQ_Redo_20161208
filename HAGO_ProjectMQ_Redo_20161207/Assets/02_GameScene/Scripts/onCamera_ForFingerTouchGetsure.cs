@@ -164,16 +164,27 @@ public class onCamera_ForFingerTouchGetsure : MonoBehaviour {
         }
         else {
 
-            if (m_screenPos.y > EndPos.y)
+            if (Vector2.Distance(StartPos, EndPos) > 50 && m_screenPos.y > EndPos.y)
             {
                 //手指向下滑動
                 mDirection = gDefineb.Direction.Down;
+                if (GameObject.Find("TeamSettingManager").GetComponent<onTeamSettingManager>().myMQListPageNum > 0)
+                {
+                    GameObject.Find("TeamSettingManager").GetComponent<onTeamSettingManager>().myMQListPageNum--;
+                }
+
             }
             //else if (Vector2.Distance(m_screenPos, EndPos) > 1 && m_screenPos.y < EndPos.y)
-            else {
+            else if(Vector2.Distance(StartPos, EndPos) > 50 && m_screenPos.y < EndPos.y)
+            {
                 //手指向上滑動
 
                 mDirection = gDefineb.Direction.Up;
+                if (GameObject.Find("TeamSettingManager").GetComponent<onTeamSettingManager>().myMQListPageNum < 1)
+                {
+                    GameObject.Find("TeamSettingManager").GetComponent<onTeamSettingManager>().myMQListPageNum++;
+                }
+                
             }
 
         }

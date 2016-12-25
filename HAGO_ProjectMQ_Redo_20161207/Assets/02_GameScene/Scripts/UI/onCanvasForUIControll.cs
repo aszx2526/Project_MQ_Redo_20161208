@@ -8,9 +8,7 @@ public class onCanvasForUIControll : MonoBehaviour {
     public GameObject myMainUI;
     public GameObject myMiniMap;
     public GameObject myMission;
-    public GameObject myArmyInfo;
-    public GameObject myAddMQ;
-    public GameObject myChangeArmy;
+    public GameObject myTeamSetting;
     public GameObject mySupplyStation;
     public GameObject myLevelClear;
     public GameObject myEventClear;
@@ -57,9 +55,7 @@ public class onCanvasForUIControll : MonoBehaviour {
         myAudioSource = gameObject.GetComponent<AudioSource>();
         myMiniMap.SetActive(true);
         myMission.SetActive(false);
-        myArmyInfo.SetActive(false);
-        myAddMQ.SetActive(false);
-        myChangeArmy.SetActive(false);
+        myTeamSetting.SetActive(false);
         mySupplyStation.SetActive(false);
         myLevelClear.SetActive(false);
         myEventClear.SetActive(false);
@@ -101,9 +97,7 @@ public class onCanvasForUIControll : MonoBehaviour {
         mySoundEffectFN();
         myMiniMap.SetActive(true);
         myMission.SetActive(false);
-        myArmyInfo.SetActive(false);
-        myAddMQ.SetActive(false);
-        myChangeArmy.SetActive(false);
+        myTeamSetting.SetActive(false);
         mySupplyStation.SetActive(false);
         mySoundEffectFN();
     }
@@ -111,19 +105,16 @@ public class onCanvasForUIControll : MonoBehaviour {
         mySoundEffectFN();
         myMiniMap.SetActive(false);
         myMission.SetActive(true);
-        myArmyInfo.SetActive(false);
-        myAddMQ.SetActive(false);
-        myChangeArmy.SetActive(false);
+        myTeamSetting.SetActive(false);
         mySupplyStation.SetActive(false);
         
     }
     public void BTN_Left3() {
+     //   print("btn left3 click");
         mySoundEffectFN();
-        myMiniMap.SetActive(false);
-        myMission.SetActive(false);
-        myArmyInfo.SetActive(true);
-        myAddMQ.SetActive(false);
-        myChangeArmy.SetActive(false);
+        //myMiniMap.SetActive(false);
+        //myMission.SetActive(false);
+        myTeamSetting.SetActive(true);
         mySupplyStation.SetActive(false);
         
     }
@@ -131,9 +122,7 @@ public class onCanvasForUIControll : MonoBehaviour {
         mySoundEffectFN();
         myMiniMap.SetActive(false);
         myMission.SetActive(false);
-        myArmyInfo.SetActive(false);
-        myAddMQ.SetActive(false);
-        myChangeArmy.SetActive(false);
+        myTeamSetting.SetActive(false);
         mySupplyStation.SetActive(true);
         
     }
@@ -169,26 +158,6 @@ public class onCanvasForUIControll : MonoBehaviour {
 
         //myMonsterMoraleBloodValue = myMonsterBasicMorale / (float)GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myMonsterList[GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum - 1].GetComponent<onMonsterVer3>().myFullHP;
         myMainUI.SetActive(false);
-        
-    }
-    public void BTN_forAddMQ() {
-        mySoundEffectFN();
-        myAddMQ.SetActive(true);
-        
-    }
-    public void BTN_forAddMQExit() {
-        mySoundEffectFN();
-        myAddMQ.SetActive(false);
-        
-    }
-    public void BTN_forChangeArmy() {
-        mySoundEffectFN();
-        myChangeArmy.SetActive(true);
-        
-    }
-    public void BTN_forChangeArmyExit() {
-        mySoundEffectFN();
-        myChangeArmy.SetActive(false);
         
     }
     /*public void BTN_forSetting() {
