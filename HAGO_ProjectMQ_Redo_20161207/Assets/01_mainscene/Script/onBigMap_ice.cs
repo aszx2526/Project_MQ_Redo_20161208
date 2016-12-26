@@ -10,8 +10,15 @@ public class onBigMap_ice : MonoBehaviour {
     public int myAllStarInIceCount;
     public int[] isBossBeKill;
     public Text[] mystar_text;
+
+    [Header("==============")]
+    public Slider loadingBar;
+    public GameObject loadingImage;
+    private AsyncOperation _async;
+
     // Use this for initialization
     void Start () {
+        loadingImage.SetActive(false);
         //gameObject.SetActive(false);
         for (int a = 0; a < isBossBeKill.Length; a++) {
             isBossBeKill[a] = PlayerPrefs.GetInt("level_" + (a+1).ToString() + "_Bossbekill");
@@ -45,13 +52,36 @@ public class onBigMap_ice : MonoBehaviour {
             GameObject.Find("Map").GetComponent<onMap>().beforeIntoGameScene.SetActive(true);
             GameObject.Find("Map").GetComponent<onMap>().forgetSpend();
         }*/
-        SceneManager.LoadScene("GameScene_1");
+        loadingImage.SetActive(true);
+        StartCoroutine(LoadLevelWithBar("GameScene_1"));
+    //    SceneManager.LoadScene("GameScene_1");
         //Application.LoadLevel("Ver3_Prototype_");
     }
     public void level2() { SceneManager.LoadScene("GameScene_2"); }
     public void level3() { SceneManager.LoadScene("GameScene_3"); }
     public void level4() { SceneManager.LoadScene("GameScene_4"); }
     public void level5() { SceneManager.LoadScene("GameScene_5"); }
+
+    IEnumerator LoadLevelWithBar(string level)
+    {
+        _async = Application.LoadLevelAsync(level);
+        while (!_async.isDone)
+        {
+            loadingBar.value = _async.progress;
+            yield return null;
+        }
+    }
+
+    /*  private IEnumerator StartLoading_1(int scene)
+      {
+          AsyncOperation op = Application.LoadLevelAsync(scene);
+          while (!op.isDone)
+          {
+            //  SetLoadingPercentage(op.progress * 100);
+
+              yield return new WaitForEndOfFrame();
+          }
+      }*/
 
     public void BTN_forFight() {
         switch (inwhichlevelmod) {

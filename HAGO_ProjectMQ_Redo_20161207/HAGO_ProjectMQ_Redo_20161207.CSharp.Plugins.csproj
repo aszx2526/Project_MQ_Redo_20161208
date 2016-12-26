@@ -83,6 +83,7 @@
   <ItemGroup>
     <None Include="Assets\02_GameScene\FBX\MQ\MQ_01_Basic\FBX\Materials\trytofindapha.shader" />
     <None Include="Assets\02_GameScene\Shader\OutlineShader.shader" />
+    <None Include="Assets\02_GameScene\UI\Morale_Bar\moraleBar_icon\readme.txt" />
     <None Include="Assets\02_GameScene\UI\SceneUI\F_02\選單動畫說明.txt" />
     <None Include="Assets\99_someThings\test\HSBC Effect.shader" />
     <None Include="Assets\99_someThings\test\aaaaaaaaaaaaaa.shader" />

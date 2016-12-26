@@ -9,6 +9,10 @@ public class onMoraleBarControl : MonoBehaviour {
     public Image myUI_LocalMQ_Amount;
     public GameObject myUI_LocalMQ_AmountMark;
     public GameObject myUI_MonsterMQ_Mark;
+    public Image myUI_MoraleBar_Icon_MQ;
+    public Sprite[] myUI_MoraleBar_Icon_MQ_Sprite;
+    public Image myUI_MoraleBar_Icon_Monster;
+    public Sprite[] myUI_MoraleBar_Icon_Monster_Sprite;
     float myMoraleAddTimer;
     public float monstermorale;
     public float monstermoraleTarget;
@@ -95,8 +99,19 @@ public class onMoraleBarControl : MonoBehaviour {
                 myLocalMQ_AmountTarget -= Time.deltaTime * myMoralUpdateSpeed;
                 myUI_LocalMQ_Amount.fillAmount = myLocalMQ_AmountTarget / (float)GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_AmountFull;
             }
-            
-
+            //更新士氣值蚊子及怪地的icon
+            myMonsterMQMoraleBarIconUpdateFN();
         }
+    }
+    public void myMonsterMQMoraleBarIconUpdateFN() {
+        if (myUI_MoraleBar_Monster.fillAmount > 0 && myUI_MoraleBar_Monster.fillAmount < 0.35f) { myUI_MoraleBar_Icon_Monster.sprite = myUI_MoraleBar_Icon_Monster_Sprite[2]; }
+        if (myUI_MoraleBar_Monster.fillAmount > 0.35f && myUI_MoraleBar_Monster.fillAmount < 0.70f) { myUI_MoraleBar_Icon_Monster.sprite = myUI_MoraleBar_Icon_Monster_Sprite[0]; }
+        if (myUI_MoraleBar_Monster.fillAmount > 0.70f && myUI_MoraleBar_Monster.fillAmount < 1.0f) { myUI_MoraleBar_Icon_Monster.sprite = myUI_MoraleBar_Icon_Monster_Sprite[1]; }
+
+        if (myUI_MoraleBar_Icon_MQ.fillAmount > 0 && myUI_MoraleBar_Icon_MQ.fillAmount < 0.35f) { myUI_MoraleBar_Icon_MQ.sprite = myUI_MoraleBar_Icon_MQ_Sprite[2]; }
+        if (myUI_MoraleBar_Icon_MQ.fillAmount > 0.35f && myUI_MoraleBar_Icon_MQ.fillAmount < 0.70f) { myUI_MoraleBar_Icon_MQ.sprite = myUI_MoraleBar_Icon_MQ_Sprite[0]; }
+        if (myUI_MoraleBar_Icon_MQ.fillAmount > 0.70f && myUI_MoraleBar_Icon_MQ.fillAmount < 1.0f) { myUI_MoraleBar_Icon_MQ.sprite = myUI_MoraleBar_Icon_MQ_Sprite[1]; }
+
+
     }
 }

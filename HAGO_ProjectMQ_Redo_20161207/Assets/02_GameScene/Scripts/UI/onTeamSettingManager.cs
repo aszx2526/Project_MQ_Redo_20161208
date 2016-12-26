@@ -31,6 +31,7 @@ public class onTeamSettingManager : MonoBehaviour {
     public bool isSellBuyBTNCanWorking;
     public float mySellBuyTimer;
     public float mySellBuyTime;
+    public float mySellBuyTimeRate;
 
     public GameObject UI_TeamSetting;
 
@@ -147,7 +148,7 @@ public class onTeamSettingManager : MonoBehaviour {
             if (isBuyBTNDown)
             {
                 if (mySellBuyTime < 0.0001) { mySellBuyTime = 0.0001f; }
-                else { mySellBuyTime = mySellBuyTime * 0.55f; }
+                else { mySellBuyTime = mySellBuyTime * mySellBuyTimeRate; }
                 //如果滿了就不要加了
                 if (myTeamMQAmount[myPickUpTeamID - 1] < myTeamBTNList[myPickUpTeamID - 1].GetComponent<onTeamSetting_TeamBTN>().myMaxMQAmount)
                 {
@@ -169,7 +170,7 @@ public class onTeamSettingManager : MonoBehaviour {
             else if (isSellBTNDown)
             {
                 if (mySellBuyTime < 0.0001) { mySellBuyTime = 0.0001f; }
-                else { mySellBuyTime = mySellBuyTime * 0.55f; }
+                else { mySellBuyTime = mySellBuyTime * mySellBuyTimeRate; }
                 if (myTeamMQAmount[myPickUpTeamID - 1] > 0)
                 {
                     myTeamMQAmount[myPickUpTeamID - 1]--;
