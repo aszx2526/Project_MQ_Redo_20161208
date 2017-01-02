@@ -29,6 +29,8 @@ public class onTeamSettingManager : MonoBehaviour {
     public bool isBuyBTNDown;
     public bool isSellBTNDown;
     public bool isSellBuyBTNCanWorking;
+    public GameObject myAddOneUI;
+    public GameObject myAddOne_SpawnPoint;
     public float mySellBuyTimer;
     public float mySellBuyTime;
     public float mySellBuyTimeRate;
@@ -158,11 +160,13 @@ public class onTeamSettingManager : MonoBehaviour {
                         myTeamMQAmount[myPickUpTeamID - 1]++;
                         myMQBTNList[myTeamBTNList[myPickUpTeamID - 1].GetComponent<onTeamSetting_TeamBTN>().myMQTypeID - 1].GetComponent<onBTN_MQList>().myMQAmount--;
                         myTeamBTNList[myPickUpTeamID - 1].GetComponent<onTeamSetting_TeamBTN>().myMQAmount = myTeamMQAmount[myPickUpTeamID - 1];
+                        myAddOneUiFN();
                     }
                     else {
                         myTeamMQAmount[myPickUpTeamID - 1]++;
                         myTeamBTNList[myPickUpTeamID - 1].GetComponent<onTeamSetting_TeamBTN>().myMQAmount = myTeamMQAmount[myPickUpTeamID - 1];
                         myCoin -= myTeamBTNList[myPickUpTeamID - 1].GetComponent<onTeamSetting_TeamBTN>().myMQPrice;
+                        myAddOneUiFN();
                     }
                 }
                 isSellBuyBTNCanWorking = false;
@@ -198,4 +202,13 @@ public class onTeamSettingManager : MonoBehaviour {
     public void BTN_BuyUp() { isBuyBTNDown = false; mySellBuyTime = 0.5f; }
     //離開隊伍設定
     public void BTN_TeamSettingExit() { UI_TeamSetting.SetActive(false); }
+    //增加蚊子的時候跳出+1
+    public void myAddOneUiFN() {
+        GameObject UIAddone = Instantiate(myAddOneUI) as GameObject;
+        UIAddone.transform.parent = GameObject.Find("Canvas").transform;
+        UIAddone.GetComponent<onUI_addOne>().isUpTime = true;
+        Vector3 pos = myAddOne_SpawnPoint.GetComponent<RectTransform>().localPosition;
+        pos.x = Random.Range(pos.x - 50.0f, pos.x + 50.0f);
+        UIAddone.GetComponent<RectTransform>().localPosition = pos;
+    }
 }
