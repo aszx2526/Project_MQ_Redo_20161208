@@ -98,6 +98,7 @@
     <Compile Include="Assets\02_GameScene\FBX\MQ\Movie_AnimController\onicebearmovie.cs" />
     <Compile Include="Assets\02_GameScene\FBX\MQ\Movie_AnimController\onrabbitformovie.cs" />
     <Compile Include="Assets\02_GameScene\FBX\Monster\Ice\IceBear\onIceBearForAniControll.cs" />
+    <Compile Include="Assets\02_GameScene\FBX\Monster\Ice\SnowMan\onSnowManForAniControl.cs" />
     <Compile Include="Assets\02_GameScene\FBX\Monster\other\Rabbit\onRabbitForAniControll.cs" />
     <Compile Include="Assets\02_GameScene\FBX\Monster\other\bigeye0808\killsomething.cs" />
     <Compile Include="Assets\02_GameScene\FBX\Monster\other\bigeye0808\onBigeyeForAniControll.cs" />
@@ -133,6 +134,7 @@
     <Compile Include="Assets\02_GameScene\Scripts\onHitEffect_formovePos.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onHitPoint_UpdateHureValue.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onHotPoint_Icebear.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onHotPoint_Penguin.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onHotPoint_bigeye.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onLeftBTNForHideBTN.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQVer3.cs" />

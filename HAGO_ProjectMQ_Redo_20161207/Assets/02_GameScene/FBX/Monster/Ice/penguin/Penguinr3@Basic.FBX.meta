@@ -62,7 +62,16 @@ ModelImporter:
     400052: penguin
     400054: //RootNode
     4300000: penguin
-    7400000: Take 001
+    7400000: idle_basic
+    7400002: walk_ready
+    7400004: walk_loop
+    7400006: walk_end
+    7400008: run_ready
+    7400010: run_loop
+    7400012: run_end
+    7400014: turing
+    7400016: idle_attack
+    7400018: dead_basic
     9500000: //RootNode
     13700000: penguin
   materials:
@@ -85,7 +94,847 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: idle_basic
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 70
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Dummy001
+        weight: 1
+      - path: Dummy001/Bone004
+        weight: 1
+      - path: Dummy001/Bone004/Bone005
+        weight: 1
+      - path: Dummy001/Bone004/Bone005/Bone006
+        weight: 1
+      - path: Dummy001/Bone009
+        weight: 1
+      - path: Dummy001/Bone009/Bone007
+        weight: 1
+      - path: Dummy001/Bone009/Bone007/Bone008
+        weight: 1
+      - path: Dummy001/Bone009/Bone010
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001/Bone002
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001/Bone002/Bone003
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone012
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone013
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/Bone015
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/Bone015/Bone016
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/hitpoine1
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/hitpoine3
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022/Bone020
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022/Bone020/Bone021
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/hitpoine2
+        weight: 1
+      - path: Dummy001/Bone025
+        weight: 1
+      - path: Dummy001/Bone025/Bone023
+        weight: 1
+      - path: Dummy001/Bone025/Bone023/Bone024
+        weight: 1
+      - path: penguin
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: walk_ready
+      takeName: Take 001
+      firstFrame: 70
+      lastFrame: 85
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Dummy001
+        weight: 1
+      - path: Dummy001/Bone004
+        weight: 1
+      - path: Dummy001/Bone004/Bone005
+        weight: 1
+      - path: Dummy001/Bone004/Bone005/Bone006
+        weight: 1
+      - path: Dummy001/Bone009
+        weight: 1
+      - path: Dummy001/Bone009/Bone007
+        weight: 1
+      - path: Dummy001/Bone009/Bone007/Bone008
+        weight: 1
+      - path: Dummy001/Bone009/Bone010
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001/Bone002
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001/Bone002/Bone003
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone012
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone013
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/Bone015
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/Bone015/Bone016
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/hitpoine1
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/hitpoine3
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022/Bone020
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022/Bone020/Bone021
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/hitpoine2
+        weight: 1
+      - path: Dummy001/Bone025
+        weight: 1
+      - path: Dummy001/Bone025/Bone023
+        weight: 1
+      - path: Dummy001/Bone025/Bone023/Bone024
+        weight: 1
+      - path: penguin
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: walk_loop
+      takeName: Take 001
+      firstFrame: 85
+      lastFrame: 131
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Dummy001
+        weight: 1
+      - path: Dummy001/Bone004
+        weight: 1
+      - path: Dummy001/Bone004/Bone005
+        weight: 1
+      - path: Dummy001/Bone004/Bone005/Bone006
+        weight: 1
+      - path: Dummy001/Bone009
+        weight: 1
+      - path: Dummy001/Bone009/Bone007
+        weight: 1
+      - path: Dummy001/Bone009/Bone007/Bone008
+        weight: 1
+      - path: Dummy001/Bone009/Bone010
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001/Bone002
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001/Bone002/Bone003
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone012
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone013
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/Bone015
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/Bone015/Bone016
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/hitpoine1
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/hitpoine3
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022/Bone020
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022/Bone020/Bone021
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/hitpoine2
+        weight: 1
+      - path: Dummy001/Bone025
+        weight: 1
+      - path: Dummy001/Bone025/Bone023
+        weight: 1
+      - path: Dummy001/Bone025/Bone023/Bone024
+        weight: 1
+      - path: penguin
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: walk_end
+      takeName: Take 001
+      firstFrame: 131
+      lastFrame: 146
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Dummy001
+        weight: 1
+      - path: Dummy001/Bone004
+        weight: 1
+      - path: Dummy001/Bone004/Bone005
+        weight: 1
+      - path: Dummy001/Bone004/Bone005/Bone006
+        weight: 1
+      - path: Dummy001/Bone009
+        weight: 1
+      - path: Dummy001/Bone009/Bone007
+        weight: 1
+      - path: Dummy001/Bone009/Bone007/Bone008
+        weight: 1
+      - path: Dummy001/Bone009/Bone010
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001/Bone002
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001/Bone002/Bone003
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone012
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone013
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/Bone015
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/Bone015/Bone016
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/hitpoine1
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/hitpoine3
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022/Bone020
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022/Bone020/Bone021
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/hitpoine2
+        weight: 1
+      - path: Dummy001/Bone025
+        weight: 1
+      - path: Dummy001/Bone025/Bone023
+        weight: 1
+      - path: Dummy001/Bone025/Bone023/Bone024
+        weight: 1
+      - path: penguin
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: run_ready
+      takeName: Take 001
+      firstFrame: 146
+      lastFrame: 152
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Dummy001
+        weight: 1
+      - path: Dummy001/Bone004
+        weight: 1
+      - path: Dummy001/Bone004/Bone005
+        weight: 1
+      - path: Dummy001/Bone004/Bone005/Bone006
+        weight: 1
+      - path: Dummy001/Bone009
+        weight: 1
+      - path: Dummy001/Bone009/Bone007
+        weight: 1
+      - path: Dummy001/Bone009/Bone007/Bone008
+        weight: 1
+      - path: Dummy001/Bone009/Bone010
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001/Bone002
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001/Bone002/Bone003
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone012
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone013
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/Bone015
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/Bone015/Bone016
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/hitpoine1
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/hitpoine3
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022/Bone020
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022/Bone020/Bone021
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/hitpoine2
+        weight: 1
+      - path: Dummy001/Bone025
+        weight: 1
+      - path: Dummy001/Bone025/Bone023
+        weight: 1
+      - path: Dummy001/Bone025/Bone023/Bone024
+        weight: 1
+      - path: penguin
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: run_loop
+      takeName: Take 001
+      firstFrame: 152
+      lastFrame: 172
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Dummy001
+        weight: 1
+      - path: Dummy001/Bone004
+        weight: 1
+      - path: Dummy001/Bone004/Bone005
+        weight: 1
+      - path: Dummy001/Bone004/Bone005/Bone006
+        weight: 1
+      - path: Dummy001/Bone009
+        weight: 1
+      - path: Dummy001/Bone009/Bone007
+        weight: 1
+      - path: Dummy001/Bone009/Bone007/Bone008
+        weight: 1
+      - path: Dummy001/Bone009/Bone010
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001/Bone002
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001/Bone002/Bone003
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone012
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone013
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/Bone015
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/Bone015/Bone016
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/hitpoine1
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/hitpoine3
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022/Bone020
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022/Bone020/Bone021
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/hitpoine2
+        weight: 1
+      - path: Dummy001/Bone025
+        weight: 1
+      - path: Dummy001/Bone025/Bone023
+        weight: 1
+      - path: Dummy001/Bone025/Bone023/Bone024
+        weight: 1
+      - path: penguin
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: run_end
+      takeName: Take 001
+      firstFrame: 172
+      lastFrame: 180
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Dummy001
+        weight: 1
+      - path: Dummy001/Bone004
+        weight: 1
+      - path: Dummy001/Bone004/Bone005
+        weight: 1
+      - path: Dummy001/Bone004/Bone005/Bone006
+        weight: 1
+      - path: Dummy001/Bone009
+        weight: 1
+      - path: Dummy001/Bone009/Bone007
+        weight: 1
+      - path: Dummy001/Bone009/Bone007/Bone008
+        weight: 1
+      - path: Dummy001/Bone009/Bone010
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001/Bone002
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001/Bone002/Bone003
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone012
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone013
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/Bone015
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/Bone015/Bone016
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/hitpoine1
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/hitpoine3
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022/Bone020
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022/Bone020/Bone021
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/hitpoine2
+        weight: 1
+      - path: Dummy001/Bone025
+        weight: 1
+      - path: Dummy001/Bone025/Bone023
+        weight: 1
+      - path: Dummy001/Bone025/Bone023/Bone024
+        weight: 1
+      - path: penguin
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: turing
+      takeName: Take 001
+      firstFrame: 180
+      lastFrame: 195
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Dummy001
+        weight: 1
+      - path: Dummy001/Bone004
+        weight: 1
+      - path: Dummy001/Bone004/Bone005
+        weight: 1
+      - path: Dummy001/Bone004/Bone005/Bone006
+        weight: 1
+      - path: Dummy001/Bone009
+        weight: 1
+      - path: Dummy001/Bone009/Bone007
+        weight: 1
+      - path: Dummy001/Bone009/Bone007/Bone008
+        weight: 1
+      - path: Dummy001/Bone009/Bone010
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001/Bone002
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001/Bone002/Bone003
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone012
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone013
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/Bone015
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/Bone015/Bone016
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/hitpoine1
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/hitpoine3
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022/Bone020
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022/Bone020/Bone021
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/hitpoine2
+        weight: 1
+      - path: Dummy001/Bone025
+        weight: 1
+      - path: Dummy001/Bone025/Bone023
+        weight: 1
+      - path: Dummy001/Bone025/Bone023/Bone024
+        weight: 1
+      - path: penguin
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: idle_attack
+      takeName: Take 001
+      firstFrame: 195
+      lastFrame: 235
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Dummy001
+        weight: 1
+      - path: Dummy001/Bone004
+        weight: 1
+      - path: Dummy001/Bone004/Bone005
+        weight: 1
+      - path: Dummy001/Bone004/Bone005/Bone006
+        weight: 1
+      - path: Dummy001/Bone009
+        weight: 1
+      - path: Dummy001/Bone009/Bone007
+        weight: 1
+      - path: Dummy001/Bone009/Bone007/Bone008
+        weight: 1
+      - path: Dummy001/Bone009/Bone010
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001/Bone002
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001/Bone002/Bone003
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone012
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone013
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/Bone015
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/Bone015/Bone016
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/hitpoine1
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/hitpoine3
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022/Bone020
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022/Bone020/Bone021
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/hitpoine2
+        weight: 1
+      - path: Dummy001/Bone025
+        weight: 1
+      - path: Dummy001/Bone025/Bone023
+        weight: 1
+      - path: Dummy001/Bone025/Bone023/Bone024
+        weight: 1
+      - path: penguin
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: dead_basic
+      takeName: Take 001
+      firstFrame: 235
+      lastFrame: 300
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Dummy001
+        weight: 1
+      - path: Dummy001/Bone004
+        weight: 1
+      - path: Dummy001/Bone004/Bone005
+        weight: 1
+      - path: Dummy001/Bone004/Bone005/Bone006
+        weight: 1
+      - path: Dummy001/Bone009
+        weight: 1
+      - path: Dummy001/Bone009/Bone007
+        weight: 1
+      - path: Dummy001/Bone009/Bone007/Bone008
+        weight: 1
+      - path: Dummy001/Bone009/Bone010
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001/Bone002
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone001/Bone002/Bone003
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone012
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone013
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/Bone015
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/Bone015/Bone016
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/Bone014/hitpoine1
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone011/hitpoine3
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022/Bone020
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/Bone022/Bone020/Bone021
+        weight: 1
+      - path: Dummy001/Bone009/Bone010/hitpoine2
+        weight: 1
+      - path: Dummy001/Bone025
+        weight: 1
+      - path: Dummy001/Bone025/Bone023
+        weight: 1
+      - path: Dummy001/Bone025/Bone023/Bone024
+        weight: 1
+      - path: penguin
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
