@@ -86,14 +86,14 @@
   <ItemGroup>
     <None Include="Assets\02_GameScene\FBX\MQ\MQ_01_Basic\FBX\Materials\trytofindapha.shader" />
     <None Include="Assets\02_GameScene\Shader\OutlineShader.shader" />
-    <None Include="Assets\02_GameScene\UI\CleanScreen\MQ_Lose\備註.txt" />
-    <None Include="Assets\02_GameScene\UI\CleanScreen\MQ_Vectory\備註.txt" />
-    <None Include="Assets\02_GameScene\UI\CleanScreen\MQ_Vectory\滯空動圖\備註.txt" />
-    <None Include="Assets\02_GameScene\UI\CleanScreen\MQ_in\備註.txt" />
-    <None Include="Assets\02_GameScene\UI\CleanScreen\MQ_loseflydown\idle_loseflydown\影格時間.txt" />
-    <None Include="Assets\02_GameScene\UI\CleanScreen\MQ_loseflydown\備註.txt" />
-    <None Include="Assets\02_GameScene\UI\CleanScreen\Title_LOSEanim\影格時間.txt" />
-    <None Include="Assets\02_GameScene\UI\CleanScreen\Title_VICTORYanim\影格時間.txt" />
+    <None Include="Assets\02_GameScene\UI\CleanScreen\00_win\MQ_Vectory\備註.txt" />
+    <None Include="Assets\02_GameScene\UI\CleanScreen\00_win\MQ_Vectory\滯空動圖\備註.txt" />
+    <None Include="Assets\02_GameScene\UI\CleanScreen\00_win\Title_VICTORYanim\影格時間.txt" />
+    <None Include="Assets\02_GameScene\UI\CleanScreen\01_lose\MQ_Lose\備註.txt" />
+    <None Include="Assets\02_GameScene\UI\CleanScreen\01_lose\MQ_loseflydown\idle_loseflydown\影格時間.txt" />
+    <None Include="Assets\02_GameScene\UI\CleanScreen\01_lose\MQ_loseflydown\備註.txt" />
+    <None Include="Assets\02_GameScene\UI\CleanScreen\01_lose\Title_LOSEanim\影格時間.txt" />
+    <None Include="Assets\02_GameScene\UI\CleanScreen\MQ_in_ForBigMaponLevelIcon\備註.txt" />
     <None Include="Assets\02_GameScene\UI\CleanScreen\備註.txt" />
     <None Include="Assets\02_GameScene\UI\Morale_Bar\moraleBar_icon\readme.txt" />
     <None Include="Assets\02_GameScene\UI\SceneUI\F_02\選單動畫說明.txt" />

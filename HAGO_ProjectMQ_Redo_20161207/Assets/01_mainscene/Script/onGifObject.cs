@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class onGifObject : MonoBehaviour {
     public Image myobject;
     public Sprite[] gif;
-    public float giftimer;
+    float giftimer;
     public float gifdeltimer;
     public int mygifmod;
     public bool isloop;
@@ -15,7 +15,7 @@ public class onGifObject : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         giftimer += Time.deltaTime;
         if (giftimer >= gifdeltimer)
