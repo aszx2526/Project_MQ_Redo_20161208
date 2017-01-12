@@ -1,0 +1,217 @@
+fileFormatVersion: 2
+guid: 2ca60e1954ef5cd4dae8ae03dab5567b
+timeCreated: 1484047103
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Camera001
+    100002: Iceberg020
+    100004: Iceberg021
+    100006: Iceberg022
+    100008: Iceberg023
+    100010: Iceberg024
+    100012: Iceberg025
+    100014: Iceberg027
+    100016: Iceberg029
+    100018: Iceberg031
+    100020: Iceberg032
+    100022: //RootNode
+    100024: Icethree027
+    100026: Icethree035
+    100028: Icethree036
+    100030: Icethree038
+    100032: Icethree039
+    100034: Icethree040
+    100036: Icethree041
+    100038: Icethree042
+    100040: Stone005
+    100042: Stone006
+    100044: Stone007
+    100046: Stone008
+    100048: Stone009
+    100050: Stone010
+    100052: Stone011
+    100054: Stone012
+    100056: tereno1
+    400000: Camera001
+    400002: Iceberg020
+    400004: Iceberg021
+    400006: Iceberg022
+    400008: Iceberg023
+    400010: Iceberg024
+    400012: Iceberg025
+    400014: Iceberg027
+    400016: Iceberg029
+    400018: Iceberg031
+    400020: Iceberg032
+    400022: //RootNode
+    400024: Icethree027
+    400026: Icethree035
+    400028: Icethree036
+    400030: Icethree038
+    400032: Icethree039
+    400034: Icethree040
+    400036: Icethree041
+    400038: Icethree042
+    400040: Stone005
+    400042: Stone006
+    400044: Stone007
+    400046: Stone008
+    400048: Stone009
+    400050: Stone010
+    400052: Stone011
+    400054: Stone012
+    400056: tereno1
+    2300000: Iceberg020
+    2300002: Iceberg021
+    2300004: Iceberg022
+    2300006: Iceberg023
+    2300008: Iceberg024
+    2300010: Iceberg025
+    2300012: Iceberg027
+    2300014: Iceberg029
+    2300016: Iceberg031
+    2300018: Iceberg032
+    2300020: Icethree027
+    2300022: Icethree035
+    2300024: Icethree036
+    2300026: Icethree038
+    2300028: Icethree039
+    2300030: Icethree040
+    2300032: Icethree041
+    2300034: Icethree042
+    2300036: Stone005
+    2300038: Stone006
+    2300040: Stone007
+    2300042: Stone008
+    2300044: Stone009
+    2300046: Stone010
+    2300048: Stone011
+    2300050: Stone012
+    2300052: tereno1
+    3300000: Iceberg020
+    3300002: Iceberg021
+    3300004: Iceberg022
+    3300006: Iceberg023
+    3300008: Iceberg024
+    3300010: Iceberg025
+    3300012: Iceberg027
+    3300014: Iceberg029
+    3300016: Iceberg031
+    3300018: Iceberg032
+    3300020: Icethree027
+    3300022: Icethree035
+    3300024: Icethree036
+    3300026: Icethree038
+    3300028: Icethree039
+    3300030: Icethree040
+    3300032: Icethree041
+    3300034: Icethree042
+    3300036: Stone005
+    3300038: Stone006
+    3300040: Stone007
+    3300042: Stone008
+    3300044: Stone009
+    3300046: Stone010
+    3300048: Stone011
+    3300050: Stone012
+    3300052: tereno1
+    4300000: tereno1
+    4300002: Iceberg020
+    4300004: Iceberg021
+    4300006: Iceberg022
+    4300008: Iceberg023
+    4300010: Iceberg024
+    4300012: Iceberg025
+    4300014: Iceberg027
+    4300016: Iceberg029
+    4300018: Iceberg031
+    4300020: Iceberg032
+    4300022: Icethree027
+    4300024: Icethree035
+    4300026: Icethree036
+    4300028: Stone005
+    4300030: Stone006
+    4300032: Stone007
+    4300034: Stone008
+    4300036: Stone009
+    4300038: Stone010
+    4300040: Stone011
+    4300042: Stone012
+    4300044: Icethree038
+    4300046: Icethree039
+    4300048: Icethree040
+    4300050: Icethree041
+    4300052: Icethree042
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

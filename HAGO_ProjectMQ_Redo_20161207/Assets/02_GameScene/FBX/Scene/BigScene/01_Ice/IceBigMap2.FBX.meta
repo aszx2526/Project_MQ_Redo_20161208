@@ -1,0 +1,247 @@
+fileFormatVersion: 2
+guid: 83a74868da330ce4da506800db55ba60
+timeCreated: 1484047106
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Camera001
+    100002: Iceberg009
+    100004: Iceberg010
+    100006: Iceberg011
+    100008: Iceberg014
+    100010: Iceberg017
+    100012: Iceberg018
+    100014: Iceberg019
+    100016: Iceberg020
+    100018: Iceberg023
+    100020: Iceberg024
+    100022: Iceberg025
+    100024: Iceberg027
+    100026: Iceberg028
+    100028: Iceberg030
+    100030: Iceberg031
+    100032: Iceberg032
+    100034: Iceberg033
+    100036: Iceberg034
+    100038: //RootNode
+    100040: icethree004
+    100042: icethree005
+    100044: icethree006
+    100046: icethree007
+    100048: icethree008
+    100050: Object015
+    100052: Object016
+    100054: Object017
+    100056: Object019
+    100058: Plank wooden001
+    100060: Stone005
+    100062: Stone006
+    100064: Stone007
+    100066: Stone008
+    100068: tereno1
+    400000: Camera001
+    400002: Iceberg009
+    400004: Iceberg010
+    400006: Iceberg011
+    400008: Iceberg014
+    400010: Iceberg017
+    400012: Iceberg018
+    400014: Iceberg019
+    400016: Iceberg020
+    400018: Iceberg023
+    400020: Iceberg024
+    400022: Iceberg025
+    400024: Iceberg027
+    400026: Iceberg028
+    400028: Iceberg030
+    400030: Iceberg031
+    400032: Iceberg032
+    400034: Iceberg033
+    400036: Iceberg034
+    400038: //RootNode
+    400040: icethree004
+    400042: icethree005
+    400044: icethree006
+    400046: icethree007
+    400048: icethree008
+    400050: Object015
+    400052: Object016
+    400054: Object017
+    400056: Object019
+    400058: Plank wooden001
+    400060: Stone005
+    400062: Stone006
+    400064: Stone007
+    400066: Stone008
+    400068: tereno1
+    2300000: Iceberg009
+    2300002: Iceberg010
+    2300004: Iceberg011
+    2300006: Iceberg014
+    2300008: Iceberg017
+    2300010: Iceberg018
+    2300012: Iceberg019
+    2300014: Iceberg020
+    2300016: Iceberg023
+    2300018: Iceberg024
+    2300020: Iceberg025
+    2300022: Iceberg027
+    2300024: Iceberg028
+    2300026: Iceberg030
+    2300028: Iceberg031
+    2300030: Iceberg032
+    2300032: Iceberg033
+    2300034: Iceberg034
+    2300036: icethree004
+    2300038: icethree005
+    2300040: icethree006
+    2300042: icethree007
+    2300044: icethree008
+    2300046: Object015
+    2300048: Object016
+    2300050: Object017
+    2300052: Object019
+    2300054: Plank wooden001
+    2300056: Stone005
+    2300058: Stone006
+    2300060: Stone007
+    2300062: Stone008
+    2300064: tereno1
+    3300000: Iceberg009
+    3300002: Iceberg010
+    3300004: Iceberg011
+    3300006: Iceberg014
+    3300008: Iceberg017
+    3300010: Iceberg018
+    3300012: Iceberg019
+    3300014: Iceberg020
+    3300016: Iceberg023
+    3300018: Iceberg024
+    3300020: Iceberg025
+    3300022: Iceberg027
+    3300024: Iceberg028
+    3300026: Iceberg030
+    3300028: Iceberg031
+    3300030: Iceberg032
+    3300032: Iceberg033
+    3300034: Iceberg034
+    3300036: icethree004
+    3300038: icethree005
+    3300040: icethree006
+    3300042: icethree007
+    3300044: icethree008
+    3300046: Object015
+    3300048: Object016
+    3300050: Object017
+    3300052: Object019
+    3300054: Plank wooden001
+    3300056: Stone005
+    3300058: Stone006
+    3300060: Stone007
+    3300062: Stone008
+    3300064: tereno1
+    4300000: tereno1
+    4300002: Iceberg009
+    4300004: Iceberg010
+    4300006: Iceberg011
+    4300008: Iceberg014
+    4300010: Iceberg017
+    4300012: Iceberg018
+    4300014: Iceberg019
+    4300016: Iceberg020
+    4300018: Iceberg023
+    4300020: Iceberg024
+    4300022: Iceberg025
+    4300024: Iceberg027
+    4300026: Iceberg028
+    4300028: Iceberg030
+    4300030: Iceberg031
+    4300032: Iceberg032
+    4300034: Iceberg033
+    4300036: Iceberg034
+    4300038: Plank wooden001
+    4300040: Stone005
+    4300042: Stone006
+    4300044: Stone007
+    4300046: Stone008
+    4300048: Object015
+    4300050: Object016
+    4300052: icethree004
+    4300054: Object017
+    4300056: icethree005
+    4300058: icethree006
+    4300060: icethree007
+    4300062: Object019
+    4300064: icethree008
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
