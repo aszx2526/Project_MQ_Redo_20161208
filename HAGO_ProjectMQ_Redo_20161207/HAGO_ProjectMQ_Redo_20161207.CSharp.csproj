@@ -84,6 +84,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\00_FirstScene\onText_FirstScene.cs" />
     <Compile Include="Assets\01_mainscene\Script\SceneControll.cs" />
     <Compile Include="Assets\01_mainscene\Script\SourceManager.cs" />
     <Compile Include="Assets\01_mainscene\Script\onBigMap_ice.cs" />
@@ -162,6 +163,7 @@
     <Compile Include="Assets\02_GameScene\Scripts\onMonsterName.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onMonsterVer3.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onTriggerMQIn.cs" />
+    <Compile Include="Assets\02_GameScene\UI\CleanScreen\00_win\onTitle_Victory.cs" />
     <Compile Include="Assets\02_GameScene\UI\CleanScreen\onLoseController.cs" />
     <Compile Include="Assets\02_GameScene\UI\CleanScreen\onMQ_LoseFlyInLastFrame.cs" />
     <Compile Include="Assets\02_GameScene\UI\TeamSetting\forteamsetting\onUI_addOne.cs" />
@@ -181,17 +183,21 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_ShurikenThreadFix.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Spawn System\CFX_SpawnSystem.cs" />
+    <Compile Include="Assets\onMQ_WinFlyInLastFrame.cs" />
+    <Compile Include="Assets\onWinController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\02_GameScene\FBX\MQ\MQ_01_Basic\FBX\Materials\trytofindapha.shader" />
     <None Include="Assets\02_GameScene\Shader\OutlineShader.shader" />
     <None Include="Assets\02_GameScene\UI\CleanScreen\00_win\MQ_Vectory\備註.txt" />
     <None Include="Assets\02_GameScene\UI\CleanScreen\00_win\MQ_Vectory\滯空動圖\備註.txt" />
+    <None Include="Assets\02_GameScene\UI\CleanScreen\00_win\MQ_winflydown\備註.txt" />
     <None Include="Assets\02_GameScene\UI\CleanScreen\00_win\Title_VICTORYanim\影格時間.txt" />
     <None Include="Assets\02_GameScene\UI\CleanScreen\01_lose\MQ_Lose\備註.txt" />
     <None Include="Assets\02_GameScene\UI\CleanScreen\01_lose\MQ_loseflydown\idle_loseflydown\影格時間.txt" />
     <None Include="Assets\02_GameScene\UI\CleanScreen\01_lose\MQ_loseflydown\備註.txt" />
     <None Include="Assets\02_GameScene\UI\CleanScreen\01_lose\Title_LOSEanim\影格時間.txt" />
+    <None Include="Assets\02_GameScene\UI\CleanScreen\MQ_in_ForBigMaponLevelIcon\idle\備註.txt" />
     <None Include="Assets\02_GameScene\UI\CleanScreen\MQ_in_ForBigMaponLevelIcon\備註.txt" />
     <None Include="Assets\02_GameScene\UI\CleanScreen\備註.txt" />
     <None Include="Assets\02_GameScene\UI\Morale_Bar\moraleBar_icon\readme.txt" />
