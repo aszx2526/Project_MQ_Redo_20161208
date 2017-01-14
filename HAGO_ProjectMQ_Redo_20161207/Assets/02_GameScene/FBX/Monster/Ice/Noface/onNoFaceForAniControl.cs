@@ -75,7 +75,7 @@ public class onNoFaceForAniControl : MonoBehaviour {
               }
               myAniControll();
           }*/
-        // mySnowmanAttackMod();
+         //mySnowmanAttackMod();
         mySnowmanModControll();
           myAniControll();
     }

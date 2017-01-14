@@ -7,9 +7,9 @@ public class onCanvasForUIControll : MonoBehaviour {
     public int myLevelID;
     public GameObject myMainUI;
     public GameObject myMiniMap;
-    public GameObject myMission;
+    
     public GameObject myTeamSetting;
-    public GameObject mySupplyStation;
+    //public GameObject mySupplyStation;
     public GameObject myLevelClear;
     public GameObject myEventClear;
     public GameObject myAttackPartLocker;
@@ -34,7 +34,7 @@ public class onCanvasForUIControll : MonoBehaviour {
     [Header("蚊子傷害變數：")]
     public float myMonsterMoraleBloodValue;
     [Header("原生蚊種類：")]
-    public int myLocalMQ_Mob;//123 等阿龐給我對應表
+    public int myLocalMQ_Mob;//有對應表的ID了
     [Header("原生蚊數量：")]
     public int myLocalMQ_Amount;
     [Header("原生蚊1秒產出量")]
@@ -50,16 +50,27 @@ public class onCanvasForUIControll : MonoBehaviour {
     public GameObject myUICenter;
     // Use this for initialization
     void Start () {
+        if (PlayerPrefs.GetString("isFirstTimePlay") == "yes")
+        {
+
+        }
+        else { }
+        //PlayerPrefs.SetString("isFirstTimePlay", "yes");
+
         myScoreGetAllStar = myLevelClear.GetComponent<onUI_LevelClear>().myScoreGetAllStar;
         isGameStart = false;
         myAudioSource = gameObject.GetComponent<AudioSource>();
         myMiniMap.SetActive(true);
-        myMission.SetActive(false);
+     //   myMission.SetActive(false);
         myTeamSetting.SetActive(false);
-        mySupplyStation.SetActive(false);
+       // mySupplyStation.SetActive(false);
         myLevelClear.SetActive(false);
         myEventClear.SetActive(false);
-        myAllLocalMQCount = myMonsterMoraleCounter[0].GetComponent<Blip>().myLocalMQ_Amount + myMonsterMoraleCounter[1].GetComponent<Blip>().myLocalMQ_Amount + myMonsterMoraleCounter[2].GetComponent<Blip>().myLocalMQ_Amount + myMonsterMoraleCounter[3].GetComponent<Blip>().myLocalMQ_Amount;
+        if (myMonsterMoraleCounter.Length == 3) { myAllLocalMQCount = myMonsterMoraleCounter[0].GetComponent<Blip>().myLocalMQ_Amount + myMonsterMoraleCounter[1].GetComponent<Blip>().myLocalMQ_Amount + myMonsterMoraleCounter[2].GetComponent<Blip>().myLocalMQ_Amount; }
+        else {
+            myAllLocalMQCount = myMonsterMoraleCounter[0].GetComponent<Blip>().myLocalMQ_Amount + myMonsterMoraleCounter[1].GetComponent<Blip>().myLocalMQ_Amount + myMonsterMoraleCounter[2].GetComponent<Blip>().myLocalMQ_Amount + myMonsterMoraleCounter[3].GetComponent<Blip>().myLocalMQ_Amount;
+        }
+        
     }
 	
 	// Update is called once per frame
@@ -96,17 +107,15 @@ public class onCanvasForUIControll : MonoBehaviour {
 
         mySoundEffectFN();
         myMiniMap.SetActive(true);
-        myMission.SetActive(false);
         myTeamSetting.SetActive(false);
-        mySupplyStation.SetActive(false);
+       // mySupplyStation.SetActive(false);
         mySoundEffectFN();
     }
     public void BTN_Left2() {
         mySoundEffectFN();
         myMiniMap.SetActive(false);
-        myMission.SetActive(true);
         myTeamSetting.SetActive(false);
-        mySupplyStation.SetActive(false);
+       // mySupplyStation.SetActive(false);
         
     }
     public void BTN_Left3() {
@@ -115,15 +124,14 @@ public class onCanvasForUIControll : MonoBehaviour {
         //myMiniMap.SetActive(false);
         //myMission.SetActive(false);
         myTeamSetting.SetActive(true);
-        mySupplyStation.SetActive(false);
+      //  mySupplyStation.SetActive(false);
         
     }
     public void BTN_Left4() {
         mySoundEffectFN();
         myMiniMap.SetActive(false);
-        myMission.SetActive(false);
         myTeamSetting.SetActive(false);
-        mySupplyStation.SetActive(true);
+      //  mySupplyStation.SetActive(true);
         
     }
     public void BTN_Left5() {

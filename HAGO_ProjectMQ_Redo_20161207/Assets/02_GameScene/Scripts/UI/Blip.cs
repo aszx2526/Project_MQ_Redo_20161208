@@ -32,7 +32,7 @@ public class Blip : MonoBehaviour {
     void Star() {
         //UI_myIconOnMiniMap[0] = GetComponent<RectTransform>().GetChild(0).gameObject;
      //   myMQTalkText = gameObject.GetComponent<RectTransform>().GetChild(1).GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(0).GetComponent<Text>();
-     // myRectTransform = transform.GetChild(0).GetComponent<RectTransform>();
+     // myRectTransform = transform.GetChild(0).GetCo mponent<RectTransform>();
     }
     void Update() {
         if (Target.GetComponent<onMonsterVer3>().isMeDead) {

@@ -1,0 +1,197 @@
+fileFormatVersion: 2
+guid: c717dd6b2226383478c20e0cc0867fac
+timeCreated: 1484379762
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Camera001
+    100002: d002
+    100004: ferry005
+    100006: ferry006
+    100008: ferry007
+    100010: Ice_man009
+    100012: Iceberg008
+    100014: Iceberg009
+    100016: Iceberg010
+    100018: //RootNode
+    100020: Object003
+    100022: Object026
+    100024: Object027
+    100026: Object028
+    100028: Object029
+    100030: Object030
+    100032: Object031
+    100034: Object032
+    100036: Object033
+    100038: Plank wooden
+    100040: Stone002
+    100042: Stone02
+    100044: Stone03
+    100046: Stone04
+    100048: tereno1
+    400000: Camera001
+    400002: d002
+    400004: ferry005
+    400006: ferry006
+    400008: ferry007
+    400010: Ice_man009
+    400012: Iceberg008
+    400014: Iceberg009
+    400016: Iceberg010
+    400018: //RootNode
+    400020: Object003
+    400022: Object026
+    400024: Object027
+    400026: Object028
+    400028: Object029
+    400030: Object030
+    400032: Object031
+    400034: Object032
+    400036: Object033
+    400038: Plank wooden
+    400040: Stone002
+    400042: Stone02
+    400044: Stone03
+    400046: Stone04
+    400048: tereno1
+    2300000: d002
+    2300002: ferry005
+    2300004: ferry006
+    2300006: ferry007
+    2300008: Ice_man009
+    2300010: Iceberg008
+    2300012: Iceberg009
+    2300014: Iceberg010
+    2300016: Object003
+    2300018: Object026
+    2300020: Object027
+    2300022: Object028
+    2300024: Object029
+    2300026: Object030
+    2300028: Object031
+    2300030: Object032
+    2300032: Object033
+    2300034: Plank wooden
+    2300036: Stone002
+    2300038: Stone02
+    2300040: Stone03
+    2300042: Stone04
+    2300044: tereno1
+    3300000: d002
+    3300002: ferry005
+    3300004: ferry006
+    3300006: ferry007
+    3300008: Ice_man009
+    3300010: Iceberg008
+    3300012: Iceberg009
+    3300014: Iceberg010
+    3300016: Object003
+    3300018: Object026
+    3300020: Object027
+    3300022: Object028
+    3300024: Object029
+    3300026: Object030
+    3300028: Object031
+    3300030: Object032
+    3300032: Object033
+    3300034: Plank wooden
+    3300036: Stone002
+    3300038: Stone02
+    3300040: Stone03
+    3300042: Stone04
+    3300044: tereno1
+    4300000: tereno1
+    4300002: Plank wooden
+    4300004: Object003
+    4300006: Stone04
+    4300008: Stone002
+    4300010: Stone02
+    4300012: Stone03
+    4300014: d002
+    4300016: Ice_man009
+    4300018: Iceberg008
+    4300020: Iceberg009
+    4300022: ferry005
+    4300024: ferry006
+    4300026: ferry007
+    4300028: Iceberg010
+    4300030: Object026
+    4300032: Object027
+    4300034: Object028
+    4300036: Object029
+    4300038: Object030
+    4300040: Object031
+    4300042: Object032
+    4300044: Object033
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

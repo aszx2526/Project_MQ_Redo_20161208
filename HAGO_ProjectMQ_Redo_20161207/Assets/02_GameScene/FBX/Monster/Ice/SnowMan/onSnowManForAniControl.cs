@@ -77,22 +77,25 @@ public class onSnowManForAniControl : MonoBehaviour {
     }
     void Update()
     {
-          if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart && myFatherObject.GetComponent<onMonsterVer3>().isMeToFight)
-          {
-              if (isFreezeTime) { }
-              else {
-                  if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 0)//怪物死翹翹
-                  {
-                      myAniam.speed = 1;
-                      myAniMod = 2;
-                      print("myAniMod = 2;");
-                  }
-                  else {
-                    mySnowmanAttackMod();
-                  }
-              }
-              myAniControll();
-          }
+        /*if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart && myFatherObject.GetComponent<onMonsterVer3>().isMeToFight)
+        {
+            if (isFreezeTime) { }
+            else {
+                if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount == 0)//怪物死翹翹
+                {
+                    myAniam.speed = 1;
+                    myAniMod = 2;
+                    print("myAniMod = 2;");
+                }
+                else {
+                  mySnowmanAttackMod();
+                }
+            }
+            myAniControll();
+        }*/
+        // mySnowmanAttackMod();
+        mySnowmanModControll();
+        myAniControll();
     }
     //bear skill function-
     public void mySnowmanSkill_BC_hit() { myAniMod = 8; }
@@ -105,8 +108,8 @@ public class onSnowManForAniControl : MonoBehaviour {
     public void mySnowmanAttackMod()
     {
         if (isHandgood) {
-            if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount < 0.2)
-           //if(myTestingMarvalValue<0.2)
+           // if (GameObject.Find("Morale_Monster").GetComponent<Image>().fillAmount < 0.2)
+            if(myTestingMarvalValue<0.2)
             {//20%以下時-------------------------------
                 if (isCDTtime_snowshotshot)
                 {

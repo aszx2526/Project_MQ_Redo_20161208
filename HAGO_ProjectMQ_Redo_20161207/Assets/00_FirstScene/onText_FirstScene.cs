@@ -7,6 +7,7 @@ public class onText_FirstScene : MonoBehaviour {
     public float myTargetYValue;
     public float myUpSpeed;
     public float myFadeOutSpeed;
+    public int myLoadSceneID;
 	// Use this for initialization
 	void Start () {
 		
@@ -24,7 +25,8 @@ public class onText_FirstScene : MonoBehaviour {
             myText.GetComponent<Text>().color = a;
             if (a.a <= 0) {
                 print("載入教學場景");
-                //Application.LoadLevel
+                PlayerPrefs.SetString("isFirstTimePlay", "yes");
+                Application.LoadLevel(myLoadSceneID);
             }
         }
 
