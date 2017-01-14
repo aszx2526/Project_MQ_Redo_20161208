@@ -82,9 +82,9 @@ ModelImporter:
     4300000: Aboriginal
     4300002: Aboriginal
     7400000: Fight
-    7400002: idle_attack
-    7400004: Fight002
-    7400006: Fight001
+    7400002: turing
+    7400004: idle_attack
+    7400006: skill_bc_punch
     9500000: //RootNode
     13700000: Aboriginal
     13700002: Aboriginal 1
@@ -112,7 +112,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: idle_attack
+      name: turing
       takeName: Take 001
       firstFrame: 0
       lastFrame: 60
@@ -232,7 +232,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Fight002
+      name: idle_attack
       takeName: Take 001
       firstFrame: 30
       lastFrame: 70
@@ -242,7 +242,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -254,7 +254,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: LastFram_Idle_FN
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1
@@ -352,7 +359,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Fight001
+      name: skill_bc_punch
       takeName: Take 001
       firstFrame: 60
       lastFrame: 160
@@ -374,7 +381,15 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: LastFram_5_FN
+        data: 
+        objectReferenceParameter: {fileID: 1004935867233518, guid: 4ec42c6313459694e99ade3c836460c1,
+          type: 2}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask:
       - path: 
         weight: 1

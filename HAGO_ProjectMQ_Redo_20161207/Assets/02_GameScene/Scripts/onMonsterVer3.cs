@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class onMonsterVer3 : MonoBehaviour {
     public bool isMeDead;
     public bool isBoss;
-    public int myIDForMonster;
+    public int myIDForMonster;//場景內第幾隻怪物
     public bool isMeToFight;
     public UnityEngine.AI.NavMeshAgent agent;
     public Collider[] attackTarget;
