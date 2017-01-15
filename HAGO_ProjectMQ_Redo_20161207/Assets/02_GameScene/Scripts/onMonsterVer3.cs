@@ -128,8 +128,20 @@ public class onMonsterVer3 : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (myIDForMonster == GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum) { isMeToFight = true; }
-        else { isMeToFight = false; }
+        if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) {
+            if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGamePause) { }
+            else { }
+        }
+        else {
+            if (myIDForMonster == GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum)
+            {
+                isMeToFight = true;
+                GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().SendMessage("BTN_Left6");
+            }
+            // else { isMeToFight = false; }
+        }
+
+
         //myIDForMonster
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart&&isMeToFight)
         {

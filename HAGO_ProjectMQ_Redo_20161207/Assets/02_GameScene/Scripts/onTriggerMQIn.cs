@@ -3,7 +3,7 @@ using System.Collections;
 
 public class onTriggerMQIn : MonoBehaviour {
     public GameObject myFather;
-    public int myTriggerMod;//0=bigeye 1=icebear
+    public int myTriggerMod;//0=bigeye 1=icebear 2=noface
 	// Use this for initialization
 	void Start () {
 	
@@ -53,6 +53,39 @@ public class onTriggerMQIn : MonoBehaviour {
                     if (myFather.GetComponent<onHitPoint_UpdateHureValue>().isPartBreak)
                     {
                         if (myFather.name == "hitpoint-2" || myFather.name == "hitpoint-3")
+                        {
+                            other.GetComponent<onMQVer3>().myMoveSpeed = 0;
+                            other.GetComponent<onMQVer3>().isAttackTime = true;
+                            other.GetComponent<onMQVer3>().isLockNextTarget = false;
+                            other.GetComponent<onMQVer3>().isNeedToMoveToNextPoint = false;
+                            other.transform.parent = myFather.transform;
+                        }
+                        else {
+                            other.GetComponent<onMQVer3>().isAttackTime = false;
+                            other.GetComponent<onMQVer3>().isNeedToMoveToNextPoint = true;
+                            other.transform.parent = null;
+                        }
+                    }
+                    else {
+                        if (myFather.name == other.GetComponent<onMQVer3>().myTargetPoint.name)
+                        {
+                            other.GetComponent<onMQVer3>().myMoveSpeed = 0;
+                            other.GetComponent<onMQVer3>().isAttackTime = true;
+                            other.GetComponent<onMQVer3>().isLockNextTarget = false;
+                            other.GetComponent<onMQVer3>().isNeedToMoveToNextPoint = false;
+                            other.transform.parent = myFather.transform;
+                        }
+                        else {
+                            other.GetComponent<onMQVer3>().isAttackTime = false;
+                            other.GetComponent<onMQVer3>().isNeedToMoveToNextPoint = true;
+                            other.transform.parent = null;
+                        }
+                    }
+                    break;
+                case 2://noface
+                    if (myFather.GetComponent<onHitPoint_UpdateHureValue>().isPartBreak)
+                    {
+                        if (myFather.name == "hitpoint-3" || myFather.name == "hitpoint-4")
                         {
                             other.GetComponent<onMQVer3>().myMoveSpeed = 0;
                             other.GetComponent<onMQVer3>().isAttackTime = true;

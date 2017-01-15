@@ -17,6 +17,7 @@ public class onCanvasForUIControll : MonoBehaviour {
     public AudioSource myAudioSource;
     [Header("=======================")]
     public bool isGameStart;
+    public bool isGamePause;
     public bool isPlayerLose;
     public int myAllLocalMQCount;
     [Header("全星積分")]

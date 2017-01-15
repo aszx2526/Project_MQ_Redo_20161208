@@ -21,6 +21,7 @@ public class Blip : MonoBehaviour {
     public Transform miniTarget;// 小地圖的目標物件，搞定比例尺
     public Transform Target;//場景上的怪物物件
     public string[] MQTalkString;//MQ哀哀叫的字串
+    public GameObject[] MQEnmotion;//MQ表情符號
     public Text myMQTalkText;
     public Image[] UI_myIconOnMiniMap;//0怪 1 MQ
     public Sprite[] UI_whenSomeOneDead;
@@ -46,14 +47,48 @@ public class Blip : MonoBehaviour {
             myMQTalkText.text = MQTalkString[4];//MQ say GG
         }
         else {
-            if (myMonsterBasicMorale > 60 && myMonsterBasicMorale < 70) { myMQTalkText.text = MQTalkString[0]; }//40
-            if (myMonsterBasicMorale > 70 && myMonsterBasicMorale < 80) { myMQTalkText.text = MQTalkString[1]; }//30
-            if (myMonsterBasicMorale > 80 && myMonsterBasicMorale < 90) { myMQTalkText.text = MQTalkString[2]; }//20
-            if (myMonsterBasicMorale > 90 && myMonsterBasicMorale < 100) { myMQTalkText.text = MQTalkString[3]; }//10
+            if (myMonsterBasicMorale > 40 && myMonsterBasicMorale < 50) {
+                MQEnmotion[0].SetActive(true);
+                MQEnmotion[1].SetActive(false);
+                MQEnmotion[2].SetActive(false);
+                MQEnmotion[3].SetActive(false);
+                MQEnmotion[4].SetActive(false);
+            }//50
+            if (myMonsterBasicMorale > 50 && myMonsterBasicMorale < 60) {
+                MQEnmotion[0].SetActive(false);
+                MQEnmotion[1].SetActive(true);
+                MQEnmotion[2].SetActive(false);
+                MQEnmotion[3].SetActive(false);
+                MQEnmotion[4].SetActive(false);
+            }//40
+            if (myMonsterBasicMorale > 60 && myMonsterBasicMorale < 70) {
+                MQEnmotion[0].SetActive(false);
+                MQEnmotion[1].SetActive(false);
+                MQEnmotion[2].SetActive(true);
+                MQEnmotion[3].SetActive(false);
+                MQEnmotion[4].SetActive(false);
+            }//30
+            if (myMonsterBasicMorale > 70 && myMonsterBasicMorale < 80) {
+                MQEnmotion[0].SetActive(false);
+                MQEnmotion[1].SetActive(false);
+                MQEnmotion[2].SetActive(false);
+                MQEnmotion[3].SetActive(true);
+                MQEnmotion[4].SetActive(false);
+            }//20
+            if (myMonsterBasicMorale > 80 && myMonsterBasicMorale < 90) {
+                MQEnmotion[0].SetActive(false);
+                MQEnmotion[1].SetActive(false);
+                MQEnmotion[2].SetActive(false);
+                MQEnmotion[3].SetActive(false);
+                MQEnmotion[4].SetActive(true);
+            }//10
         }
 
         if (Target.GetComponent<onMonsterVer3>().isMeToFight) {
-            GameObject.Find("btn_battle").GetComponent<onBTN_Battle>().myBtnIcon_image.sprite = GameObject.Find("btn_battle").GetComponent<onBTN_Battle>().myBattleBtnImageList[myKindOfMonsterID];
+            //將本來出戰按鈕上的圖片換成您選到的怪物
+            //不過現在沒有用了
+            //因為直接點選怪物就會進入戰鬥畫面了
+        //    GameObject.Find("btn_battle").GetComponent<onBTN_Battle>().myBtnIcon_image.sprite = GameObject.Find("btn_battle").GetComponent<onBTN_Battle>().myBattleBtnImageList[myKindOfMonsterID];
         }
         //同步數值用，把在小地圖icon上的數值同步到Canvas 去做總控制
         if (myMonsterID == GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum) {

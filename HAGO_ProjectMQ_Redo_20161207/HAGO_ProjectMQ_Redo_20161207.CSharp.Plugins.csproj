@@ -97,6 +97,10 @@
     <None Include="Assets\02_GameScene\UI\CleanScreen\MQ_in_ForBigMaponLevelIcon\idle\備註.txt" />
     <None Include="Assets\02_GameScene\UI\CleanScreen\MQ_in_ForBigMaponLevelIcon\備註.txt" />
     <None Include="Assets\02_GameScene\UI\CleanScreen\備註.txt" />
+    <None Include="Assets\02_GameScene\UI\MiniMap\Emotions\01_delight\每格0.3秒.txt" />
+    <None Include="Assets\02_GameScene\UI\MiniMap\Emotions\02_anger\每格0.3秒.txt" />
+    <None Include="Assets\02_GameScene\UI\MiniMap\Emotions\03_sorrow\每格0.2秒.txt" />
+    <None Include="Assets\02_GameScene\UI\MiniMap\Emotions\04_happiness\每格0.3秒.txt" />
     <None Include="Assets\02_GameScene\UI\Morale_Bar\moraleBar_icon\readme.txt" />
     <None Include="Assets\02_GameScene\UI\SceneUI\F_02\選單動畫說明.txt" />
     <None Include="Assets\99_someThings\test\HSBC Effect.shader" />

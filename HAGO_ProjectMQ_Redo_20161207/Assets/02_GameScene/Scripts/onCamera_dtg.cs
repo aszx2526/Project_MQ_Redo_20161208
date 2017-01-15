@@ -38,12 +38,20 @@ public class onCamera_dtg : MonoBehaviour {
         if (myPickUpNum != 0) {
             if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) {
                 //這行會讓2D物件變成billboard
-                myLocker.transform.position = Camera.main.WorldToScreenPoint(theLookAtPointOnMonster[myCameraMod].transform.position);
-            }
-            else {
+
                 transform.position = myMonsterList[myPickUpNum - 1].transform.position;
                 theLookAtPointOnMonster = myMonsterList[myPickUpNum - 1].GetComponent<onMonsterVer3>().MyHitpointList;
                 theHotPointOnMonster = myMonsterList[myPickUpNum - 1].GetComponent<onMonsterVer3>().myHotPointList;
+
+                myLocker.transform.position = Camera.main.WorldToScreenPoint(theLookAtPointOnMonster[myCameraMod].transform.position);
+
+             
+
+            }
+            else {
+               /* transform.position = myMonsterList[myPickUpNum - 1].transform.position;
+                theLookAtPointOnMonster = myMonsterList[myPickUpNum - 1].GetComponent<onMonsterVer3>().MyHitpointList;
+                theHotPointOnMonster = myMonsterList[myPickUpNum - 1].GetComponent<onMonsterVer3>().myHotPointList;*/
             }
         }
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) { CameraRotationFN(); }
@@ -97,9 +105,10 @@ public class onCamera_dtg : MonoBehaviour {
                 break;
             case "monster_icebear":
                 myCameraLookAtPointMoveFN();//暫時用，讓鏡頭會看著攻擊點
-                  if (myMonsterList[myPickUpNum - 1].gameObject.transform.GetChild(0).GetComponent<onIceBearForAniControll>().isLeggood)
-                  {
-                    if (myMonsterList[myPickUpNum - 1].gameObject.transform.GetChild(0).GetComponent<onIceBearForAniControll>().isQTETime) {
+                if (myMonsterList[myPickUpNum - 1].gameObject.transform.GetChild(0).GetComponent<onIceBearForAniControll>().isLeggood)
+                {
+                    if (myMonsterList[myPickUpNum - 1].gameObject.transform.GetChild(0).GetComponent<onIceBearForAniControll>().isQTETime)
+                    {
                         myCameraFN(0.0f, 60, 1f);
                     }
                     else {
@@ -126,9 +135,10 @@ public class onCamera_dtg : MonoBehaviour {
                                 break;
                         }
                     }
-                  }
-                  else {
-                    if (myMonsterList[myPickUpNum - 1].gameObject.transform.GetChild(0).GetComponent<onIceBearForAniControll>().isQTETime) {
+                }
+                else {
+                    if (myMonsterList[myPickUpNum - 1].gameObject.transform.GetChild(0).GetComponent<onIceBearForAniControll>().isQTETime)
+                    {
                         myCameraFN(0, 30, 1f);
                     }
                     else {
@@ -156,8 +166,33 @@ public class onCamera_dtg : MonoBehaviour {
                                 break;
                         }
                     }
-                   
-                  }
+
+                }
+                break;
+            case "monster_noface":
+                switch (myCameraMod)
+                {
+                    case 0:
+                        myCameraFN(a_rota, 60, c_yupdown);
+                        //myCameraFN(-0.6f, 60, 2.5f);
+                        break;
+                    case 1:
+                        myCameraFN(a_rota, 60, c_yupdown);
+                        //myCameraFN(0.6f, 40, 2f);
+                        break;
+                    case 2:
+                        myCameraFN(a_rota, 60, c_yupdown);
+                        //myCameraFN(0f, 30, 2.4f);
+                        break;
+                    case 3:
+                        myCameraFN(a_rota, 60, c_yupdown);
+                        //myCameraFN(-0.6f, 47, 1f);
+                        break;
+                    case 4:
+                        myCameraFN(a_rota, 60, c_yupdown);
+                        //myCameraFN(0.6f, 45, 1f);
+                        break;
+                }
                 break;
             default:
                 print("攝影機旋轉怪物清單為 null");
@@ -299,20 +334,24 @@ public class onCamera_dtg : MonoBehaviour {
     }
     public void BTN_onMiniMap_Monster1()
     {
+        print("monster1 be click");
         if (myMonsterList[0].GetComponent<onMonsterVer3>().isMeDead) { myPickUpNum = 0; }
         else { myPickUpNum = 1; }   
     }
     public void BTN_onMiniMap_Monster2() {
+        print("monster2 be click");
         if (myMonsterList[1].GetComponent<onMonsterVer3>().isMeDead) { myPickUpNum = 0; }
         else { myPickUpNum = 2; }
     }
     public void BTN_onMiniMap_Monster3()
     {
+        print("monster3 be click");
         if (myMonsterList[2].GetComponent<onMonsterVer3>().isMeDead) { myPickUpNum = 0; }
         else { myPickUpNum = 3; }
     }
     public void BTN_onMiniMap_Monster4()
     {
+        print("monster4 be click");
         if (myMonsterList[3].GetComponent<onMonsterVer3>().isMeDead) { myPickUpNum = 0; }
         else { myPickUpNum = 4; }
     }
