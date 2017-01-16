@@ -161,9 +161,11 @@
     <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_13_Dracula_smale.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_AnimControll_14_BlackHole.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onMQ\onMQ_LastFram_Attack.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onMQTeacherManager.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onMainCameraVer2.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onMonsterName.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onMonsterVer3.cs" />
+    <Compile Include="Assets\02_GameScene\Scripts\onNofaceController.cs" />
     <Compile Include="Assets\02_GameScene\Scripts\onTriggerMQIn.cs" />
     <Compile Include="Assets\02_GameScene\UI\CleanScreen\00_win\onMQ_WinFlyInLastFrame.cs" />
     <Compile Include="Assets\02_GameScene\UI\CleanScreen\00_win\onTitle_Victory.cs" />
@@ -276,8 +278,6 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_ShurikenThreadFix.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Spawn System\CFX_SpawnSystem.cs" />
-    <Compile Include="Assets\onMQTeacherManager.cs" />
-    <Compile Include="Assets\onNofaceController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\02_GameScene\FBX\MQ\MQ_01_Basic\FBX\Materials\trytofindapha.shader" />
