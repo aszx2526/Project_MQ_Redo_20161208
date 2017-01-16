@@ -65,9 +65,7 @@ ModelImporter:
     400056: snowman_1
     4300000: snowman
     4300002: snowman_1
-    7400000: sk_bc_weaponhit
-    7400002: sk_bc_weaponwave
-    7400004: sk_sp_snowshotshot
+    7400000: Take 001
     9500000: //RootNode
     13700000: snowman
     13700002: snowman_1
@@ -93,6 +91,7 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+<<<<<<< HEAD
     clipAnimations:
     - serializedVersion: 16
       name: sk_bc_weaponhit
@@ -376,6 +375,9 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
+=======
+    clipAnimations: []
+>>>>>>> parent of c26d936... 20170103_01
     isReadable: 1
   meshes:
     lODScreenPercentages: []

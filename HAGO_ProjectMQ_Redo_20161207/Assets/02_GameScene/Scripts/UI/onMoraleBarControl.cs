@@ -20,11 +20,11 @@ public class onMoraleBarControl : MonoBehaviour {
     public float myLocalMQ_AmountTarget;
     // Use this for initialization
     void Start () {
-      /*  myUI_LocalMQ_Amount = transform.GetChild(2).GetComponent<Image>();
-        myUI_MoraleBar_MQ = transform.GetChild(3).GetComponent<Image>();
-        myUI_MoraleBar_Monster = transform.GetChild(4).GetComponent<Image>();
+        myUI_LocalMQ_Amount = transform.GetChild(1).GetComponent<Image>();
+        myUI_MoraleBar_MQ = transform.GetChild(2).GetComponent<Image>();
+        myUI_MoraleBar_Monster = transform.GetChild(3).GetComponent<Image>();
         myUI_LocalMQ_AmountMark = transform.GetChild(5).gameObject;
-        myUI_MonsterMQ_Mark = transform.GetChild(6).gameObject;*/
+        myUI_MonsterMQ_Mark = transform.GetChild(6).gameObject;
     }
 	
 	// Update is called once per frame
@@ -32,13 +32,13 @@ public class onMoraleBarControl : MonoBehaviour {
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) {
             //控制原生蚊bar標記
             Vector3 myAmountMarkPos = myUI_LocalMQ_AmountMark.GetComponent<RectTransform>().localPosition;
-            myAmountMarkPos.x = (-270)+(myUI_LocalMQ_Amount.fillAmount * 580);
+            myAmountMarkPos.x = (-450)+(myUI_LocalMQ_Amount.fillAmount * 915);
             myUI_LocalMQ_AmountMark.GetComponent<RectTransform>().localPosition = myAmountMarkPos;
 
             //450 460
             //控制怪物bar標記
             Vector3 myMonsterMarkPos = myUI_MonsterMQ_Mark.GetComponent<RectTransform>().localPosition;
-            myMonsterMarkPos.x = (-266) + (myUI_MoraleBar_MQ.fillAmount * 562);
+            myMonsterMarkPos.x = (-450) + (myUI_MoraleBar_MQ.fillAmount * 910);
             myUI_MonsterMQ_Mark.GetComponent<RectTransform>().localPosition = myMonsterMarkPos;
 
             if (myUI_MoraleBar_Monster.fillAmount == 0) {
@@ -100,7 +100,7 @@ public class onMoraleBarControl : MonoBehaviour {
                 myUI_LocalMQ_Amount.fillAmount = myLocalMQ_AmountTarget / (float)GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLocalMQ_AmountFull;
             }
             //更新士氣值蚊子及怪地的icon
-        //    myMonsterMQMoraleBarIconUpdateFN();
+            myMonsterMQMoraleBarIconUpdateFN();
         }
     }
     public void myMonsterMQMoraleBarIconUpdateFN() {

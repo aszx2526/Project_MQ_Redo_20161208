@@ -67,9 +67,7 @@ ModelImporter:
     400058: //RootNode
     4300000: snowman
     4300002: snowman_1
-    7400000: breaking_hand
-    7400002: idle_handbreak
-    7400004: dead_noweapon
+    7400000: Take 001
     9500000: //RootNode
     13700000: snowman
     13700002: snowman_1
@@ -95,6 +93,7 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+<<<<<<< HEAD
     clipAnimations:
     - serializedVersion: 16
       name: breaking_hand
@@ -368,6 +367,9 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
+=======
+    clipAnimations: []
+>>>>>>> parent of c26d936... 20170103_01
     isReadable: 1
   meshes:
     lODScreenPercentages: []
