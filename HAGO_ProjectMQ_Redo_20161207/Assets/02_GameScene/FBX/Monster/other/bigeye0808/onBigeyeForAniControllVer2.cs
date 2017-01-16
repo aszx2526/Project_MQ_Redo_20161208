@@ -587,7 +587,7 @@ public class onBigeyeForAniControllVer2 : MonoBehaviour {
             if (isBigeyeHaveBeBreak) { GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myScoreCount += myBigeyeBreakScore; }
             if (isWingHaveBeBreak) { GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myScoreCount += myWingBreakScore; }
             GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myScoreCount += myBigeyeDeadScore;
-            GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myEventClear.SetActive(true);
+          //  GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myEventClear.SetActive(true);
         }
     }
     public void myFindAllMQAndAttack_Skill1() {

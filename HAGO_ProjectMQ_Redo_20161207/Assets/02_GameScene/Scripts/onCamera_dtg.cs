@@ -39,9 +39,7 @@ public class onCamera_dtg : MonoBehaviour {
             if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) {
                 //這行會讓2D物件變成billboard
 
-                transform.position = myMonsterList[myPickUpNum - 1].transform.position;
-                theLookAtPointOnMonster = myMonsterList[myPickUpNum - 1].GetComponent<onMonsterVer3>().MyHitpointList;
-                theHotPointOnMonster = myMonsterList[myPickUpNum - 1].GetComponent<onMonsterVer3>().myHotPointList;
+               
 
                 myLocker.transform.position = Camera.main.WorldToScreenPoint(theLookAtPointOnMonster[myCameraMod].transform.position);
 
@@ -55,6 +53,11 @@ public class onCamera_dtg : MonoBehaviour {
             }
         }
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) { CameraRotationFN(); }
+    }
+    public void myFNonCamera_dtg() {
+        transform.position = myMonsterList[myPickUpNum - 1].transform.position;
+        theLookAtPointOnMonster = myMonsterList[myPickUpNum - 1].GetComponent<onMonsterVer3>().MyHitpointList;
+        theHotPointOnMonster = myMonsterList[myPickUpNum - 1].GetComponent<onMonsterVer3>().myHotPointList;
     }
     public void CameraRotationFN() {
         switch (myMonsterList[myPickUpNum - 1].tag) {
@@ -336,24 +339,28 @@ public class onCamera_dtg : MonoBehaviour {
     {
         print("monster1 be click");
         if (myMonsterList[0].GetComponent<onMonsterVer3>().isMeDead) { myPickUpNum = 0; }
-        else { myPickUpNum = 1; }   
+        else { myPickUpNum = 1; }
+        myFNonCamera_dtg();
     }
     public void BTN_onMiniMap_Monster2() {
         print("monster2 be click");
         if (myMonsterList[1].GetComponent<onMonsterVer3>().isMeDead) { myPickUpNum = 0; }
         else { myPickUpNum = 2; }
+        myFNonCamera_dtg();
     }
     public void BTN_onMiniMap_Monster3()
     {
         print("monster3 be click");
         if (myMonsterList[2].GetComponent<onMonsterVer3>().isMeDead) { myPickUpNum = 0; }
         else { myPickUpNum = 3; }
+        myFNonCamera_dtg();
     }
     public void BTN_onMiniMap_Monster4()
     {
         print("monster4 be click");
         if (myMonsterList[3].GetComponent<onMonsterVer3>().isMeDead) { myPickUpNum = 0; }
         else { myPickUpNum = 4; }
+        myFNonCamera_dtg();
     }
 }
  

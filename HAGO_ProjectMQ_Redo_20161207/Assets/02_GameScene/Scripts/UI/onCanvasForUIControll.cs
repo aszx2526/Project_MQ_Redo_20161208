@@ -11,7 +11,7 @@ public class onCanvasForUIControll : MonoBehaviour {
     public GameObject myTeamSetting;
     //public GameObject mySupplyStation;
     public GameObject myLevelClear;
-    public GameObject myEventClear;
+    //public GameObject myEventClear;
     public GameObject myAttackPartLocker;
     public AudioClip[] mySoundEffectData;
     public AudioSource myAudioSource;
@@ -66,7 +66,7 @@ public class onCanvasForUIControll : MonoBehaviour {
         myTeamSetting.SetActive(false);
        // mySupplyStation.SetActive(false);
         myLevelClear.SetActive(false);
-        myEventClear.SetActive(false);
+     //   myEventClear.SetActive(false);
         if (myMonsterMoraleCounter.Length == 3) { myAllLocalMQCount = myMonsterMoraleCounter[0].GetComponent<Blip>().myLocalMQ_Amount + myMonsterMoraleCounter[1].GetComponent<Blip>().myLocalMQ_Amount + myMonsterMoraleCounter[2].GetComponent<Blip>().myLocalMQ_Amount; }
         else {
             myAllLocalMQCount = myMonsterMoraleCounter[0].GetComponent<Blip>().myLocalMQ_Amount + myMonsterMoraleCounter[1].GetComponent<Blip>().myLocalMQ_Amount + myMonsterMoraleCounter[2].GetComponent<Blip>().myLocalMQ_Amount + myMonsterMoraleCounter[3].GetComponent<Blip>().myLocalMQ_Amount;

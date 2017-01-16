@@ -789,7 +789,7 @@ public class onIceBearForAniControll : MonoBehaviour
             if (isHeadHaveBeBreak) { GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myScoreCount += myHeadBreakScore; }
             if (isLegHaveBeBreak) { GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myScoreCount += myLegBreakScore; }
             GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myScoreCount += myIceBearDeadScore;
-            GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myEventClear.SetActive(true);
+           // GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myEventClear.SetActive(true);
         }
     }
     public void LastFram_10_FN() { isCDTtime_jumphit = true; }
