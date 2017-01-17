@@ -38,10 +38,16 @@ public class onLoseController : MonoBehaviour {
         {
             if (myChangeTimer >= myChangeTime)
             {
-                myChangeTimer = 0;
-                GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMainUI.SetActive(true);
-                GameObject.Find("MoraleBar").GetComponent<onMoraleBarControl>().myUI_MoraleBar_Monster.fillAmount = 0.5f;
-                Destroy(gameObject);
+                if (GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().theLookAtPointOnMonster[0].GetComponent<onHitPoint_UpdateHureValue>().myBigFather.GetComponent<onMonsterVer3>().isBoss)
+                {
+                    GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLevelClear.SetActive(true);
+                }
+                else {
+                    myChangeTimer = 0;
+                    GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMainUI.SetActive(true);
+                    GameObject.Find("MoraleBar").GetComponent<onMoraleBarControl>().myUI_MoraleBar_Monster.fillAmount = 0.5f;
+                    Destroy(gameObject);
+                }
             }
             else {
                 myChangeTimer += Time.deltaTime;

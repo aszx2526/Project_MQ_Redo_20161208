@@ -1,0 +1,231 @@
+fileFormatVersion: 2
+guid: e5b2d4e4e0fe0834a90b6c469958c5d4
+timeCreated: 1484634471
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Bip001
+    100002: Bip001 HeadNub
+    100004: Bip001 L Finger0Nub
+    100006: Bip001 L Finger1Nub
+    100008: Bip001 L Toe0Nub
+    100010: Bip001 R Finger0Nub
+    100012: Bip001 R Finger1Nub
+    100014: Bip001 R Toe0Nub
+    100016: Camera001
+    100018: d001
+    100020: ferry005
+    100022: ferry006
+    100024: ferry007
+    100026: Ice_man004
+    100028: Ice_man005
+    100030: Ice_man006
+    100032: Iceberg009
+    100034: Iceberg011
+    100036: //RootNode
+    100038: Object007
+    100040: Object008
+    100042: Object009
+    100044: Object010
+    100046: Object011
+    100048: Object020
+    100050: Object026
+    100052: Object027
+    100054: Object029
+    100056: Object030
+    100058: Object031
+    100060: Object032
+    100062: Object033
+    100064: Stone002
+    100066: Stone02
+    100068: Stone03
+    100070: Stone04
+    100072: tereno1
+    400000: Bip001
+    400002: Bip001 HeadNub
+    400004: Bip001 L Finger0Nub
+    400006: Bip001 L Finger1Nub
+    400008: Bip001 L Toe0Nub
+    400010: Bip001 R Finger0Nub
+    400012: Bip001 R Finger1Nub
+    400014: Bip001 R Toe0Nub
+    400016: Camera001
+    400018: d001
+    400020: ferry005
+    400022: ferry006
+    400024: ferry007
+    400026: Ice_man004
+    400028: Ice_man005
+    400030: Ice_man006
+    400032: Iceberg009
+    400034: Iceberg011
+    400036: //RootNode
+    400038: Object007
+    400040: Object008
+    400042: Object009
+    400044: Object010
+    400046: Object011
+    400048: Object020
+    400050: Object026
+    400052: Object027
+    400054: Object029
+    400056: Object030
+    400058: Object031
+    400060: Object032
+    400062: Object033
+    400064: Stone002
+    400066: Stone02
+    400068: Stone03
+    400070: Stone04
+    400072: tereno1
+    2300000: d001
+    2300002: ferry005
+    2300004: ferry006
+    2300006: ferry007
+    2300008: Ice_man004
+    2300010: Ice_man005
+    2300012: Ice_man006
+    2300014: Iceberg009
+    2300016: Iceberg011
+    2300018: Object007
+    2300020: Object008
+    2300022: Object009
+    2300024: Object010
+    2300026: Object011
+    2300028: Object026
+    2300030: Object027
+    2300032: Object029
+    2300034: Object030
+    2300036: Object031
+    2300038: Object032
+    2300040: Object033
+    2300042: Stone002
+    2300044: Stone02
+    2300046: Stone03
+    2300048: Stone04
+    2300050: tereno1
+    3300000: d001
+    3300002: ferry005
+    3300004: ferry006
+    3300006: ferry007
+    3300008: Ice_man004
+    3300010: Ice_man005
+    3300012: Ice_man006
+    3300014: Iceberg009
+    3300016: Iceberg011
+    3300018: Object007
+    3300020: Object008
+    3300022: Object009
+    3300024: Object010
+    3300026: Object011
+    3300028: Object026
+    3300030: Object027
+    3300032: Object029
+    3300034: Object030
+    3300036: Object031
+    3300038: Object032
+    3300040: Object033
+    3300042: Stone002
+    3300044: Stone02
+    3300046: Stone03
+    3300048: Stone04
+    3300050: tereno1
+    4300000: tereno1
+    4300002: Ice_man004
+    4300004: Ice_man005
+    4300006: Ice_man006
+    4300008: d001
+    4300010: Stone04
+    4300012: Stone002
+    4300014: Stone02
+    4300016: Stone03
+    4300018: Object007
+    4300020: Object008
+    4300022: Object009
+    4300024: Object010
+    4300026: Object011
+    4300028: Iceberg009
+    4300030: ferry005
+    4300032: ferry006
+    4300034: ferry007
+    4300036: Iceberg011
+    4300038: Object026
+    4300040: Object027
+    4300042: Object029
+    4300044: Object030
+    4300046: Object031
+    4300048: Object032
+    4300050: Object033
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
