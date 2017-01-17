@@ -27,6 +27,8 @@ public class onCanvasForUIControll : MonoBehaviour {
     public int myScoreCount;//得分小記
     public int myCoinCount;//金幣
     public int myStarGet;//取得星星數
+    [Header("輸贏蚊子動畫")]
+    public GameObject[] myWinLoseMQAnimation;
     [Header("=======================")]
     [Header("怪物起始士氣值：")]
     public float myMonsterBasicMorale;

@@ -39,12 +39,14 @@ public class Blip : MonoBehaviour {
         if (Target.GetComponent<onMonsterVer3>().isMeDead) {
             //怪物死掉，換小地圖上怪物icon的圖
             UI_myIconOnMiniMap[0].sprite = UI_whenSomeOneDead[0];
-            myMQTalkText.text = MQTalkString[5];//MQ say good
+            MQEnmotion[0].SetActive(true);
+            // myMQTalkText.text = MQTalkString[5];//MQ say good
         }
         if (myMonsterBasicMorale >= 100) {
             //怪物士氣100=蚊子死光光，換小地圖蚊子icon的圖
             UI_myIconOnMiniMap[1].sprite = UI_whenSomeOneDead[1];
-            myMQTalkText.text = MQTalkString[4];//MQ say GG
+            MQEnmotion[4].SetActive(true);
+            //  myMQTalkText.text = MQTalkString[4];//MQ say GG
         }
         else {
             if (myMonsterBasicMorale > 40 && myMonsterBasicMorale < 50) {

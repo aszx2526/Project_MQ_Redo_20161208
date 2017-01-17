@@ -42,17 +42,25 @@ public class onMoraleBarControl : MonoBehaviour {
             myUI_MonsterMQ_Mark.GetComponent<RectTransform>().localPosition = myMonsterMarkPos;
 
             if (myUI_MoraleBar_Monster.fillAmount == 0) {
+                myMQKillerFN();
+                GameObject MQwin = Instantiate(GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myWinLoseMQAnimation[0]);
+                MQwin.transform.parent = GameObject.Find("Canvas").transform;
+                MQwin.GetComponent<RectTransform>().localPosition = Vector3.zero;
                 //怪物死調惹
                 //print("怪物死調惹_onMoraleBarControl");
                 GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum = 0;
+                GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart = false;
                 GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myAttackPartLocker.SetActive(false);
             }
             else if (myUI_MoraleBar_Monster.fillAmount == 1) {
+                myMQKillerFN();
+                GameObject MQlose = Instantiate(GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myWinLoseMQAnimation[1]);
+                MQlose.transform.parent = GameObject.Find("Canvas").transform;
+                MQlose.GetComponent<RectTransform>().localPosition = Vector3.zero;
                 //怪物銀惹
                 print("怪物銀惹_onMoraleBarControl");
                 GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum = 0;
                 GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart = false;
-                //GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLevelClear.SetActive(true);
                 GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myAttackPartLocker.SetActive(false);
             }
             else {
@@ -115,5 +123,12 @@ public class onMoraleBarControl : MonoBehaviour {
         if (myUI_MoraleBar_Icon_MQ.fillAmount > 0.70f && myUI_MoraleBar_Icon_MQ.fillAmount < 1.0f) { myUI_MoraleBar_Icon_MQ.sprite = myUI_MoraleBar_Icon_MQ_Sprite[1]; }
 
 
+    }
+    public void myMQKillerFN() {
+        GameObject[] allMQ = GameObject.FindGameObjectsWithTag("MQ");
+        for (int a = 0; a < allMQ.Length; a++)
+        {
+            Destroy(allMQ[a]);
+        }
     }
 }

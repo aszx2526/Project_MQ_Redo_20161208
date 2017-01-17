@@ -8,10 +8,12 @@ public class onLoseController : MonoBehaviour {
     public GameObject myMQDown;
     public GameObject myMQDownLoop;
     public GameObject myMQLoseTitle;
+    float myChangeTimer;
+    float myChangeTime;
     // Use this for initialization
     void Start () {
-		
-	}
+        myChangeTime = 5;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -32,6 +34,18 @@ public class onLoseController : MonoBehaviour {
                 myMQDownLoop.SetActive(true);
                 break;
         }
-
-	}
+        if (myMod == 2)
+        {
+            if (myChangeTimer >= myChangeTime)
+            {
+                myChangeTimer = 0;
+                GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMainUI.SetActive(true);
+                GameObject.Find("MoraleBar").GetComponent<onMoraleBarControl>().myUI_MoraleBar_Monster.fillAmount = 0.5f;
+                Destroy(gameObject);
+            }
+            else {
+                myChangeTimer += Time.deltaTime;
+            }
+        }
+    }
 }

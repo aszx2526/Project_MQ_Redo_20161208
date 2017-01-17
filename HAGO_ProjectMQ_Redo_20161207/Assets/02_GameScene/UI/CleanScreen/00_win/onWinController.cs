@@ -8,10 +8,12 @@ public class onWinController : MonoBehaviour {
     //public GameObject myMQDown;
     public GameObject myMQWinLoop;
     public GameObject myMQWinTitle;
+    float myChangeTimer;
+    float myChangeTime;
     // Use this for initialization
     void Start()
     {
-
+        myChangeTime = 5;
     }
 
     // Update is called once per frame
@@ -30,6 +32,17 @@ public class onWinController : MonoBehaviour {
                 myMQWinTitle.SetActive(true);
                 myMQWinLoop.SetActive(true);
                 break;
+        }
+        if (myMod == 1) {
+            if (myChangeTimer >= myChangeTime) {
+                myChangeTimer = 0;
+                GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMainUI.SetActive(true);
+                GameObject.Find("MoraleBar").GetComponent<onMoraleBarControl>().myUI_MoraleBar_Monster.fillAmount = 0.5f;
+                Destroy(gameObject);
+            }
+            else {
+                myChangeTimer += Time.deltaTime;
+            }
         }
 
     }
