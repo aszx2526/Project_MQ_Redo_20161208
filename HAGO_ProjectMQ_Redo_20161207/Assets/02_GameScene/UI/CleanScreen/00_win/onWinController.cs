@@ -43,6 +43,7 @@ public class onWinController : MonoBehaviour {
                     myChangeTimer = 0;
                     GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myMainUI.SetActive(true);
                     GameObject.Find("MoraleBar").GetComponent<onMoraleBarControl>().myUI_MoraleBar_Monster.fillAmount = 0.5f;
+                    GameObject.Find("FightSceneManager").GetComponent<onFightSceneManager>().myRandomMod = 5;
                     Destroy(gameObject);
                 }
             }

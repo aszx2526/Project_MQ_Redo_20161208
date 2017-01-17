@@ -162,9 +162,9 @@ public class onMonsterVer3 : MonoBehaviour {
             //myHPText_AfterHeadImage.GetComponent<Text>().text = myHP.ToString() + "/" + myFullHP.ToString();
             //myMonsterModController();
 
-        //輸贏判定區
-        
-            if (GameObject.Find("Morale_Bar_Monster").GetComponent<Image>().fillAmount == 0 )//怪物的士氣為0就做些什麼
+            //輸贏判定區
+
+            if (GameObject.Find("Morale_Bar_Monster").GetComponent<Image>().fillAmount == 0)//怪物的士氣為0就做些什麼
             {
                 //GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myAttackPartLocker.SetActive(false);
                 GameObject[] MQ_All = GameObject.FindGameObjectsWithTag("MQ");
@@ -172,12 +172,12 @@ public class onMonsterVer3 : MonoBehaviour {
                 {
                     Destroy(MQ_All[a].gameObject);
                 }
+                myMoveToBigSceneFN();
                 //GameObject.Find("Canvas").SendMessage("BTN_forSetting");
                 //GameObject.Find("MainCamera").GetComponent<OnCameraForShootMQ>().SendMessage("CheckIsWin");
                 //GameObject.Find("KillBigeyeText").GetComponent<Text>().text = "Kill Bigeye(1/1)";
                 //Destroy(gameObject);
             }
-
             //forUpdateViewDistance();
             if (isAttackFinish)
             {
@@ -709,16 +709,17 @@ public class onMonsterVer3 : MonoBehaviour {
         // myrig = gameObject.GetComponent<Rigidbody>();
         // gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX| RigidbodyConstraints.FreezePositionZ|RigidbodyConstraints.FreezeRotationX|RigidbodyConstraints.FreezeRotationY |RigidbodyConstraints.FreezeRotationZ;
         GameObject.Find("FightSceneManager").GetComponent<onFightSceneManager>().myRandomMod = Random.Range(0, 5);
-        for (int a = 0; a < GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myMonsterList.Length; a++)
+       /* for (int a = 0; a < GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myMonsterList.Length; a++)
         {
-            if (myIDForMonster == GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum) {
-                GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myMonsterList[a].transform.parent = GameObject.Find("FightSceneManager").GetComponent<onFightSceneManager>().myFightScene[GameObject.Find("FightSceneManager").GetComponent<onFightSceneManager>().myRandomMod].transform;
-            }
+           
             else {
                 GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myMonsterList[a].transform.parent = GameObject.Find("FightSceneManager").GetComponent<onFightSceneManager>().myBigScene.transform;
             }
+        }*/
+        if (myIDForMonster == GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum)
+        {
+            gameObject.transform.parent = GameObject.Find("FightSceneManager").GetComponent<onFightSceneManager>().myFightScene[GameObject.Find("FightSceneManager").GetComponent<onFightSceneManager>().myRandomMod].transform;
         }
-        
         gameObject.transform.position = GameObject.Find("FightSceneManager").GetComponent<onFightSceneManager>().myMonsterSpawnPoint.transform.position;
         /*
         if (myIDForMonster == GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum)
@@ -728,6 +729,8 @@ public class onMonsterVer3 : MonoBehaviour {
     public void myMoveToBigSceneFN() {
         //Destroy(myrig);
         //gameObject.GetComponent<NavMeshAgent>().enabled = true;
+        gameObject.transform.parent = GameObject.Find("FightSceneManager").GetComponent<onFightSceneManager>().myBigScene.transform;
         gameObject.transform.position = followme.transform.position;
+        isMeToFight = false;
     }
 }

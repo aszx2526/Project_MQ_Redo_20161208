@@ -13,7 +13,7 @@ public class onFollowMonster : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (isNeedToFollow) {
-            if (myFollowObject.GetComponent<NavMeshAgent>().enabled == true)
+            if (!myFollowObject.GetComponent<onMonsterVer3>().isMeToFight)
             {
                 gameObject.transform.position = myFollowObject.transform.position;
             }

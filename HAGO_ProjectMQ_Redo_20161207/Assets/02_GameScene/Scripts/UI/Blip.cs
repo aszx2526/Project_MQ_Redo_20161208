@@ -26,17 +26,23 @@ public class Blip : MonoBehaviour {
     public Image[] UI_myIconOnMiniMap;//0怪 1 MQ
     public Sprite[] UI_whenSomeOneDead;
     public GameObject myCrownOnBoss;//boss的皇冠
+    public Sprite[] myLocalMQSpriteList;
+    public Image myLocalMQImage;
     //MiniMap map;
     /*[Header("免設定，自動抓")]
     public RectTransform myRectTransform;*/
     public float zoonlevel;// = 10f;
     
+
     void Star() {
         //UI_myIconOnMiniMap[0] = GetComponent<RectTransform>().GetChild(0).gameObject;
-     //   myMQTalkText = gameObject.GetComponent<RectTransform>().GetChild(1).GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(0).GetComponent<Text>();
-     // myRectTransform = transform.GetChild(0).GetCo mponent<RectTransform>();
+        //   myMQTalkText = gameObject.GetComponent<RectTransform>().GetChild(1).GetComponent<RectTransform>().GetChild(0).GetComponent<RectTransform>().GetChild(0).GetComponent<Text>();
+        // myRectTransform = transform.GetChild(0).GetCo mponent<RectTransform>();
+        
     }
     void Update() {
+        //更新原生蚊在小地圖上的頭像icon
+        myUpdateLocalMQIconFN();
         if (Target.GetComponent<onMonsterVer3>().isBoss) {
             myCrownOnBoss.SetActive(true);
         }
@@ -45,7 +51,7 @@ public class Blip : MonoBehaviour {
         }
         if (Target.GetComponent<onMonsterVer3>().isMeDead) {
             //怪物死掉，換小地圖上怪物icon的圖
-            UI_myIconOnMiniMap[0].sprite = UI_whenSomeOneDead[0];
+           // UI_myIconOnMiniMap[0].sprite = UI_whenSomeOneDead[0];
             MQEnmotion[0].SetActive(true);
             // myMQTalkText.text = MQTalkString[5];//MQ say good
         }
@@ -129,6 +135,52 @@ public class Blip : MonoBehaviour {
             myCFUIC.myLocalMQ_Mob = myLocalMQ_Mob;
             myCFUIC.myLocalMQ_Amount = myLocalMQ_Amount;
             myCFUIC.myLocalMQ_CreateSpeed = myLocalMQ_CreateSpeed;
+        }
+    }
+    public void myUpdateLocalMQIconFN() {
+        switch (myLocalMQ_Mob) {
+            case 1:
+                myLocalMQImage.sprite = myLocalMQSpriteList[0];
+                break;
+            case 2:
+                myLocalMQImage.sprite = myLocalMQSpriteList[1];
+                break;
+            case 3:
+                myLocalMQImage.sprite = myLocalMQSpriteList[2];
+                break;
+            case 4:
+                myLocalMQImage.sprite = myLocalMQSpriteList[3];
+                break;
+            case 5:
+                myLocalMQImage.sprite = myLocalMQSpriteList[4];
+                break;
+            case 6:
+                myLocalMQImage.sprite = myLocalMQSpriteList[5];
+                break;
+            case 7:
+                myLocalMQImage.sprite = myLocalMQSpriteList[6];
+                break;
+            case 8:
+                myLocalMQImage.sprite = myLocalMQSpriteList[7];
+                break;
+            case 9:
+                myLocalMQImage.sprite = myLocalMQSpriteList[8];
+                break;
+            case 10:
+                myLocalMQImage.sprite = myLocalMQSpriteList[9];
+                break;
+            case 11:
+                myLocalMQImage.sprite = myLocalMQSpriteList[10];
+                break;
+            case 12:
+                myLocalMQImage.sprite = myLocalMQSpriteList[11];
+                break;
+            case 13:
+                myLocalMQImage.sprite = myLocalMQSpriteList[12];
+                break;
+            case 14:
+                myLocalMQImage.sprite = myLocalMQSpriteList[13];
+                break;
         }
     }
 }
