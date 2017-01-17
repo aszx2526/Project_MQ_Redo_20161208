@@ -55,6 +55,7 @@ public class onCamera_dtg : MonoBehaviour {
         if (GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart) { CameraRotationFN(); }
     }
     public void myFNonCamera_dtg() {
+
         transform.position = myMonsterList[myPickUpNum - 1].transform.position;
         theLookAtPointOnMonster = myMonsterList[myPickUpNum - 1].GetComponent<onMonsterVer3>().MyHitpointList;
         theHotPointOnMonster = myMonsterList[myPickUpNum - 1].GetComponent<onMonsterVer3>().myHotPointList;

@@ -142,6 +142,7 @@ public class onCanvasForUIControll : MonoBehaviour {
         myLevelClear.SetActive(true);
 
     }
+    //onMonsterver3 sendmessage( )
     public void BTN_Left6() {
         //大地圖戰鬥
         mySoundEffectFN();

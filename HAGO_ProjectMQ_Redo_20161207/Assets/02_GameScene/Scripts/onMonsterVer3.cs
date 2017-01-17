@@ -2,6 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 public class onMonsterVer3 : MonoBehaviour {
+    [Header("怪物小地圖Blip")]
+    public GameObject myIconOnMinimap;
     public bool isMeDead;
     public bool isBoss;
     public int myIDForMonster;//場景內第幾隻怪物
@@ -136,6 +138,7 @@ public class onMonsterVer3 : MonoBehaviour {
             if (myIDForMonster == GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum)
             {
                 isMeToFight = true;
+                myIconOnMinimap.GetComponent<Blip>().SendMessage("myUpdateMoraleValeuFN");
                 GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().SendMessage("BTN_Left6");
             }
             // else { isMeToFight = false; }

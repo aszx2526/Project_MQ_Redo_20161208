@@ -110,4 +110,16 @@ public class Blip : MonoBehaviour {
         }
 
     }
+    public void myUpdateMoraleValeuFN() {
+        if (myMonsterID == GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum)
+        {
+            onCanvasForUIControll myCFUIC = GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>();
+            myCFUIC.myMonsterBasicMorale = myMonsterBasicMorale;
+            myCFUIC.myMonsterMoraleRestoreValue = myMonsterMoraleRestoreValue;
+            myCFUIC.myMonsterMoraleBloodValue = myMonsterMoraleBloodValue;
+            myCFUIC.myLocalMQ_Mob = myLocalMQ_Mob;
+            myCFUIC.myLocalMQ_Amount = myLocalMQ_Amount;
+            myCFUIC.myLocalMQ_CreateSpeed = myLocalMQ_CreateSpeed;
+        }
+    }
 }

@@ -44,13 +44,15 @@ public class onMoraleBarControl : MonoBehaviour {
             if (myUI_MoraleBar_Monster.fillAmount == 0) {
                 //怪物死調惹
                 //print("怪物死調惹_onMoraleBarControl");
+                GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum = 0;
                 GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myAttackPartLocker.SetActive(false);
             }
             else if (myUI_MoraleBar_Monster.fillAmount == 1) {
                 //怪物銀惹
                 print("怪物銀惹_onMoraleBarControl");
+                GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum = 0;
                 GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().isGameStart = false;
-                GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLevelClear.SetActive(true);
+                //GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myLevelClear.SetActive(true);
                 GameObject.Find("Canvas").GetComponent<onCanvasForUIControll>().myAttackPartLocker.SetActive(false);
             }
             else {
