@@ -65,7 +65,17 @@ ModelImporter:
     400056: snowman_1
     4300000: snowman
     4300002: snowman_1
-    7400000: Take 001
+    7400000: idle_basic
+    7400002: idle_basic2
+    7400004: walk_loop
+    7400006: run_ready
+    7400008: run_loop
+    7400010: run_end
+    7400012: turning
+    7400014: idle_attack
+    7400016: angry
+    7400018: behit
+    7400020: dead_withweapon
     9500000: //RootNode
     13700000: snowman
     13700002: snowman_1
@@ -91,7 +101,6 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-<<<<<<< HEAD
     clipAnimations:
     - serializedVersion: 16
       name: idle_basic
@@ -1071,9 +1080,6 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
-=======
-    clipAnimations: []
->>>>>>> parent of c26d936... 20170103_01
     isReadable: 1
   meshes:
     lODScreenPercentages: []
