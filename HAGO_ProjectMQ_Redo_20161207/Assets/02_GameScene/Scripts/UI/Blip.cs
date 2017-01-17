@@ -25,6 +25,7 @@ public class Blip : MonoBehaviour {
     public Text myMQTalkText;
     public Image[] UI_myIconOnMiniMap;//0怪 1 MQ
     public Sprite[] UI_whenSomeOneDead;
+    public GameObject myCrownOnBoss;//boss的皇冠
     //MiniMap map;
     /*[Header("免設定，自動抓")]
     public RectTransform myRectTransform;*/
@@ -36,6 +37,12 @@ public class Blip : MonoBehaviour {
      // myRectTransform = transform.GetChild(0).GetCo mponent<RectTransform>();
     }
     void Update() {
+        if (Target.GetComponent<onMonsterVer3>().isBoss) {
+            myCrownOnBoss.SetActive(true);
+        }
+        else{
+            myCrownOnBoss.SetActive(false);
+        }
         if (Target.GetComponent<onMonsterVer3>().isMeDead) {
             //怪物死掉，換小地圖上怪物icon的圖
             UI_myIconOnMiniMap[0].sprite = UI_whenSomeOneDead[0];

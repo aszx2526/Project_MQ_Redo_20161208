@@ -12,6 +12,7 @@ public class onLeftBTNForHideBTN : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        myTeamBTNCount = GameObject.Find("TeamSettingManager").GetComponent<onTeamSettingManager>().myKindOfMQCount;
         switch (myTeamBTNCount) {
             case 1:
                 myPutMQBTNList[0].gameObject.SetActive(true);

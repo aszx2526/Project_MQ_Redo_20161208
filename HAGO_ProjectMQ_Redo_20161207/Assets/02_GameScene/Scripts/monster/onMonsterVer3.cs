@@ -704,19 +704,30 @@ public class onMonsterVer3 : MonoBehaviour {
         followme.GetComponent<onFollowMonster>().isNeedToFollow = true;
     }
     public void myMoveToFightSceneFN() {
-        gameObject.GetComponent<NavMeshAgent>().enabled = false;
-        gameObject.AddComponent<Rigidbody>();
-        myrig = gameObject.GetComponent<Rigidbody>();
-        gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
-        gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
-        gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX;
-        gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY;
-        gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationZ;
-
+        // gameObject.GetComponent<NavMeshAgent>().enabled = false;
+        // gameObject.AddComponent<Rigidbody>();
+        // myrig = gameObject.GetComponent<Rigidbody>();
+        // gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX| RigidbodyConstraints.FreezePositionZ|RigidbodyConstraints.FreezeRotationX|RigidbodyConstraints.FreezeRotationY |RigidbodyConstraints.FreezeRotationZ;
+        GameObject.Find("FightSceneManager").GetComponent<onFightSceneManager>().myRandomMod = Random.Range(0, 5);
+        for (int a = 0; a < GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myMonsterList.Length; a++)
+        {
+            if (myIDForMonster == GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum) {
+                GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myMonsterList[a].transform.parent = GameObject.Find("FightSceneManager").GetComponent<onFightSceneManager>().myFightScene[GameObject.Find("FightSceneManager").GetComponent<onFightSceneManager>().myRandomMod].transform;
+            }
+            else {
+                GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myMonsterList[a].transform.parent = GameObject.Find("FightSceneManager").GetComponent<onFightSceneManager>().myBigScene.transform;
+            }
+        }
+        
+        gameObject.transform.position = GameObject.Find("FightSceneManager").GetComponent<onFightSceneManager>().myMonsterSpawnPoint.transform.position;
+        /*
+        if (myIDForMonster == GameObject.Find("CameraVer2_DTG").GetComponent<onCamera_dtg>().myPickUpNum)
+        */
+       
     }
     public void myMoveToBigSceneFN() {
-        Destroy(myrig);
-        gameObject.GetComponent<NavMeshAgent>().enabled = true;
+        //Destroy(myrig);
+        //gameObject.GetComponent<NavMeshAgent>().enabled = true;
         gameObject.transform.position = followme.transform.position;
     }
 }

@@ -42,15 +42,20 @@ public class onTeamSettingManager : MonoBehaviour {
     public GameObject[] myMQListPagePoint;
     public float myMQListChangeSpeed;
 
-    
+    public int[] myKindOfMQCounter;
+    public int myKindOfMQCount;
     // Use this for initialization
     void Start () {
         myPickUpTeamID = 1;
         myMQListPageNum = 0;
+
+        myKindOfMQCounterFN();
+
     }
 	
 	// Update is called once per frame
 	void Update () {
+       
         //更新字串
         myCoin_text.text = myCoin.ToString();
         myBuyMQPrice_text.text = myTeamBTNList[myPickUpTeamID - 1].GetComponent<onTeamSetting_TeamBTN>().myMQPrice.ToString();
@@ -86,7 +91,6 @@ public class onTeamSettingManager : MonoBehaviour {
                 myBuyBTNCoinImage.SetActive(true);
               //
             }
-
         }
 
 
@@ -210,5 +214,24 @@ public class onTeamSettingManager : MonoBehaviour {
         Vector3 pos = myAddOne_SpawnPoint.GetComponent<RectTransform>().localPosition;
         pos.x = Random.Range(pos.x - 50.0f, pos.x + 50.0f);
         UIAddone.GetComponent<RectTransform>().localPosition = pos;
+    }
+    public void myKindOfMQCounterFN() {
+        for (int a = 0; a < myMQBTNList.Length; a++)
+        {
+            if (myMQBTNList[a].GetComponent<onBTN_MQList>().isLocalMQ)
+            {
+                if (myMQBTNList[a].GetComponent<onBTN_MQList>().myMQAmount > 0)
+                {
+                    myKindOfMQCounter[a] = 1;
+                }
+            }
+            else {
+                myKindOfMQCounter[a] = 1;
+            }
+        }
+        for (int b = 0; b < myKindOfMQCounter.Length; b++)
+        {
+            myKindOfMQCount += myKindOfMQCounter[b];
+        }
     }
 }
